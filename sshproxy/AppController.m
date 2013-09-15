@@ -317,6 +317,8 @@
     
     task = [[NSTask alloc] init];
     
+    [env addEntriesFromDictionary:[[NSProcessInfo processInfo] environment]];
+    
     [task setEnvironment:env];
     [task setArguments:arguments];
     
