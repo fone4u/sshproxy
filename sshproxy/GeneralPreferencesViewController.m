@@ -102,19 +102,24 @@
 
 - (IBAction)applyChanges:(id)sender
 {
-    BOOL isProxyNeedReactive = [SSHHelper getLocalPort]!=self.localPortTextField.integerValue;
+//    BOOL isProxyNeedReactive = [SSHHelper getLocalPort]!=self.localPortTextField.integerValue;
+//    BOOL isSocksServerNeedRestart = [SSHHelper isShareSOCKS]!=self.shareSocksButton.state;
     
     [self.userDefaultsController save:self];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     self.isDirty = NO;
     
+    AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
+    
+//    if (isSocksServerNeedRestart) {
+//        [appController performSelector: @selector(restartServer) withObject:nil afterDelay: 0.0];
+//    }
+    
     // reactive proxy
-    if (isProxyNeedReactive) {
-        AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
-        
-        [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.0];
-    }
+//    if (isProxyNeedReactive) {
+    [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.0];
+//    }
 }
 - (IBAction)revertChanges:(id)sender
 {
@@ -172,6 +177,11 @@
 }
 
 - (void)controlTextDidChange:(NSNotification *)aNotification
+{
+    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
+}
+
+- (IBAction)toggleShareSocks:(id)sender
 {
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }

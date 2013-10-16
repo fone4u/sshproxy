@@ -34,7 +34,7 @@ enum {
 // for local settings
 + (NSInteger)getLocalPort;
 + (NSInteger)getSSHLocalPort;
-
++ (BOOL)isShareSOCKS;
 
 // code that upgrade user preferences from 13.04 to 13.05
 + (void)upgrade1:(NSArrayController *)serverArrayController;
@@ -45,7 +45,6 @@ enum {
 + (int)authMethodFromServer:(NSDictionary *)server;
 + (NSString *)userFromServer:(NSDictionary *)server;
 + (BOOL)isEnableCompress:(NSDictionary *)server;
-+ (BOOL)isShareSOCKS:(NSDictionary *)server;
 + (NSString *)privateKeyPathFromServer:(NSDictionary *)server;
 
 + (NSString *)importedPrivateKeyPathFromServer:(NSDictionary *)server;

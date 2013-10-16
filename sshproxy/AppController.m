@@ -194,6 +194,8 @@
     
     // if turnOffMenuItem current state is visible and enabled, then reactive proxy
     if ( !self.turnOffMenuItem.isHidden) {
+        [self stopServer];
+        
         [self set2reconnect];
         [self turnOffProxy:sender];
         [self _turnOnProxy];
@@ -255,7 +257,6 @@
     int remotePort = [SSHHelper portFromServer:server];
     NSInteger localPort = [SSHHelper getSSHLocalPort];
     BOOL enableCompression = [SSHHelper isEnableCompress:server];
-    BOOL shareSocks = [SSHHelper isShareSOCKS:server];
     
     // Get the path of our Askpass program, which we've included as part of the main application bundle
     NSString *askPassPath = [NSBundle pathForResource:@"SSH Proxy - Ask Password" ofType:@""
@@ -277,9 +278,9 @@
     [env addEntriesFromDictionary:[SSHHelper getProxyCommandEnv:server]];
     
     NSMutableString* advancedOptions = [NSMutableString stringWithString:@"-"];
-    if (shareSocks) {
-        [advancedOptions appendString:@"g"];
-    }
+//    if (shareSocks==NSOnState) {
+//        [advancedOptions appendString:@"g"];
+//    }
     if (enableCompression) {
         [advancedOptions appendString:@"C"];
     }
@@ -585,8 +586,15 @@
 	if (_server) return nil;
     
 	NSError *error = nil;
-
-	_server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
+    
+    BOOL shareSocks = [SSHHelper isShareSOCKS];
+    
+    if (shareSocks) {
+        _server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
+    } else {
+        _server = [[INSOCKSServer alloc] initWithInterface:@"127.0.0.1" port:[SSHHelper getLocalPort] error:&error];
+    }
+    
 	_server.delegate = self;
     
 	if (error) {
@@ -611,6 +619,8 @@
 
 //- (NSError *)restartServer
 //{
+//    [self stopServer];
+//    
 //	NSError *error = [self startServer];
 //    
 //	if (error) {
