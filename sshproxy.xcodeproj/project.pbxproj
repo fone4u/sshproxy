@@ -841,6 +841,14 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Charm Studio";
+				TargetAttributes = {
+					4AA6471916BE3DB900DE5CAD = {
+						DevelopmentTeam = E78WKS7W4U;
+					};
+					4AD3FDD816A56EF400378F77 = {
+						DevelopmentTeam = E78WKS7W4U;
+					};
+				};
 			};
 			buildConfigurationList = 4AD3FDD316A56EF400378F77 /* Build configuration list for PBXProject "sshproxy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1154,6 +1162,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxyhelper/sshproxyhelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxyhelper/sshproxyhelper-Prefix.pch";
@@ -1171,6 +1180,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxyhelper/sshproxyhelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxyhelper/sshproxyhelper-Prefix.pch";
@@ -1247,7 +1257,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxy/sshproxy-Prefix.pch";
@@ -1263,7 +1273,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
