@@ -268,7 +268,7 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger localPort = [prefs integerForKey:@"local_port"];
     
-    if (localPort<=0 || localPort>65535) {
+    if (localPort<1024 || localPort>65535) {
         localPort = 7070;
     }
     

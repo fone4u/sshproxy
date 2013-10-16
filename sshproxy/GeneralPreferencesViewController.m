@@ -42,7 +42,7 @@
 {
     [super loadView];
     
-    CharmNumberFormatter *formatter = [[CharmNumberFormatter alloc] init];
+    CharmPortFormatter *formatter = [[CharmPortFormatter alloc] init];
     self.localPortTextField.formatter = formatter;
     
     NSInteger localPort = [SSHHelper getLocalPort];
