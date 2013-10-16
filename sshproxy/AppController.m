@@ -77,8 +77,6 @@
     [SSHHelper upgrade1:self.serverArrayController];
     
     [self.cautionMenuItem setHidden:YES];
-    
-    [self startServer];
 }
 
 #pragma mark - Set status menu state
@@ -231,6 +229,12 @@
 
 - (void)_turnOnProxy
 {
+    NSError *error = [self startServer];
+    if (error) {
+        // failed to establish internal socks server
+        return;
+    }
+    
     if (task) {
         // task already running, do noting
         return;
@@ -556,7 +560,7 @@
     NSMenuItem* menuItem = (NSMenuItem*)sender;
     
     [WhitelistHelper setProxyMode:menuItem.tag];
-    [self restartServer];
+//    [self restartServer];
 }
 
 #pragma mark - MASPreferencesWindowDelegate
@@ -576,9 +580,10 @@
 
 #pragma mark - SOCKS server control
 
-- (void)startServer
+- (NSError *)startServer
 {
-	if (_server) return;
+	if (_server) return nil;
+    
 	NSError *error = nil;
 
 	_server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
@@ -586,36 +591,35 @@
     
 	if (error) {
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
+        errorMsg = [NSString stringWithFormat:@"Port (%@) already in use", @([SSHHelper getLocalPort])];
+        [self set2disconnected];
 	} else {
 		DDLogInfo(@"SOCKS server on host %@ listening on port %d", _server.host, _server.port);
 	}
+    
+    return error;
 }
 
 - (void)stopServer
 {
 	if (!_server) return;
+    
 	[_server disconnectAll];
+    _server.delegate = nil;
 	_server = nil;
 }
 
-- (void)restartServer
-{
-    [self stopServer];
-    
-	if (_server) return;
-	NSError *error = nil;
-    
-	_server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
-	_server.delegate = self;
-    
-	if (error) {
-		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
-        // retry
-        [self performSelector: @selector(restartServer) withObject:nil afterDelay: 1.0];
-	} else {
-		DDLogInfo(@"SOCKS server on host %@ listening on port %d", _server.host, _server.port);
-	}
-}
+//- (NSError *)restartServer
+//{
+//	NSError *error = [self startServer];
+//    
+//	if (error) {
+//        // retry
+//        [self performSelector: @selector(restartServer) withObject:nil afterDelay: 1.0];
+//	}
+//    
+//    return error;
+//}
 
 
 #pragma mark - INSOCKSServerDelegate
