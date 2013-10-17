@@ -561,7 +561,6 @@
     NSMenuItem* menuItem = (NSMenuItem*)sender;
     
     [WhitelistHelper setProxyMode:menuItem.tag];
-//    [self restartServer];
 }
 
 #pragma mark - MASPreferencesWindowDelegate
@@ -601,6 +600,7 @@
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
         errorMsg = [NSString stringWithFormat:@"Port (%@) already in use", @([SSHHelper getLocalPort])];
         [self set2disconnected];
+        [self stopServer];
 	} else {
 		DDLogInfo(@"SOCKS server on host %@ listening on port %d", _server.host, _server.port);
 	}
@@ -612,8 +612,8 @@
 {
 	if (!_server) return;
     
-	[_server disconnectAll];
     _server.delegate = nil;
+	[_server disconnectAll];
 	_server = nil;
 }
 
