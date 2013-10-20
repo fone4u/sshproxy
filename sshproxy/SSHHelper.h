@@ -3,7 +3,7 @@
 //  sshproxy
 //
 //  Created by Brant Young on 15/5/13.
-//  Copyright (c) 2013 Charm Studio. All rights reserved.
+//  Copyright (c) 2013 Codinn Studio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -33,7 +33,8 @@ enum {
 
 // for local settings
 + (NSInteger)getLocalPort;
-
++ (NSInteger)getSSHLocalPort;
++ (BOOL)isShareSOCKS;
 
 // code that upgrade user preferences from 13.04 to 13.05
 + (void)upgrade1:(NSArrayController *)serverArrayController;
@@ -44,7 +45,6 @@ enum {
 + (int)authMethodFromServer:(NSDictionary *)server;
 + (NSString *)userFromServer:(NSDictionary *)server;
 + (BOOL)isEnableCompress:(NSDictionary *)server;
-+ (BOOL)isShareSOCKS:(NSDictionary *)server;
 + (NSString *)privateKeyPathFromServer:(NSDictionary *)server;
 
 + (NSString *)importedPrivateKeyPathFromServer:(NSDictionary *)server;

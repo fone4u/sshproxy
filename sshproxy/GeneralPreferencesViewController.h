@@ -14,6 +14,7 @@
 - (IBAction)localStepperAction:(id)sender;
 - (IBAction)toggleAutoTurnOnProxy:(id)sender;
 - (IBAction)toggleLaunchAtLogin:(id)sender;
+- (IBAction)toggleShareSocks:(id)sender;
 - (IBAction)closePreferencesWindow:(id)sender;
 - (IBAction)applyChanges:(id)sender;
 - (IBAction)revertChanges:(id)sender;

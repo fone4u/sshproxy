@@ -9,8 +9,10 @@
 #import "AppController.h"
 #import "GeneralPreferencesViewController.h"
 #import "ServersPreferencesViewController.h"
+#import "WhitelistPreferencesViewController.h"
 #import "MASPreferencesWindowController.h"
 #import "SSHHelper.h"
+#import "WhitelistHelper.h"
 
 @implementation AppController {
     /* The other stuff :P */
@@ -28,6 +30,8 @@
     
     int proxyStatus;
     NSString *errorMsg;
+    
+	INSOCKSServer *_server;
 }
 
 @synthesize preferencesWindowController;
@@ -75,216 +79,7 @@
     [self.cautionMenuItem setHidden:YES];
 }
 
-- (void)statusItemClicked
-{
-    NSMenu* menu = [self.statusMenu copy];
-    menu.minimumWidth = 256.0;
-    
-    NSArray* servers = [SSHHelper getServers];
-    NSInteger activatedServerIndex = [SSHHelper getActivatedServerIndex];
-    
-    if (servers && servers.count>0) {
-//        [menu insertItemWithTitle:@"Servers:" action:nil keyEquivalent:@"" atIndex:4];
-        
-        int i = 0;
-        for (NSDictionary* server in servers) {
-            NSMenuItem* item = [NSMenuItem alloc];
-            item.title = [NSString stringWithFormat:@" %@@%@", [SSHHelper userFromServer:server], [SSHHelper hostFromServer:server]];
-            item.action = @selector(switchServer:);
-            item.indentationLevel = 1;
-            
-            item.representedObject = [NSNumber numberWithInt:i];
-            
-            if (i==activatedServerIndex) {
-                [item setState:NSOnState];
-            }
-            
-            [menu insertItem:item atIndex:5+i];
-            i++;
-        }
-        
-        [menu insertItem:[NSMenuItem separatorItem] atIndex:5+i];
-    }
-    
-    [statusItem popUpStatusItemMenu:menu];
-}
-
-
-- (void)switchServer:(id)sender
-{
-    NSMenuItem* menuItem = (NSMenuItem*)sender;
-    
-    int index = [(NSNumber*)menuItem.representedObject intValue];
-    [SSHHelper setActivatedServer:index];
-    
-    [self _turnOffProxy];
-    [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
-}
-
-- (void)reactiveProxy:(id)sender
-{
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // if turnOffMenuItem current state is visible and enabled, then reactive proxy
-    if ( !self.turnOffMenuItem.isHidden) {
-        [self set2reconnect];
-        [self turnOffProxy:sender];
-        [self _turnOnProxy];
-    }
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    BOOL disableAutoconnect = [[NSUserDefaults standardUserDefaults] boolForKey:@"disable_autoconnect"];
-    BOOL autoLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"auto_launch"];
-    
-    if (! disableAutoconnect) {
-        [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
-    }
-    
-    if (autoLaunch) {
-        // reenable
-        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.codinnstudio.sshproxyhelper", YES);
-    } else {
-        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.codinnstudio.sshproxyhelper", NO);
-    }
-}
-
-- (IBAction)turnOnProxy:(id)sender
-{
-    proxyStatus = SSHPROXY_ON;
-    
-    errorMsg = nil;
-    [self set2connect];
-    
-    [self _turnOnProxy];
-}
-
-- (void)_turnOnProxy
-{
-    if (task) {
-        // task already running, do noting
-        return;
-    }
-    
-    NSDictionary* server = [SSHHelper getActivatedServer];
-    
-    // open preferences window if remoteHost is empty
-    if (!server) {
-        [self openServersPreferences];
-        errorMsg = nil;
-        [self set2disconnected];
-        return;
-    }
-    
-    NSString* remoteHost = [SSHHelper hostFromServer:server];
-    NSString* loginName = [SSHHelper userFromServer:server];
-    int remotePort = [SSHHelper portFromServer:server];
-    NSInteger localPort = [SSHHelper getLocalPort];
-    BOOL enableCompression = [SSHHelper isEnableCompress:server];
-    BOOL shareSocks = [SSHHelper isShareSOCKS:server];
-    
-    // Get the path of our Askpass program, which we've included as part of the main application bundle
-    NSString *askPassPath = [NSBundle pathForResource:@"SSH Proxy - Ask Password" ofType:@""
-                                          inDirectory:[[NSBundle mainBundle] bundlePath]];
-    
-    
-    NSString *encryptedServerInfo = [SSHHelper encryptServerInfo:server];
-    
-    // This creates a dictionary of environment variables (keys) and their values (objects) to be set in the environment where the task will be run. This environment dictionary will then be accessible to our Askpass program.
-
-    NSMutableDictionary *env = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                NSHomeDirectory(), @"HOME",
-                                @":9999", @"DISPLAY",
-                                askPassPath, @"SSH_ASKPASS",
-                                encryptedServerInfo, @"SSHPROXY_SERVER_INFO",
-                                @"1",@"INTERACTION",
-                                NSHomeDirectory(), @"SSHPROXY_USER_HOME",
-                                nil];
-    [env addEntriesFromDictionary:[SSHHelper getProxyCommandEnv:server]];
-    
-    NSMutableString* advancedOptions = [NSMutableString stringWithString:@"-"];
-    if (shareSocks) {
-        [advancedOptions appendString:@"g"];
-    }
-    if (enableCompression) {
-        [advancedOptions appendString:@"C"];
-    }
-    [advancedOptions appendString:@"ND"];
-    
-    //    DLog(@"Environment dict %@",env);
-    NSMutableArray *arguments = nil;
-    BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
-
-    if ( isPublicKeyMode ) {
-        arguments = [SSHHelper getPublicKeyMethodConnectArgsForServer:server];
-    } else {
-        arguments = [SSHHelper getPasswordMethodConnectArgs];
-    }
-    
-    if (!arguments) {
-        // abort connection
-        errorMsg = @"Invalid authentication method or private key does not exist";
-        [self set2disconnected];
-        return;
-    }
-    
-    NSString *proxyCommandStr = [SSHHelper getProxyCommandStr:server];
-    
-    if (proxyCommandStr) {
-        [arguments addObject:proxyCommandStr];
-    }
-    
-    [arguments addObjectsFromArray:@[
-                                     advancedOptions,
-                                     [NSString stringWithFormat:@"%@", @(localPort)],
-                                     [NSString stringWithFormat:@"%@@%@", loginName, remoteHost],
-                                     @"-p",
-                                     [NSString stringWithFormat:@"%d", remotePort]
-                                ]
-     ];
-    
-    // TODO: CATCH TASK EXCEPTION
-    
-    task = [[NSTask alloc] init];
-    
-    [task setEnvironment:env];
-    [task setArguments:arguments];
-    
-    [task setLaunchPath:@"/usr/bin/ssh"];
-    
-    // Setup the pipes on the task
-    pipe = [[NSPipe alloc] init];
-    //        errorPipe = [[NSPipe alloc] init];
-    [task setStandardOutput:pipe];
-    [task setStandardError:pipe];
-    // It's important that we set the standard input to null here. This is sometimes required in order to get SSH to use our Askpass program rather then prompt the user interactively.
-    [task setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
-    
-    // clear taskOutput buffer
-    taskOutput = [[NSString alloc] init];
-    
-    NSFileHandle *fh = [pipe fileHandleForReading];
-    [fh waitForDataInBackgroundAndNotify];
-    
-    NSNotificationCenter *nc;
-    nc = [NSNotificationCenter defaultCenter];
-    [nc removeObserver:self];
-    [nc addObserver:self
-           selector:@selector(dataReady:) name:NSFileHandleDataAvailableNotification
-             object:fh];
-    [nc addObserver:self
-           selector:@selector(taskTerminated:) name:NSTaskDidTerminateNotification
-             object:task];
-    
-    // delete askpass lock file
-    NSString* lockFile= [NSHomeDirectory() stringByAppendingPathComponent:OW_SSHPROXY_ASKPASS_LOCK];
-    [[NSFileManager defaultManager] removeItemAtPath:lockFile error:nil];
-    
-    [task launch];
-}
-
-#pragma mark Set Status Menu State
+#pragma mark - Set status menu state
 
 - (void)set2connect
 {
@@ -343,6 +138,226 @@
     
     [self.turnOffMenuItem setHidden:NO];
     [self.turnOnMenuItem setHidden:YES];
+}
+
+#pragma mark - Actions
+
+- (void)statusItemClicked
+{
+    NSMenu* menu = [self.statusMenu copy];
+    menu.minimumWidth = 256.0;
+    
+    NSArray* servers = [SSHHelper getServers];
+    NSInteger activatedServerIndex = [SSHHelper getActivatedServerIndex];
+    
+    if (servers && servers.count>0) {
+        //        [menu insertItemWithTitle:@"Servers:" action:nil keyEquivalent:@"" atIndex:4];
+        
+        int i = 0;
+        for (NSDictionary* server in servers) {
+            NSMenuItem* item = [NSMenuItem alloc];
+            item.title = [NSString stringWithFormat:@" %@@%@", [SSHHelper userFromServer:server], [SSHHelper hostFromServer:server]];
+            item.action = @selector(switchServer:);
+            item.indentationLevel = 1;
+            
+            item.representedObject = [NSNumber numberWithInt:i];
+            
+            if (i==activatedServerIndex) {
+                [item setState:NSOnState];
+            }
+            
+            [menu insertItem:item atIndex:5+i];
+            i++;
+        }
+        
+        [menu insertItem:[NSMenuItem separatorItem] atIndex:5+i];
+    }
+    
+    [statusItem popUpStatusItemMenu:menu];
+}
+
+
+- (void)switchServer:(id)sender
+{
+    NSMenuItem* menuItem = (NSMenuItem*)sender;
+    
+    int index = [(NSNumber*)menuItem.representedObject intValue];
+    [SSHHelper setActivatedServer:index];
+    
+    [self _turnOffProxy];
+    [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
+}
+
+- (void)reactiveProxy:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // if turnOffMenuItem current state is visible and enabled, then reactive proxy
+    if ( !self.turnOffMenuItem.isHidden) {
+        [self stopServer];
+        
+        [self set2reconnect];
+        [self turnOffProxy:sender];
+        [self _turnOnProxy];
+    }
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+    BOOL disableAutoconnect = [[NSUserDefaults standardUserDefaults] boolForKey:@"disable_autoconnect"];
+    BOOL autoLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"auto_launch"];
+    
+    if (! disableAutoconnect) {
+        [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
+    }
+    
+    if (autoLaunch) {
+        // reenable
+        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.codinnstudio.sshproxyhelper", YES);
+    } else {
+        SMLoginItemSetEnabled ((__bridge CFStringRef)@"com.codinnstudio.sshproxyhelper", NO);
+    }
+}
+
+- (IBAction)turnOnProxy:(id)sender
+{
+    proxyStatus = SSHPROXY_ON;
+    
+    errorMsg = nil;
+    [self set2connect];
+    
+    [self _turnOnProxy];
+}
+
+- (void)_turnOnProxy
+{
+    NSError *error = [self startServer];
+    if (error) {
+        // failed to establish internal socks server
+        return;
+    }
+    
+    if (task) {
+        // task already running, do noting
+        return;
+    }
+    
+    NSDictionary* server = [SSHHelper getActivatedServer];
+    
+    // open preferences window if remoteHost is empty
+    if (!server) {
+        [self openServersPreferences];
+        errorMsg = nil;
+        [self set2disconnected];
+        return;
+    }
+    
+    NSString* remoteHost = [SSHHelper hostFromServer:server];
+    NSString* loginName = [SSHHelper userFromServer:server];
+    int remotePort = [SSHHelper portFromServer:server];
+    NSInteger localPort = [SSHHelper getSSHLocalPort];
+    BOOL enableCompression = [SSHHelper isEnableCompress:server];
+    
+    // Get the path of our Askpass program, which we've included as part of the main application bundle
+    NSString *askPassPath = [NSBundle pathForResource:@"SSH Proxy - Ask Password" ofType:@""
+                                          inDirectory:[[NSBundle mainBundle] bundlePath]];
+    
+    
+    NSString *encryptedServerInfo = [SSHHelper encryptServerInfo:server];
+    
+    // This creates a dictionary of environment variables (keys) and their values (objects) to be set in the environment where the task will be run. This environment dictionary will then be accessible to our Askpass program.
+
+    NSMutableDictionary *env = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                NSHomeDirectory(), @"HOME",
+                                @":9999", @"DISPLAY",
+                                askPassPath, @"SSH_ASKPASS",
+                                encryptedServerInfo, @"SSHPROXY_SERVER_INFO",
+                                @"1",@"INTERACTION",
+                                NSHomeDirectory(), @"SSHPROXY_USER_HOME",
+                                nil];
+    [env addEntriesFromDictionary:[SSHHelper getProxyCommandEnv:server]];
+    
+    NSMutableString* advancedOptions = [NSMutableString stringWithString:@"-"];
+//    if (shareSocks==NSOnState) {
+//        [advancedOptions appendString:@"g"];
+//    }
+    if (enableCompression) {
+        [advancedOptions appendString:@"C"];
+    }
+    [advancedOptions appendString:@"ND"];
+    
+    //    DLog(@"Environment dict %@",env);
+    NSMutableArray *arguments = nil;
+    BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
+
+    if ( isPublicKeyMode ) {
+        arguments = [SSHHelper getPublicKeyMethodConnectArgsForServer:server];
+    } else {
+        arguments = [SSHHelper getPasswordMethodConnectArgs];
+    }
+    
+    if (!arguments) {
+        // abort connection
+        errorMsg = @"Invalid authentication method or private key does not exist";
+        [self set2disconnected];
+        return;
+    }
+    
+    NSString *proxyCommandStr = [SSHHelper getProxyCommandStr:server];
+    
+    if (proxyCommandStr) {
+        [arguments addObject:proxyCommandStr];
+    }
+    
+    [arguments addObjectsFromArray:@[
+                                     advancedOptions,
+                                     [NSString stringWithFormat:@"%@", @(localPort)],
+                                     [NSString stringWithFormat:@"%@@%@", loginName, remoteHost],
+                                     @"-p",
+                                     [NSString stringWithFormat:@"%d", remotePort]
+                                ]
+     ];
+    
+    // TODO: CATCH TASK EXCEPTION
+    
+    task = [[NSTask alloc] init];
+    
+    [env addEntriesFromDictionary:[[NSProcessInfo processInfo] environment]];
+    
+    [task setEnvironment:env];
+    [task setArguments:arguments];
+    
+    [task setLaunchPath:@"/usr/bin/ssh"];
+    
+    // Setup the pipes on the task
+    pipe = [[NSPipe alloc] init];
+    //        errorPipe = [[NSPipe alloc] init];
+    [task setStandardOutput:pipe];
+    [task setStandardError:pipe];
+    // It's important that we set the standard input to null here. This is sometimes required in order to get SSH to use our Askpass program rather then prompt the user interactively.
+    [task setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
+    
+    // clear taskOutput buffer
+    taskOutput = [[NSString alloc] init];
+    
+    NSFileHandle *fh = [pipe fileHandleForReading];
+    [fh waitForDataInBackgroundAndNotify];
+    
+    NSNotificationCenter *nc;
+    nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
+    [nc addObserver:self
+           selector:@selector(dataReady:) name:NSFileHandleDataAvailableNotification
+             object:fh];
+    [nc addObserver:self
+           selector:@selector(taskTerminated:) name:NSTaskDidTerminateNotification
+             object:task];
+    
+    // delete askpass lock file
+    NSString* lockFile= [NSHomeDirectory() stringByAppendingPathComponent:OW_SSHPROXY_ASKPASS_LOCK];
+    [[NSFileManager defaultManager] removeItemAtPath:lockFile error:nil];
+    
+    [task launch];
 }
 
 - (void)reconnectIfNeed:(NSString*) state
@@ -464,7 +479,8 @@
     {
         NSViewController *generalViewController = [[GeneralPreferencesViewController alloc] init];
         NSViewController *serversViewController = [[ServersPreferencesViewController alloc] init];
-        NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, serversViewController, nil];
+        NSViewController *whitelistViewController = [[WhitelistPreferencesViewController alloc] init];
+        NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, serversViewController, whitelistViewController, nil];
         
         // To add a flexible space between General and Advanced preference panes insert [NSNull null]:
         //     NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, [NSNull null], advancedViewController, nil];
@@ -495,6 +511,16 @@
     [self performSelector: @selector(openPreferences:) withObject:self afterDelay: 0.0];
 }
 
+- (IBAction)openWhitelistPreferences:(id)sender
+{
+    [self.preferencesWindowController selectControllerAtIndex:2];
+    [self performSelector: @selector(openPreferences:) withObject:sender afterDelay: 0.0];
+    
+    WhitelistPreferencesViewController *viewController = (WhitelistPreferencesViewController *)self.preferencesWindowController.selectedViewController;
+    
+    [viewController performSelector: @selector(addSite:) withObject:sender afterDelay: 0.2];
+}
+
 - (IBAction)openAboutWindow:(id)sender
 {
     [NSApp activateIgnoringOtherApps:YES];
@@ -508,7 +534,7 @@
 {
     NSString *encodedSubject = @"subject=SSH Proxy Support";
     NSString *encodedBody = @"body=Hi Yang,";
-    NSString *encodedTo = @"yang@yangyubo.com";
+    NSString *encodedTo = @"yang@codinnstudio.com";
     NSString *encodedURLString = [NSString stringWithFormat:@"mailto:%@?%@&%@",
                                   [encodedTo stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                                   [encodedSubject stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
@@ -530,14 +556,104 @@
      [NSURL URLWithString:@"https://github.com/brantyoung/sshproxy/wiki"]];
 }
 
--(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    [task interrupt];
-    return NSTerminateNow;
+- (IBAction)switchProxyMode:(id)sender
+{
+    NSMenuItem* menuItem = (NSMenuItem*)sender;
+    
+    [WhitelistHelper setProxyMode:menuItem.tag];
 }
+
+#pragma mark - MASPreferencesWindowDelegate
 
 - (void)preferencesWindowWillClose:(NSNotification *)notification
 {
     self.preferencesWindowController = nil;
+}
+
+#pragma mark - NSApplicationDelegate
+
+-(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    [task interrupt];
+    [self stopServer];
+    return NSTerminateNow;
+}
+
+#pragma mark - SOCKS server control
+
+- (NSError *)startServer
+{
+	if (_server) return nil;
+    
+	NSError *error = nil;
+    
+    BOOL shareSocks = [SSHHelper isShareSOCKS];
+    
+    if (shareSocks) {
+        _server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
+    } else {
+        _server = [[INSOCKSServer alloc] initWithInterface:@"127.0.0.1" port:[SSHHelper getLocalPort] error:&error];
+    }
+    
+	_server.delegate = self;
+    
+	if (error) {
+		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
+        errorMsg = [NSString stringWithFormat:@"Port (%@) already in use", @([SSHHelper getLocalPort])];
+        [self set2disconnected];
+        [self stopServer];
+	} else {
+		DDLogInfo(@"SOCKS server on host %@ listening on port %d", _server.host, _server.port);
+	}
+    
+    return error;
+}
+
+- (void)stopServer
+{
+	if (!_server) return;
+    
+    _server.delegate = nil;
+	[_server disconnectAll];
+	_server = nil;
+}
+
+//- (NSError *)restartServer
+//{
+//    [self stopServer];
+//    
+//	NSError *error = [self startServer];
+//    
+//	if (error) {
+//        // retry
+//        [self performSelector: @selector(restartServer) withObject:nil afterDelay: 1.0];
+//	}
+//    
+//    return error;
+//}
+
+
+#pragma mark - INSOCKSServerDelegate
+
+- (void)SOCKSServer:(INSOCKSServer *)server didAcceptConnection:(INSOCKSConnection *)connection
+{
+	connection.delegate = self;
+}
+
+#pragma mark - INSOCKSConnectionDelegate
+
+- (BOOL)SOCKSConnectionShouldRelay:(INSOCKSConnection *)connection
+{
+    return [WhitelistHelper isHostShouldProxy:connection.targetHost isProxyOn:self.turnOnMenuItem.isHidden];
+}
+
+- (NSArray *)SOCKSConnectionGetRelayAddress:(INSOCKSConnection *)connection
+{
+    return @[@"127.0.0.1", @([SSHHelper getSSHLocalPort])];
+}
+
+- (void)SOCKSConnection:(INSOCKSConnection *)connection didDisconnectWithError:(NSError *)error
+{
+    [_server disconnect:connection];
 }
 
 @end

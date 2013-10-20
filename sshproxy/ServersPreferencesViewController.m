@@ -3,7 +3,7 @@
 //  sshproxy
 //
 //  Created by Brant Young on 14/5/13.
-//  Copyright (c) 2013 Charm Studio. All rights reserved.
+//  Copyright (c) 2013 Codinn Studio. All rights reserved.
 //
 
 #import "ServersPreferencesViewController.h"
@@ -20,13 +20,13 @@
 @synthesize publickeyHelpPopoverController;
 @synthesize isDirty;
 
-#pragma mark -
-#pragma mark MASPreferencesViewController
-
 - (id)init
 {
     return [super initWithNibName:@"ServersPreferencesView" bundle:nil];
 }
+
+
+#pragma mark - MASPreferencesViewController
 
 - (NSString *)identifier
 {
@@ -42,6 +42,8 @@
 {
     return NSLocalizedString(@"Servers", @"Toolbar item name for the Servers preference pane");
 }
+
+#pragma mark - 
 
 - (void)awakeFromNib
 {
@@ -66,6 +68,9 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:NSTableViewSelectionDidChangeNotification object:self.serversTableView];
     }
 }
+
+
+#pragma mark - Actions
 
 - (IBAction)remoteStepperAction:(id)sender
 {
@@ -163,46 +168,6 @@
     [self.view.window performClose:sender];
 }
 
-- (BOOL)commitEditing
-{
-    BOOL shouldClose = YES;
-    
-    if (self.isDirty) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
-        
-        alert.alertStyle = NSWarningAlertStyle;
-        
-        [alert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        // a simple trick for waiting sheet modal return
-        shouldClose = [NSApp runModalForWindow:alert.window];
-    }
-    
-    return shouldClose;
-}
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn: // apply
-            [self performSelector: @selector(applyChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        case NSAlertOtherReturn: // cancel
-            [NSApp stopModalWithCode:NO];
-            break;
-            
-        case NSAlertAlternateReturn: // don't apply
-            [self performSelector: @selector(revertChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        default:
-            [NSApp stopModalWithCode:YES];
-            break;
-    }
-}
-
 - (INPopoverController *)passwordHelpPopoverController
 {
     if (!passwordHelpPopoverController) {
@@ -232,7 +197,7 @@
     
     // apply changes
     [self.userDefaultsController save:self];
-    [self.userDefaultsController.defaults synchronize];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     self.isDirty = NO;
     
@@ -345,6 +310,48 @@
 - (void)controlTextDidChange:(NSNotification *)aNotification
 {
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
+}
+
+#pragma mark - NSViewController
+
+- (BOOL)commitEditing
+{
+    BOOL shouldClose = YES;
+    
+    if (self.isDirty) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
+        
+        alert.alertStyle = NSWarningAlertStyle;
+        
+        [alert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        
+        // a simple trick for waiting sheet modal return
+        shouldClose = [NSApp runModalForWindow:alert.window];
+    }
+    
+    return shouldClose;
+}
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    switch (returnCode) {
+        case NSAlertDefaultReturn: // apply
+            [self performSelector: @selector(applyChanges:) withObject:nil afterDelay: 0.0];
+            [NSApp stopModalWithCode:YES];
+            break;
+            
+        case NSAlertOtherReturn: // cancel
+            [NSApp stopModalWithCode:NO];
+            break;
+            
+        case NSAlertAlternateReturn: // don't apply
+            [self performSelector: @selector(revertChanges:) withObject:nil afterDelay: 0.0];
+            [NSApp stopModalWithCode:YES];
+            break;
+            
+        default:
+            [NSApp stopModalWithCode:YES];
+            break;
+    }
 }
 
 @end

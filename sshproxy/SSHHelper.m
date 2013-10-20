@@ -3,7 +3,7 @@
 //  sshproxy
 //
 //  Created by Brant Young on 15/5/13.
-//  Copyright (c) 2013 Charm Studio. All rights reserved.
+//  Copyright (c) 2013 Codinn Studio. All rights reserved.
 //
 
 #import "SSHHelper.h"
@@ -137,9 +137,6 @@
 
 + (NSArray *)getServers
 {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs synchronize];
-    
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"servers"];
 }
 
@@ -153,7 +150,6 @@
 + (NSInteger) getActivatedServerIndex
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs synchronize];
     
     NSArray* servers = [prefs arrayForKey:@"servers"];
     NSInteger index = [prefs integerForKey:@"activated_server"];
@@ -168,7 +164,6 @@
 + (NSDictionary*) getActivatedServer
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs synchronize];
     
     NSArray* servers = [prefs arrayForKey:@"servers"];
     
@@ -183,7 +178,6 @@
 + (void) setActivatedServer:(int) index
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs synchronize];
     
     [prefs setInteger:index forKey:@"activated_server"];
     [prefs synchronize];
@@ -212,7 +206,6 @@
     }
     
     BOOL enableCompression = [prefs boolForKey:@"enable_compression"];
-    BOOL shareSocks = [prefs boolForKey:@"share_socks"];
     
     BOOL proxyCommand = [prefs boolForKey:@"proxy_command"];
     int proxyCommandType = (int)[prefs integerForKey:@"proxy_command_type"];
@@ -235,7 +228,6 @@
     [server setObject:[NSNumber numberWithInt:remotePort] forKey:@"remote_port"];
     [server setObject:loginName forKey:@"login_name"];
     [server setObject:[NSNumber numberWithBool:enableCompression] forKey:@"enable_compression"];
-    [server setObject:[NSNumber numberWithBool:shareSocks] forKey:@"share_socks"];
     
     [server setObject:[NSNumber numberWithBool:proxyCommand] forKey:@"proxy_command"];
     [server setObject:[NSNumber numberWithBool:proxyCommandType] forKey:@"proxy_command_type"];
@@ -256,7 +248,6 @@
     [prefs removeObjectForKey:@"login_name"];
     
     [prefs removeObjectForKey:@"enable_compression"];
-    [prefs removeObjectForKey:@"share_socks"];
     
     [prefs removeObjectForKey:@"proxy_command"];
     [prefs removeObjectForKey:@"proxy_command_type"];
@@ -276,13 +267,21 @@
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSInteger localPort = [prefs integerForKey:@"local_port"];
-    [prefs synchronize];
     
-    if (localPort<=0 || localPort>65535) {
+    if (localPort<1024 || localPort>65535) {
         localPort = 7070;
     }
     
     return localPort;
+}
++ (NSInteger)getSSHLocalPort
+{
+    return [self getLocalPort]+1;
+}
++ (BOOL)isShareSOCKS
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    return [prefs boolForKey:@"share_socks"];
 }
 
 #pragma mark Getters for server parameters
@@ -361,10 +360,6 @@
 + (BOOL)isEnableCompress:(NSDictionary *)server
 {
     return [(NSNumber*)[server valueForKey:@"enable_compression"] boolValue];
-}
-+ (BOOL)isShareSOCKS:(NSDictionary *)server
-{
-    return [(NSNumber*)[server valueForKey:@"share_socks"] boolValue];
 }
 
 #pragma mark setters

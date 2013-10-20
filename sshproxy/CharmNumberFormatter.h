@@ -11,3 +11,7 @@
 @interface CharmNumberFormatter : NSNumberFormatter
 
 @end
+
+@interface CharmPortFormatter : NSNumberFormatter
+
+@end

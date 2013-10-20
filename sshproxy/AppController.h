@@ -9,8 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "GeneralPreferencesViewController.h"
 #import "MASPreferencesWindowController.h"
+#import "INSOCKSServer.h"
+#import "INSOCKSConnection.h"
 
-@interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSConnectionDelegate, INSOCKSServerDelegate>
 
 @property (nonatomic, readwrite) MASPreferencesWindowController *preferencesWindowController;
 
@@ -19,10 +21,12 @@
 - (IBAction)turnOnProxy:(id)sender;
 - (IBAction)turnOffProxy:(id)sender;
 - (IBAction)openPreferences:(id)sender;
+- (IBAction)openWhitelistPreferences:(id)sender;
 - (IBAction)openHelpURL:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)openSendFeedback:(id)sender;
 - (IBAction)openMacAppStore:(id)sender;
+- (IBAction)switchProxyMode:(id)sender;
 
 
 /* Our outlets which allow us to access the interface */
