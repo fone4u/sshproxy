@@ -2,8 +2,72 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 #import "DDFileLogger.h"
-#import "NSValueTransformer+TransformerKit.h"
 #import "WhitelistHelper.h"
+@interface OWProxyModeAllSitesTransformer : NSValueTransformer
+
+@end
+
+@implementation OWProxyModeAllSitesTransformer
+
++ (Class)transformedValueClass
+{
+    return [NSData class];
+}
+
++ (BOOL)allowsReverseTransformation
+{
+    return NO;
+}
+
+- (id)transformedValue:(id)value
+{
+    return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_ALLSITES];
+}
+@end
+
+@interface OWProxyModeWhitelistTransformer : NSValueTransformer
+
+@end
+
+@implementation OWProxyModeWhitelistTransformer
+
++ (Class)transformedValueClass
+{
+    return [NSData class];
+}
+
++ (BOOL)allowsReverseTransformation
+{
+    return NO;
+}
+
+- (id)transformedValue:(id)value
+{
+    return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_WHITELIST];
+}
+@end
+
+@interface OWProxyModeDirectTransformer : NSValueTransformer
+
+@end
+
+@implementation OWProxyModeDirectTransformer
+
++ (Class)transformedValueClass
+{
+    return [NSData class];
+}
+
++ (BOOL)allowsReverseTransformation
+{
+    return NO;
+}
+
+- (id)transformedValue:(id)value
+{
+    return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_DIRECT];
+}
+@end
 
 int main(int argc, char *argv[]) {
     @autoreleasepool
@@ -22,25 +86,14 @@ int main(int argc, char *argv[]) {
         NSString * const OWProxyModeWhitelistTransformerName = @"OWProxyModeWhitelist";
         NSString * const OWProxyModeDirectTransformerName = @"OWProxyModeDirect";
         
-        [NSValueTransformer registerValueTransformerWithName:OWProxyModeAllSitesTransformerName
-                                       transformedValueClass:[NSNumber class]
-                          returningTransformedValueWithBlock:^id(id value) {
-                              return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_ALLSITES];
-                          }
-//                      allowingReverseTransformationWithBlock:^id(id value) {
-//                          
-//                      }
-         ];
-        [NSValueTransformer registerValueTransformerWithName:OWProxyModeWhitelistTransformerName
-                                       transformedValueClass:[NSNumber class]
-                          returningTransformedValueWithBlock:^id(id value) {
-                              return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_WHITELIST];
-                          }];
-        [NSValueTransformer registerValueTransformerWithName:OWProxyModeDirectTransformerName
-                                       transformedValueClass:[NSNumber class]
-                          returningTransformedValueWithBlock:^id(id value) {
-                              return [NSNumber numberWithBool:[value integerValue]==OW_PROXY_MODE_DIRECT];
-                          }];
+        OWProxyModeAllSitesTransformer *transformer = [[OWProxyModeAllSitesTransformer alloc] init];
+        [NSValueTransformer setValueTransformer:transformer forName:OWProxyModeAllSitesTransformerName];
+        
+        OWProxyModeWhitelistTransformer *transformer2 = [[OWProxyModeWhitelistTransformer alloc] init];
+        [NSValueTransformer setValueTransformer:transformer2 forName:OWProxyModeWhitelistTransformerName];
+        
+        OWProxyModeDirectTransformer *transformer3 = [[OWProxyModeDirectTransformer alloc] init];
+        [NSValueTransformer setValueTransformer:transformer3 forName:OWProxyModeDirectTransformerName];
         
         return NSApplicationMain(argc, (const char **)argv);
     }
