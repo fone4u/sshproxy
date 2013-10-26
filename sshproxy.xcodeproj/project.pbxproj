@@ -30,6 +30,8 @@
 		4A2A3951175EC85D002BF361 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A3948175EC85D002BF361 /* ContextFilterLogFormatter.m */; };
 		4A2A3952175EC85D002BF361 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A394A175EC85D002BF361 /* DispatchQueueLogFormatter.m */; };
 		4A2A3953175EC85D002BF361 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A2A394B175EC85D002BF361 /* README.txt */; };
+		4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E9081181BA4B200609D95 /* Localizable.strings */; };
+		4A2E908C181BA73400609D95 /* sshproxy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E908B181BA73400609D95 /* sshproxy-Info.plist */; };
 		4A37A086171AEC6300605BE1 /* CharmTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A37A085171AEC6300605BE1 /* CharmTextField.m */; };
 		4A41067C16BE7FB000D46D91 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A41067B16BE7FB000D46D91 /* ServiceManagement.framework */; };
 		4A41067D16BE7FD000D46D91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A41067916BE7F4600D46D91 /* Security.framework */; };
@@ -198,6 +200,20 @@
 		4A2A3949175EC85D002BF361 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		4A2A394A175EC85D002BF361 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		4A2A394B175EC85D002BF361 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4A2E9080181BA4B200609D95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A2E9082181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4A2E9083181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4A2E9084181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		4A2E9085181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4A2E9086181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		4A2E9087181BA4FD00609D95 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4A2E908B181BA73400609D95 /* sshproxy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sshproxy-Info.plist"; sourceTree = "<group>"; };
+		4A2E908D181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4A2E908E181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4A2E908F181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		4A2E9090181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4A2E9091181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		4A2E9092181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4A2FAD0B1770B89F004C8F7B /* EMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychain.h; path = EMKeychain/EMKeychain.h; sourceTree = "<group>"; };
 		4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychain.m; path = EMKeychain/EMKeychain.m; sourceTree = "<group>"; };
 		4A37A084171AEC6300605BE1 /* CharmTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharmTextField.h; sourceTree = "<group>"; };
@@ -269,7 +285,6 @@
 		4AD3FDE016A56EF400378F77 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4AD3FDE116A56EF400378F77 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4AD3FDE216A56EF400378F77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		4AD3FDE516A56EF400378F77 /* sshproxy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sshproxy-Info.plist"; sourceTree = "<group>"; };
 		4AD3FDE716A56EF400378F77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4AD3FDE916A56EF400378F77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AD3FDEB16A56EF400378F77 /* sshproxy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sshproxy-Prefix.pch"; sourceTree = "<group>"; };
@@ -649,7 +664,8 @@
 		4AD3FDE416A56EF400378F77 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4AD3FDE516A56EF400378F77 /* sshproxy-Info.plist */,
+				4A2E9081181BA4B200609D95 /* Localizable.strings */,
+				4A2E908B181BA73400609D95 /* sshproxy-Info.plist */,
 				4AD3FDE616A56EF400378F77 /* InfoPlist.strings */,
 				4AD3FDE916A56EF400378F77 /* main.m */,
 				4AD3FDEB16A56EF400378F77 /* sshproxy-Prefix.pch */,
@@ -826,6 +842,8 @@
 			knownRegions = (
 				en,
 				English,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 4AD3FDCE16A56EF400378F77;
 			productRefGroup = 4AD3FDDA16A56EF400378F77 /* Products */;
@@ -872,11 +890,13 @@
 				4ADB92AF1747C7E80064D82D /* connected-inverse@2x.png in Resources */,
 				4ADB92B01747C7E80064D82D /* connected.png in Resources */,
 				4ADB92B11747C7E80064D82D /* connected@2x.png in Resources */,
+				4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */,
 				4ADB92B21747C7E80064D82D /* connecting-inverse.png in Resources */,
 				4ADB92B31747C7E80064D82D /* connecting-inverse@2x.png in Resources */,
 				4ADB92B41747C7E80064D82D /* connecting.png in Resources */,
 				4ADB92B51747C7E80064D82D /* connecting@2x.png in Resources */,
 				4ADB92B61747C7E80064D82D /* disconnected-inverse.png in Resources */,
+				4A2E908C181BA73400609D95 /* sshproxy-Info.plist in Resources */,
 				4ADB92B71747C7E80064D82D /* disconnected-inverse@2x.png in Resources */,
 				4ADB92B81747C7E80064D82D /* disconnected.png in Resources */,
 				4ADB92B91747C7E80064D82D /* disconnected@2x.png in Resources */,
@@ -1025,10 +1045,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4A2E9081181BA4B200609D95 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A2E9080181BA4B200609D95 /* en */,
+				4A2E9082181BA4FD00609D95 /* zh-Hans */,
+				4A2E908D181BEF2F00609D95 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4AA6471F16BE3DBA00DE5CAD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4AA6472016BE3DBA00DE5CAD /* en */,
+				4A2E9085181BA4FD00609D95 /* zh-Hans */,
+				4A2E9090181BEF2F00609D95 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1037,6 +1069,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4AA6472616BE3DBA00DE5CAD /* en */,
+				4A2E9086181BA4FD00609D95 /* zh-Hans */,
+				4A2E9091181BEF2F00609D95 /* zh-Hant */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1045,6 +1079,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4AD3FDE716A56EF400378F77 /* en */,
+				4A2E9083181BA4FD00609D95 /* zh-Hans */,
+				4A2E908E181BEF2F00609D95 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1053,6 +1089,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4AD3FDED16A56EF400378F77 /* en */,
+				4A2E9084181BA4FD00609D95 /* zh-Hans */,
+				4A2E908F181BEF2F00609D95 /* zh-Hant */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1061,6 +1099,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4AD3FE0416A56EF400378F77 /* en */,
+				4A2E9087181BA4FD00609D95 /* zh-Hans */,
+				4A2E9092181BEF2F00609D95 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1165,7 +1205,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1199,7 +1239,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1221,6 +1261,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxy/sshproxy-Prefix.pch";
@@ -1235,6 +1276,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
