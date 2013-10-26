@@ -946,7 +946,7 @@
 											<reference key="NSNextResponder" ref="927831532"/>
 											<int key="NSvFlags">1803</int>
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
-											<string key="NSFrame">{{14.999989969976689, 149}, {91, 17}}</string>
+											<string key="NSFrame">{{14.999993988411294, 149}, {91, 17}}</string>
 											<reference key="NSSuperview" ref="927831532"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="701695618">
@@ -1009,7 +1009,7 @@
 											<reference key="NSNextResponder" ref="927831532"/>
 											<int key="NSvFlags">1803</int>
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
-											<string key="NSFrame">{{14.999989969976689, 117}, {91, 17}}</string>
+											<string key="NSFrame">{{14.999993988411301, 117}, {91, 17}}</string>
 											<reference key="NSSuperview" ref="927831532"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="475792646">
@@ -1222,7 +1222,7 @@
 											<reference key="NSNextResponder" ref="927831532"/>
 											<int key="NSvFlags">1803</int>
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
-											<string key="NSFrame">{{14.999989969976689, 52}, {91, 17}}</string>
+											<string key="NSFrame">{{14.999993988411301, 52}, {91, 17}}</string>
 											<reference key="NSSuperview" ref="927831532"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="490837685">
@@ -1241,7 +1241,7 @@
 											<reference key="NSNextResponder" ref="927831532"/>
 											<int key="NSvFlags">1803</int>
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
-											<string key="NSFrame">{{14.999989969976689, 17}, {91, 17}}</string>
+											<string key="NSFrame">{{14.999993988411301, 17}, {91, 17}}</string>
 											<reference key="NSSuperview" ref="927831532"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="701025075">

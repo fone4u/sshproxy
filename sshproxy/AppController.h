@@ -11,10 +11,12 @@
 #import "MASPreferencesWindowController.h"
 #import "INSOCKSServer.h"
 #import "INSOCKSConnection.h"
+#import "AboutWindowController.h"
 
 @interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSConnectionDelegate, INSOCKSServerDelegate>
 
 @property (nonatomic, readwrite) MASPreferencesWindowController *preferencesWindowController;
+@property (nonatomic, readwrite) AboutWindowController* aboutWindowController;
 
 /* Our IBAction which will call the helloWorld method when our connected Menu Item is pressed */
 
@@ -35,7 +37,6 @@
 @property IBOutlet NSMenuItem* cautionMenuItem;
 @property IBOutlet NSMenuItem* turnOnMenuItem;
 @property IBOutlet NSMenuItem* turnOffMenuItem;
-@property IBOutlet NSWindow* aboutWindow;
 @property IBOutlet NSMenu* mainMenu;
 @property IBOutlet NSArrayController* serverArrayController;
 

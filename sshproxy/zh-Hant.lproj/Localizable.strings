@@ -5,3 +5,6 @@
   Created by Brant Young on 10/26/13.
   Copyright (c) 2013 Codinn Studio. All rights reserved.
 */
+
+"SSH_PROXY_VERSION_STRING" = "版本: %@"
+"SSH_PROXY_ABOUT_WINDOW_TITLE" = "關於 SSH 代理";

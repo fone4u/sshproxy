@@ -35,6 +35,7 @@
 }
 
 @synthesize preferencesWindowController;
+@synthesize aboutWindowController;
 
 -(id)init
 {
@@ -495,6 +496,15 @@
     return preferencesWindowController;
 }
 
+- (AboutWindowController *)aboutWindowController
+{
+    if (!aboutWindowController)
+    {
+        aboutWindowController = [[AboutWindowController alloc] init];
+    }
+    return aboutWindowController;
+}
+
 - (IBAction)openPreferences:(id)sender
 {
     [NSApp activateIgnoringOtherApps:YES];
@@ -525,9 +535,12 @@
 {
     [NSApp activateIgnoringOtherApps:YES];
     
-    [self.aboutWindow makeKeyAndOrderFront:nil];
-    [self.aboutWindow setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
-    [self.aboutWindow center];
+    
+    [self.aboutWindowController.window makeKeyAndOrderFront:nil];
+    [self.aboutWindowController.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+    [self.aboutWindowController.window center];
+    
+    [self.aboutWindowController showWindow:nil];
 }
 
 -(IBAction)openSendFeedback:(id)sender
