@@ -508,8 +508,8 @@
 - (IBAction)openPreferences:(id)sender
 {
     [NSApp activateIgnoringOtherApps:YES];
-    //    [[self.preferencesWindowController window] makeKeyAndOrderFront:nil];
-    //    [[self.preferencesWindowController window] setLevel:NSFloatingWindowLevel];
+    [[self.preferencesWindowController window] makeKeyAndOrderFront:nil];
+    [[self.preferencesWindowController window] setLevel:NSFloatingWindowLevel];
     [[self.preferencesWindowController window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
 //    [[self.preferencesWindowController window] center];
     [self.preferencesWindowController showWindow:nil];
@@ -535,10 +535,10 @@
 {
     [NSApp activateIgnoringOtherApps:YES];
     
-    
     [self.aboutWindowController.window makeKeyAndOrderFront:nil];
     [self.aboutWindowController.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
     [self.aboutWindowController.window center];
+    [self.aboutWindowController.window setLevel:NSFloatingWindowLevel];
     
     [self.aboutWindowController showWindow:nil];
 }
