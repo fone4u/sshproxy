@@ -33,7 +33,6 @@
 		4A2E4C31181C08C80029579B /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E4C2F181C08C80029579B /* AboutWindowController.m */; };
 		4A2E4C32181C08C80029579B /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E4C30181C08C80029579B /* AboutWindowController.xib */; };
 		4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E9081181BA4B200609D95 /* Localizable.strings */; };
-		4A2E908C181BA73400609D95 /* sshproxy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E908B181BA73400609D95 /* sshproxy-Info.plist */; };
 		4A37A086171AEC6300605BE1 /* CharmTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A37A085171AEC6300605BE1 /* CharmTextField.m */; };
 		4A41067C16BE7FB000D46D91 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A41067B16BE7FB000D46D91 /* ServiceManagement.framework */; };
 		4A41067D16BE7FD000D46D91 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A41067916BE7F4600D46D91 /* Security.framework */; };
@@ -832,7 +831,7 @@
 		4AD3FDD016A56EF400378F77 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Charm Studio";
 				TargetAttributes = {
 					4AA6471916BE3DB900DE5CAD = {
@@ -905,7 +904,6 @@
 				4ADB92B41747C7E80064D82D /* connecting.png in Resources */,
 				4ADB92B51747C7E80064D82D /* connecting@2x.png in Resources */,
 				4ADB92B61747C7E80064D82D /* disconnected-inverse.png in Resources */,
-				4A2E908C181BA73400609D95 /* sshproxy-Info.plist in Resources */,
 				4ADB92B71747C7E80064D82D /* disconnected-inverse@2x.png in Resources */,
 				4ADB92B81747C7E80064D82D /* disconnected.png in Resources */,
 				4ADB92B91747C7E80064D82D /* disconnected@2x.png in Resources */,
@@ -1231,6 +1229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-fobjc-arc";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
