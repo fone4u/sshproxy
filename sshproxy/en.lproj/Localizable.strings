@@ -4,7 +4,21 @@
 
   Created by Brant Young on 10/26/13.
   Copyright (c) 2013 Codinn Studio. All rights reserved.
-*/
+ */
+
+"sshproxy.mainmenu.proxy_off" = "Proxy: Off";
+"sshproxy.mainmenu.proxy_connecting" = "Proxy: Connecting...";
+"sshproxy.mainmenu.proxy_reconnecting" = "Proxy: Reconnecting...";
+"sshproxy.mainmenu.proxy_on" = "Proxy: On";
+"sshproxy.mainmenu.turn_off" = "Turn Proxy Off";
+"sshproxy.mainmenu.turn_on" = "Turn Proxy On";
+"sshproxy.mainmenu.add_to_whitelist" = "Add site to whitelist";
+"sshproxy.mainmenu.use_proxy_for_all_sites" = "Use proxy for all sites";
+"sshproxy.mainmenu.use_proxy_for_whitelist" = "Use proxy only for sites on whitelist";
+"sshproxy.mainmenu.direct_connection" = "Direct internet connection (no proxy)";
+"sshproxy.mainmenu.preferences" = "Preferences...";
+"sshproxy.mainmenu.help" = "Help";
+"sshproxy.mainmenu.quit" = "Quit SSH Proxy";
 
 "sshproxy.about.title" = "About SSH Proxy";
 "sshproxy.about.feedback" = "Send Feedback";

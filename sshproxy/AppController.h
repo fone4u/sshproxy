@@ -35,6 +35,15 @@
 @property IBOutlet NSMenuItem* cautionMenuItem;
 @property IBOutlet NSMenuItem* turnOnMenuItem;
 @property IBOutlet NSMenuItem* turnOffMenuItem;
+@property IBOutlet NSMenuItem* add2WhitelistMenuItem;
+@property IBOutlet NSMenuItem* allSitesMenuItem;
+@property IBOutlet NSMenuItem* onlyWhitelistMenuItem;
+@property IBOutlet NSMenuItem* directConnectMenuItem;
+@property IBOutlet NSMenuItem* preferenceMenuItem;
+@property IBOutlet NSMenuItem* helpMenuItem;
+@property IBOutlet NSMenuItem* aboutMenuItem;
+@property IBOutlet NSMenuItem* quitMenuItem;
+
 @property IBOutlet NSMenu* mainMenu;
 @property IBOutlet NSArrayController* serverArrayController;
 

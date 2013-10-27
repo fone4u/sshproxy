@@ -70,12 +70,25 @@
     //Tells the NSStatusItem what action to active
     [statusItem setAction:@selector(statusItemClicked)];
     //Sets the tooptip for our item
-    [statusItem setToolTip:@"SSH Proxy"];
+    [statusItem setToolTip:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
     //Enables highlighting
     [statusItem setHighlightMode:YES];
     
     // upgrade user preferences from 13.04 to 13.05
     [SSHHelper upgrade1:self.serverArrayController];
+    
+    // init menu text
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
+    self.turnOffMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.turn_off", nil);
+    self.turnOnMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.turn_on", nil);
+    self.add2WhitelistMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.add_to_whitelist", nil);
+    self.allSitesMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.use_proxy_for_all_sites", nil);
+    self.onlyWhitelistMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.use_proxy_for_whitelist", nil);
+    self.directConnectMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.direct_connection", nil);
+    self.preferenceMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.preferences", nil);
+    self.helpMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.help", nil);
+    self.aboutMenuItem.title = NSLocalizedString(@"sshproxy.about.title", nil);
+    self.quitMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.quit", nil);
     
     [self.cautionMenuItem setHidden:YES];
 }
@@ -86,7 +99,7 @@
 {
     [statusItem setImage:inStatusImage];
     [statusItem setAlternateImage:inStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Connecting..."];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_connecting", nil);
     
     [self setCautionMessage];
     
@@ -99,7 +112,7 @@
     proxyStatus = SSHPROXY_CONNECTED;
     [statusItem setImage:onStatusImage];
     [statusItem setAlternateImage:onStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: On"];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_on", nil);
     
     [self setCautionMessage];
     
@@ -111,7 +124,7 @@
 {
     [statusItem setImage:offStatusImage];
     [statusItem setAlternateImage:offStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Off"];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
     
     [self setCautionMessage];
     
@@ -133,7 +146,7 @@
 {
     [statusItem setImage:inStatusImage];
     [statusItem setAlternateImage:inStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Reconnecting..."];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_reconnecting", nil);
     
     [self setCautionMessage];
     

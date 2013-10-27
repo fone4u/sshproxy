@@ -329,8 +329,16 @@
         </menu>
         <customObject id="801" customClass="AppController">
             <connections>
+                <outlet property="aboutMenuItem" destination="818" id="A48-uq-OgK"/>
+                <outlet property="add2WhitelistMenuItem" destination="1254" id="pus-ue-hrS"/>
+                <outlet property="allSitesMenuItem" destination="1229" id="QKc-lh-bTY"/>
                 <outlet property="cautionMenuItem" destination="1224" id="1227"/>
+                <outlet property="directConnectMenuItem" destination="1233" id="koI-Li-bZA"/>
+                <outlet property="helpMenuItem" destination="1204" id="FFr-nr-Ey6"/>
                 <outlet property="mainMenu" destination="1107" id="1189"/>
+                <outlet property="onlyWhitelistMenuItem" destination="1232" id="w7W-9x-ZLU"/>
+                <outlet property="preferenceMenuItem" destination="1201" id="Ese-HM-GJP"/>
+                <outlet property="quitMenuItem" destination="800" id="GDl-OX-RVv"/>
                 <outlet property="serverArrayController" destination="1220" id="1223"/>
                 <outlet property="statusMenu" destination="795" id="802"/>
                 <outlet property="statusMenuItem" destination="796" id="1228"/>
