@@ -10,6 +10,16 @@
 
 @interface AboutWindowController : NSWindowController
 
+@property IBOutlet NSTextField* titleTextField;
+
+@property IBOutlet NSButton* feedbackButton;
+@property IBOutlet NSButton* rateUsButton;
 @property IBOutlet NSTextField* versionTextField;
+@property IBOutlet NSTextField* releaseDateTextField;
+@property IBOutlet NSTextField* copyrightTextField;
+@property IBOutlet NSTextField* creditsTextField;
+
+- (IBAction)openSendFeedback:(id)sender;
+- (IBAction)openMacAppStore:(id)sender;
 
 @end

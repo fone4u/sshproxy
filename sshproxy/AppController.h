@@ -26,8 +26,6 @@
 - (IBAction)openWhitelistPreferences:(id)sender;
 - (IBAction)openHelpURL:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
-- (IBAction)openSendFeedback:(id)sender;
-- (IBAction)openMacAppStore:(id)sender;
 - (IBAction)switchProxyMode:(id)sender;
 
 

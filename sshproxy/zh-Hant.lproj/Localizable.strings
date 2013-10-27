@@ -6,5 +6,10 @@
   Copyright (c) 2013 Codinn Studio. All rights reserved.
 */
 
-"SSH_PROXY_VERSION_STRING" = "版本: %@";
-"SSH_PROXY_ABOUT_WINDOW_TITLE" = "關於 SSH 代理";
+"sshproxy.about.title" = "關於 SSH 代理";
+"sshproxy.about.feedback" = "給我們反饋";
+"sshproxy.about.rateus" = "評價 SSH Proxy";
+"sshproxy.about.version" = "版本: %@";
+"sshproxy.about.release" = "发布日期: 2013-11-11";
+"sshproxy.about.copyright" = "© 2013 Codinn Studio, 版權所有";
+"sshproxy.about.credits" = "感謝: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly";

@@ -543,26 +543,6 @@
     [self.aboutWindowController showWindow:nil];
 }
 
--(IBAction)openSendFeedback:(id)sender
-{
-    NSString *encodedSubject = @"subject=SSH Proxy Support";
-    NSString *encodedBody = @"body=Hi Yang,";
-    NSString *encodedTo = @"yang@codinnstudio.com";
-    NSString *encodedURLString = [NSString stringWithFormat:@"mailto:%@?%@&%@",
-                                  [encodedTo stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                  [encodedSubject stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                  [encodedBody stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    DDLogVerbose(@"%@", encodedURLString);
-    NSURL *mailtoURL = [NSURL URLWithString:encodedURLString];
-    [[NSWorkspace sharedWorkspace] openURL:mailtoURL];
-}
-
--(IBAction)openMacAppStore:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:
-     [NSURL URLWithString:@"macappstore://itunes.apple.com/app/ssh-proxy/id597790822?mt=12"]];
-}
-
 - (IBAction)openHelpURL:(id)sender
 {
     [[NSWorkspace sharedWorkspace] openURL:
