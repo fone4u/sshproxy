@@ -18,7 +18,21 @@
 "sshproxy.mainmenu.direct_connection" = "直接访问 (不使用代理)";
 "sshproxy.mainmenu.preferences" = "偏好设置...";
 "sshproxy.mainmenu.help" = "帮助";
-"sshproxy.mainmenu.quit" = "退出 SSH 代理";
+"sshproxy.mainmenu.quit" = "退出";
+
+"sshproxy.errmsg.invalid_auth" = "无效的身份验证方法, 或私钥不存在";
+"sshproxy.errmsg.sshport" = "端口已被占用";
+"sshproxy.errmsg.pubkey" = "无效的口令或私钥";
+"sshproxy.errmsg.password" = "密码错误";
+"sshproxy.errmsg.port" = "端口 (%@) 已被占用";
+"sshproxy.errmsg.hostname" = "无法解析主机名";
+"sshproxy.errmsg.refused" = "连接被拒绝";
+"sshproxy.errmsg.timeout" = "超时, 服务器没有响应";
+"sshproxy.errmsg.timedout" = "远程代理服务器连接超时";
+"sshproxy.errmsg.timedout2" = "连接超时";
+"sshproxy.errmsg.disconnected" = "与远程代理服务器的连接断开";
+"sshproxy.errmsg.failed" = "无法连接到远程代理服务器";
+"sshproxy.errmsg.unknown" = "未知错误";
 
 "sshproxy.about.title" = "关于 SSH 代理";
 "sshproxy.about.feedback" = "给我们反馈";

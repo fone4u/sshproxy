@@ -18,7 +18,21 @@
 "sshproxy.mainmenu.direct_connection" = "Direct internet connection (no proxy)";
 "sshproxy.mainmenu.preferences" = "Preferences...";
 "sshproxy.mainmenu.help" = "Help";
-"sshproxy.mainmenu.quit" = "Quit SSH Proxy";
+"sshproxy.mainmenu.quit" = "Quit";
+
+"sshproxy.errmsg.invalid_auth" = "Invalid authentication method or private key does not exist";
+"sshproxy.errmsg.sshport" = "Port already in use";
+"sshproxy.errmsg.pubkey" = "Invalid passphrase or private key";
+"sshproxy.errmsg.password" = "Incorrect password";
+"sshproxy.errmsg.port" = "Port (%@) already in use";
+"sshproxy.errmsg.hostname" = "Could not resolve hostname";
+"sshproxy.errmsg.refused" = "Connection refused";
+"sshproxy.errmsg.timeout" = "Timeout, server not responding";
+"sshproxy.errmsg.timedout" = "Remote proxy server connection timed out";
+"sshproxy.errmsg.timedout2" = "Connection timed out";
+"sshproxy.errmsg.disconnected" = "Disconnected from remote proxy server";
+"sshproxy.errmsg.failed" = "Failed to connect remote proxy server";
+"sshproxy.errmsg.unknown" = "Unknown error";
 
 "sshproxy.about.title" = "About SSH Proxy";
 "sshproxy.about.feedback" = "Send Feedback";

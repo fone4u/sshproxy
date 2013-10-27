@@ -312,7 +312,7 @@
     
     if (!arguments) {
         // abort connection
-        errorMsg = @"Invalid authentication method or private key does not exist";
+        errorMsg = NSLocalizedString(@"sshproxy.errmsg.invalid_auth", nil);
         [self set2disconnected];
         return;
     }
@@ -418,7 +418,7 @@
         [fh waitForDataInBackgroundAndNotify];
     } else {
         if ([taskOutput rangeOfString:@"bind: Address already in use"].location != NSNotFound) {
-            errorMsg = @"Port already in use";
+            errorMsg = NSLocalizedString(@"sshproxy.errmsg.sshport", nil);
             [self set2disconnected];
             return;
         } else if ([taskOutput rangeOfString:@"Permission denied "].location != NSNotFound) {
@@ -426,22 +426,29 @@
             BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
 
             if (isPublicKeyMode) {
-                errorMsg = @"Invalid passphrase or private key";
+                errorMsg = NSLocalizedString(@"sshproxy.errmsg.pubkey", nil);
             } else {
-                errorMsg = @"Incorrect password";
+                errorMsg = NSLocalizedString(@"sshproxy.errmsg.password", nil);
             }
             [self set2disconnected];
             return;
         } else {
             NSArray* errors = @[
-                                @[@"ssh: Could not resolve hostname"   , @"Could not resolve hostname"],
-                                @[@"Connection refused"                , @"Connection refused"],
-                                @[@"Timeout,"                          , @"Timeout, server not responding"],
-                                @[@"Connection timed out during banner exchange"                     , @"Remote proxy server connection timed out"],
-                                @[@"timed out"                         , @"Connection timed out"],
-                                @[@"Write failed: Broken pipe"         , @"Disconnected from remote proxy server"],
-                                @[@"Connection closed by remote host"  , @"Failed to connect remote proxy server"],
-                                @[@"unknown error"                     , @"Unknown error"],
+                                @[@"ssh: Could not resolve hostname"   , NSLocalizedString(@"sshproxy.errmsg.hostname", nil)],
+                                
+                                @[@"Connection refused"                , NSLocalizedString(@"sshproxy.errmsg.refused", nil)],
+                                
+                                @[@"Timeout,"                          , NSLocalizedString(@"sshproxy.errmsg.timeout", nil)],
+                                
+                                @[@"Connection timed out during banner exchange" , NSLocalizedString(@"sshproxy.errmsg.timedout", nil)],
+                                
+                                @[@"timed out"                         , NSLocalizedString(@"sshproxy.errmsg.timedout2", nil)],
+                                
+                                @[@"Write failed: Broken pipe"         , NSLocalizedString(@"sshproxy.errmsg.disconnected", nil)],
+                                
+                                @[@"Connection closed by remote host"  , NSLocalizedString(@"sshproxy.errmsg.failed", nil)],
+                                
+                                @[@"unknown error"                     , NSLocalizedString(@"sshproxy.errmsg.unknown", nil)],
                                 ];
             for (NSArray* error in errors) {
                 if ( ([taskOutput rangeOfString:[error objectAtIndex:0]].location != NSNotFound) || [[error objectAtIndex:0] isEqual:@"unknown error"]) {
@@ -604,7 +611,7 @@
     
 	if (error) {
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
-        errorMsg = [NSString stringWithFormat:@"Port (%@) already in use", @([SSHHelper getLocalPort])];
+        errorMsg = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.errmsg.port", nil), @([SSHHelper getLocalPort])];
         [self set2disconnected];
         [self stopServer];
 	} else {
