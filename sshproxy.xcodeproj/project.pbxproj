@@ -12,7 +12,6 @@
 		4A03F73E16A695F0009BCD79 /* StatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A03F73D16A695F0009BCD79 /* StatusMenu.xib */; };
 		4A1BE47C16A5BAA0000E56D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BE47B16A5BAA0000E56D7 /* Foundation.framework */; };
 		4A1BE49D16A68F30000E56D7 /* sshproxy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */; };
-		4A1E89041701F09F007DF2A0 /* logo.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 4A1E89031701F09F007DF2A0 /* logo.iconset */; };
 		4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */; };
 		4A27AD99178A4ECA008BC36F /* PasswordHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* PasswordHelpView.xib */; };
 		4A27AD9A178A4ECA008BC36F /* PasswordHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AD95178A4ECA008BC36F /* PasswordHelpViewController.m */; };
@@ -42,6 +41,8 @@
 		4A42311B1719AB5100ABD4F6 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A42311A1719AB5100ABD4F6 /* libresolv.dylib */; };
 		4A44D67E16A8368900EB44A8 /* SSH Proxy - Ask Password in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BE47916A5BAA0000E56D7 /* SSH Proxy - Ask Password */; };
 		4A44D68216A837CB00EB44A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D67F16A8379C00EB44A8 /* main.m */; };
+		4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
+		4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A30A5181EADFF00F652B4 /* Media.xcassets */; };
 		4A70ACB71774536000777818 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAA1774536000777818 /* RNCryptor.m */; };
 		4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
 		4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
@@ -60,8 +61,6 @@
 		4A70ACE31774B06400777818 /* INPopoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACDE1774B06300777818 /* INPopoverWindow.m */; };
 		4A70ACE41774B06400777818 /* INPopoverWindowFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACE01774B06400777818 /* INPopoverWindowFrame.m */; };
 		4A70ACE71774B0F600777818 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A70ACE61774B0F600777818 /* QuartzCore.framework */; };
-		4A70ACEE1777F1D900777818 /* warning_24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A70ACEC1777F1D900777818 /* warning_24x24.png */; };
-		4A70ACEF1777F1D900777818 /* warning_24x24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A70ACED1777F1D900777818 /* warning_24x24@2x.png */; };
 		4A7B733016E6F184005D9965 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B732F16E6F184005D9965 /* MainMenu.xib */; };
 		4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */; };
 		4AA6471416BD006700DE5CAD /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6471016BD006700DE5CAD /* MASPreferencesWindowController.m */; };
@@ -88,23 +87,12 @@
 		4AD3FE0816A56EF400378F77 /* SSH_ProxyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD3FE0716A56EF400378F77 /* SSH_ProxyTests.m */; };
 		4ADB925F17476F700064D82D /* MIT-License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB925C17476F700064D82D /* MIT-License.rtf */; };
 		4ADB926017476F700064D82D /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB925E17476F700064D82D /* RSVerticallyCenteredTextFieldCell.m */; };
-		4ADB92AE1747C7E80064D82D /* connected-inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A21747C7E80064D82D /* connected-inverse.png */; };
-		4ADB92AF1747C7E80064D82D /* connected-inverse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A31747C7E80064D82D /* connected-inverse@2x.png */; };
-		4ADB92B01747C7E80064D82D /* connected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A41747C7E80064D82D /* connected.png */; };
-		4ADB92B11747C7E80064D82D /* connected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A51747C7E80064D82D /* connected@2x.png */; };
-		4ADB92B21747C7E80064D82D /* connecting-inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A61747C7E80064D82D /* connecting-inverse.png */; };
-		4ADB92B31747C7E80064D82D /* connecting-inverse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A71747C7E80064D82D /* connecting-inverse@2x.png */; };
-		4ADB92B41747C7E80064D82D /* connecting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A81747C7E80064D82D /* connecting.png */; };
-		4ADB92B51747C7E80064D82D /* connecting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92A91747C7E80064D82D /* connecting@2x.png */; };
-		4ADB92B61747C7E80064D82D /* disconnected-inverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92AA1747C7E80064D82D /* disconnected-inverse.png */; };
-		4ADB92B71747C7E80064D82D /* disconnected-inverse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92AB1747C7E80064D82D /* disconnected-inverse@2x.png */; };
-		4ADB92B81747C7E80064D82D /* disconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92AC1747C7E80064D82D /* disconnected.png */; };
-		4ADB92B91747C7E80064D82D /* disconnected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB92AD1747C7E80064D82D /* disconnected@2x.png */; };
 		4AE2C1711742151D00D0C57D /* ServersPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE2C1701742151D00D0C57D /* ServersPreferencesView.xib */; };
 		4AE2C1741742154100D0C57D /* ServersPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1731742154100D0C57D /* ServersPreferencesViewController.m */; };
 		4AE2C1771743214000D0C57D /* SSHHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1761743214000D0C57D /* SSHHelper.m */; };
 		4AEC465916A6A35E008BD118 /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEC465816A6A35E008BD118 /* GeneralPreferencesView.xib */; };
 		4AEC465C16A6A3F5008BD118 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC465B16A6A3F5008BD118 /* GeneralPreferencesViewController.m */; };
+		4AECC518181EAA920074C6A3 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,7 +167,6 @@
 		4A1BE47916A5BAA0000E56D7 /* SSH Proxy - Ask Password */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SSH Proxy - Ask Password"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1BE47B16A5BAA0000E56D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sshproxy.entitlements; sourceTree = "<group>"; };
-		4A1E89031701F09F007DF2A0 /* logo.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = logo.iconset; sourceTree = "<group>"; };
 		4A1F18AB16A7E65A00F39F74 /* CharmNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CharmNumberFormatter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CharmNumberFormatter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4A27AD93178A4ECA008BC36F /* PasswordHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordHelpView.xib; sourceTree = "<group>"; };
@@ -230,6 +217,7 @@
 		4A42311C1719AB8100ABD4F6 /* connect.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = connect.entitlements; sourceTree = "<group>"; };
 		4A44D67F16A8379C00EB44A8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = askpass/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4A44D68116A837A800EB44A8 /* askpass-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "askpass-Prefix.pch"; path = "askpass/askpass-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		4A6A30A5181EADFF00F652B4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4A70ACA71774535F00777818 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
 		4A70ACA91774536000777818 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
 		4A70ACAA1774536000777818 /* RNCryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptor.m; sourceTree = "<group>"; };
@@ -255,8 +243,6 @@
 		4A70ACDF1774B06400777818 /* INPopoverWindowFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverWindowFrame.h; path = INPopoverController/INPopoverWindowFrame.h; sourceTree = "<group>"; };
 		4A70ACE01774B06400777818 /* INPopoverWindowFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INPopoverWindowFrame.m; path = INPopoverController/INPopoverWindowFrame.m; sourceTree = "<group>"; };
 		4A70ACE61774B0F600777818 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4A70ACEC1777F1D900777818 /* warning_24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_24x24.png; sourceTree = "<group>"; };
-		4A70ACED1777F1D900777818 /* warning_24x24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning_24x24@2x.png"; sourceTree = "<group>"; };
 		4A7B732F16E6F184005D9965 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		4AA6470D16BD006700DE5CAD /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
@@ -302,18 +288,6 @@
 		4ADB925C17476F700064D82D /* MIT-License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License.rtf"; sourceTree = "<group>"; };
 		4ADB925D17476F700064D82D /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		4ADB925E17476F700064D82D /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
-		4ADB92A21747C7E80064D82D /* connected-inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connected-inverse.png"; sourceTree = "<group>"; };
-		4ADB92A31747C7E80064D82D /* connected-inverse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connected-inverse@2x.png"; sourceTree = "<group>"; };
-		4ADB92A41747C7E80064D82D /* connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connected.png; sourceTree = "<group>"; };
-		4ADB92A51747C7E80064D82D /* connected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connected@2x.png"; sourceTree = "<group>"; };
-		4ADB92A61747C7E80064D82D /* connecting-inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connecting-inverse.png"; sourceTree = "<group>"; };
-		4ADB92A71747C7E80064D82D /* connecting-inverse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connecting-inverse@2x.png"; sourceTree = "<group>"; };
-		4ADB92A81747C7E80064D82D /* connecting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connecting.png; sourceTree = "<group>"; };
-		4ADB92A91747C7E80064D82D /* connecting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connecting@2x.png"; sourceTree = "<group>"; };
-		4ADB92AA1747C7E80064D82D /* disconnected-inverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disconnected-inverse.png"; sourceTree = "<group>"; };
-		4ADB92AB1747C7E80064D82D /* disconnected-inverse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disconnected-inverse@2x.png"; sourceTree = "<group>"; };
-		4ADB92AC1747C7E80064D82D /* disconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disconnected.png; sourceTree = "<group>"; };
-		4ADB92AD1747C7E80064D82D /* disconnected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disconnected@2x.png"; sourceTree = "<group>"; };
 		4AE2C1701742151D00D0C57D /* ServersPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServersPreferencesView.xib; sourceTree = "<group>"; };
 		4AE2C1721742154100D0C57D /* ServersPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersPreferencesViewController.h; sourceTree = "<group>"; };
 		4AE2C1731742154100D0C57D /* ServersPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServersPreferencesViewController.m; sourceTree = "<group>"; };
@@ -322,6 +296,7 @@
 		4AEC465816A6A35E008BD118 /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
 		4AEC465A16A6A3F5008BD118 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4AEC465B16A6A3F5008BD118 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4AECC517181EAA920074C6A3 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,8 +567,7 @@
 		4AD3FDCE16A56EF400378F77 = {
 			isa = PBXGroup;
 			children = (
-				4A1E89031701F09F007DF2A0 /* logo.iconset */,
-				4ADB92A11747C7E80064D82D /* icons */,
+				4AECC517181EAA920074C6A3 /* AppIcon.xcassets */,
 				4AC9BF1717952FF000E9A997 /* Vendor */,
 				4AD3FDE316A56EF400378F77 /* sshproxy */,
 				4A1BE47D16A5BAA0000E56D7 /* askpass */,
@@ -664,6 +638,7 @@
 				4A2E4C2E181C08C80029579B /* AboutWindowController.h */,
 				4A2E4C2F181C08C80029579B /* AboutWindowController.m */,
 				4A2E4C30181C08C80029579B /* AboutWindowController.xib */,
+				4A6A30A5181EADFF00F652B4 /* Media.xcassets */,
 			);
 			path = sshproxy;
 			sourceTree = "<group>";
@@ -708,27 +683,6 @@
 				4ADB925E17476F700064D82D /* RSVerticallyCenteredTextFieldCell.m */,
 			);
 			path = RSVerticallyCenteredTextFieldCell;
-			sourceTree = "<group>";
-		};
-		4ADB92A11747C7E80064D82D /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				4A70ACEC1777F1D900777818 /* warning_24x24.png */,
-				4A70ACED1777F1D900777818 /* warning_24x24@2x.png */,
-				4ADB92A21747C7E80064D82D /* connected-inverse.png */,
-				4ADB92A31747C7E80064D82D /* connected-inverse@2x.png */,
-				4ADB92A41747C7E80064D82D /* connected.png */,
-				4ADB92A51747C7E80064D82D /* connected@2x.png */,
-				4ADB92A61747C7E80064D82D /* connecting-inverse.png */,
-				4ADB92A71747C7E80064D82D /* connecting-inverse@2x.png */,
-				4ADB92A81747C7E80064D82D /* connecting.png */,
-				4ADB92A91747C7E80064D82D /* connecting@2x.png */,
-				4ADB92AA1747C7E80064D82D /* disconnected-inverse.png */,
-				4ADB92AB1747C7E80064D82D /* disconnected-inverse@2x.png */,
-				4ADB92AC1747C7E80064D82D /* disconnected.png */,
-				4ADB92AD1747C7E80064D82D /* disconnected@2x.png */,
-			);
-			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -873,6 +827,7 @@
 			files = (
 				4AA6472116BE3DBA00DE5CAD /* InfoPlist.strings in Resources */,
 				4AA6472716BE3DBA00DE5CAD /* Credits.rtf in Resources */,
+				4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */,
 				4A7B733016E6F184005D9965 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,25 +846,12 @@
 				4AEC465916A6A35E008BD118 /* GeneralPreferencesView.xib in Resources */,
 				4A021B3F16B801CD00F98FBC /* askpass.entitlements in Resources */,
 				4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */,
-				4A1E89041701F09F007DF2A0 /* logo.iconset in Resources */,
 				4AE2C1711742151D00D0C57D /* ServersPreferencesView.xib in Resources */,
 				4ADB925F17476F700064D82D /* MIT-License.rtf in Resources */,
-				4ADB92AE1747C7E80064D82D /* connected-inverse.png in Resources */,
-				4ADB92AF1747C7E80064D82D /* connected-inverse@2x.png in Resources */,
-				4ADB92B01747C7E80064D82D /* connected.png in Resources */,
-				4ADB92B11747C7E80064D82D /* connected@2x.png in Resources */,
+				4AECC518181EAA920074C6A3 /* AppIcon.xcassets in Resources */,
+				4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */,
 				4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */,
-				4ADB92B21747C7E80064D82D /* connecting-inverse.png in Resources */,
-				4ADB92B31747C7E80064D82D /* connecting-inverse@2x.png in Resources */,
-				4ADB92B41747C7E80064D82D /* connecting.png in Resources */,
-				4ADB92B51747C7E80064D82D /* connecting@2x.png in Resources */,
-				4ADB92B61747C7E80064D82D /* disconnected-inverse.png in Resources */,
-				4ADB92B71747C7E80064D82D /* disconnected-inverse@2x.png in Resources */,
-				4ADB92B81747C7E80064D82D /* disconnected.png in Resources */,
-				4ADB92B91747C7E80064D82D /* disconnected@2x.png in Resources */,
 				4A2A3953175EC85D002BF361 /* README.txt in Resources */,
-				4A70ACEE1777F1D900777818 /* warning_24x24.png in Resources */,
-				4A70ACEF1777F1D900777818 /* warning_24x24@2x.png in Resources */,
 				4A27AD99178A4ECA008BC36F /* PasswordHelpView.xib in Resources */,
 				4A27AD9C178A4ECA008BC36F /* PublicKeyHelpView.xib in Resources */,
 				4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */,
@@ -1171,6 +1113,7 @@
 		4AA6472F16BE3DBA00DE5CAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -1188,6 +1131,7 @@
 		4AA6473016BE3DBA00DE5CAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -1268,6 +1212,7 @@
 		4AD3FE0C16A56EF400378F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -1283,6 +1228,7 @@
 		4AD3FE0D16A56EF400378F77 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = sshproxy/sshproxy.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";

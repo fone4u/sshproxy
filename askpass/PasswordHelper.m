@@ -164,7 +164,7 @@
     
     NSString* headerString = [NSString stringWithFormat:@"SSH Proxy connecting to the SSH server “%@”.", hostString];
     
-    NSURL *iconURL = [[NSBundle mainBundle] URLForResource:@"logo" withExtension:@"icns" subdirectory:@""];
+    NSURL *iconURL = [[NSBundle mainBundle] URLForResource:@"AppIcon" withExtension:@"icns" subdirectory:@""];
     
 	NSDictionary *panelDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                iconURL, kCFUserNotificationIconURLKey,

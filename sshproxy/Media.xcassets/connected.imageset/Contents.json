@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "idiom" : "mac",
+      "scale" : "1x",
+      "filename" : "connected.png"
+    },
+    {
+      "idiom" : "mac",
+      "scale" : "2x",
+      "filename" : "connected@2x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
