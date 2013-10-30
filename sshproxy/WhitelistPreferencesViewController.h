@@ -8,18 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
+#import "BasePreferencesViewController.h"
 
-@interface WhitelistPreferencesViewController : NSViewController <MASPreferencesViewController, NSTableViewDelegate>
+@interface WhitelistPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
 
 @property (strong) IBOutlet NSArrayController *whitelistArrayController;
-@property (strong) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (strong) IBOutlet NSTableView *whitelistTableView;
-
-@property (nonatomic, readwrite) BOOL isDirty;
-
-- (IBAction)closePreferencesWindow:(id)sender;
-- (IBAction)applyChanges:(id)sender;
-- (IBAction)revertChanges:(id)sender;
 
 - (IBAction)duplicateSite:(id)sender;
 - (IBAction)removeSite:(id)sender;

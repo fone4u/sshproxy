@@ -71,6 +71,7 @@
 		4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1313178FAA4A00F1DF01 /* GCDAsyncSocket.m */; };
 		4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */; };
 		4AAF131C178FAE1C00F1DF01 /* INSOCKSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF131B178FAE1C00F1DF01 /* INSOCKSConnection.m */; };
+		4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */; };
 		4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9BEFF1794D68700E9A997 /* WhitelistPreferencesViewController.m */; };
 		4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC9BF001794D68700E9A997 /* WhitelistPreferencesView.xib */; };
 		4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9BF041794EAA500E9A997 /* WhitelistHelper.m */; };
@@ -258,6 +259,8 @@
 		4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSServer.m; sourceTree = "<group>"; };
 		4AAF131A178FAE1C00F1DF01 /* INSOCKSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSConnection.h; sourceTree = "<group>"; };
 		4AAF131B178FAE1C00F1DF01 /* INSOCKSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSConnection.m; sourceTree = "<group>"; };
+		4AB29FC218212F440026C8CC /* BasePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePreferencesViewController.h; sourceTree = "<group>"; };
+		4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePreferencesViewController.m; sourceTree = "<group>"; };
 		4AC9BEFE1794D68700E9A997 /* WhitelistPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhitelistPreferencesViewController.h; sourceTree = "<group>"; };
 		4AC9BEFF1794D68700E9A997 /* WhitelistPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhitelistPreferencesViewController.m; sourceTree = "<group>"; };
 		4AC9BF001794D68700E9A997 /* WhitelistPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhitelistPreferencesView.xib; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				4A03F73816A69519009BCD79 /* AppController.m */,
 				4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */,
 				4AD3FDE416A56EF400378F77 /* Supporting Files */,
+				4AB29FC218212F440026C8CC /* BasePreferencesViewController.h */,
+				4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */,
 				4AEC465816A6A35E008BD118 /* GeneralPreferencesView.xib */,
 				4AEC465A16A6A3F5008BD118 /* GeneralPreferencesViewController.h */,
 				4AEC465B16A6A3F5008BD118 /* GeneralPreferencesViewController.m */,
@@ -947,6 +952,7 @@
 				4AAF131C178FAE1C00F1DF01 /* INSOCKSConnection.m in Sources */,
 				4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */,
 				4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */,
+				4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */,
 				4AC9BF08179519B500E9A997 /* CharmDomainFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

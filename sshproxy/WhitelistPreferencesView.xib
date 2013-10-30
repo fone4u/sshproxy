@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12F45</string>
-		<string key="IBDocument.InterfaceBuilderVersion">4510</string>
-		<string key="IBDocument.AppKitVersion">1187.40</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.SystemVersion">13A603</string>
+		<string key="IBDocument.InterfaceBuilderVersion">4514</string>
+		<string key="IBDocument.AppKitVersion">1265</string>
+		<string key="IBDocument.HIToolboxVersion">695.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">4510</string>
+			<string key="NS.object.0">4514</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBCustomFormatter</string>
@@ -57,6 +57,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{103, 20}, {12, 32}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="1033938263"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="675979335">
@@ -64,7 +65,7 @@
 							<int key="NSCellFlags2">134217728</int>
 							<string key="NSContents">Button</string>
 							<object class="NSFont" key="NSSupport" id="942760720">
-								<string key="NSName">LucidaGrande</string>
+								<string key="NSName">.LucidaGrandeUI</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
 							</object>
@@ -89,6 +90,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{397, 13}, {82, 32}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="248865030"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="652699226">
@@ -137,6 +139,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{107, 60}, {448, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="1052433094"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="958748249">
@@ -161,6 +164,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{20, 60}, {27, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="111078719"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="838929894">
@@ -188,6 +192,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{46, 60}, {27, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="28380359"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="219172134">
@@ -215,12 +220,13 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{72, 60}, {36, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="997848779"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="468443784">
 							<int key="NSCellFlags">-2080374720</int>
 							<int key="NSCellFlags2">134219776</int>
 							<object class="NSFont" key="NSSupport">
-								<string key="NSName">LucidaGrande</string>
+								<string key="NSName">.LucidaGrandeUI</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1301</int>
 							</object>
@@ -478,6 +484,7 @@
 										<reference key="NSOnImage" ref="96164056"/>
 										<reference key="NSMixedImage" ref="688340215"/>
 										<string key="NSAction">submenuAction:</string>
+										<reference key="NSTarget" ref="639776383"/>
 										<object class="NSMenu" key="NSSubmenu" id="639776383">
 											<string key="NSTitle">Import sites for developer</string>
 											<array class="NSMutableArray" key="NSMenuItems">
@@ -519,7 +526,7 @@
 									</object>
 								</array>
 							</object>
-							<int key="NSSelectedIndex">-1</int>
+							<int key="NSSelectedIndex">20</int>
 							<bool key="NSPullDown">YES</bool>
 							<int key="NSPreferredEdge">1</int>
 							<bool key="NSUsesItemFromMenu">YES</bool>
@@ -534,6 +541,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{17, 344}, {541, 51}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSNextKeyView" ref="35836188"/>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="424765717">
@@ -563,7 +571,8 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<bool key="NSControlAutosetMaxLayoutWidth">YES</bool>
-						<double key="NSPreferredMaxLayoutWidth">535</double>
+						<double key="NSPreferredMaxLayoutWidth">537</double>
+						<int key="NSTextFieldAlignmentRectInsetsVersion">1</int>
 					</object>
 					<object class="NSScrollView" id="35836188">
 						<reference key="NSNextResponder" ref="849696811"/>
@@ -579,6 +588,7 @@
 										<object class="NSPSMatrix" key="NSFrameMatrix"/>
 										<string key="NSFrameSize">{533, 243}</string>
 										<reference key="NSSuperview" ref="473291913"/>
+										<reference key="NSNextKeyView" ref="613257984"/>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 										<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -588,6 +598,7 @@
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
 											<string key="NSFrameSize">{533, 17}</string>
 											<reference key="NSSuperview" ref="559011791"/>
+											<reference key="NSNextKeyView" ref="473291913"/>
 											<reference key="NSTableView" ref="1019214230"/>
 										</object>
 										<object class="_NSCornerView" key="NSCornerView">
@@ -605,7 +616,7 @@
 													<int key="NSCellFlags2">134219776</int>
 													<string key="NSContents">Enabled</string>
 													<object class="NSFont" key="NSSupport" id="26">
-														<string key="NSName">LucidaGrande</string>
+														<string key="NSName">.LucidaGrandeUI</string>
 														<double key="NSSize">11</double>
 														<int key="NSfFlags">3100</int>
 													</object>
@@ -760,7 +771,7 @@
 							</object>
 							<object class="NSClipView" id="559011791">
 								<reference key="NSNextResponder" ref="35836188"/>
-								<int key="NSvFlags">3840</int>
+								<int key="NSvFlags">3874</int>
 								<array class="NSMutableArray" key="NSSubviews">
 									<reference ref="93573478"/>
 								</array>
@@ -777,6 +788,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{1, 245}, {533, 15}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSNextKeyView" ref="148577812"/>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<int key="NSsFlags">1</int>
 								<reference key="NSTarget" ref="35836188"/>
@@ -788,6 +800,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSNextKeyView" ref="674514390"/>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<reference key="NSTarget" ref="35836188"/>
 								<string key="NSAction">_doScroller:</string>
@@ -796,7 +809,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{20, 81}, {535, 261}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
-						<reference key="NSNextKeyView" ref="473291913"/>
+						<reference key="NSNextKeyView" ref="559011791"/>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="613257984"/>
 						<reference key="NSHScroller" ref="674514390"/>
@@ -810,6 +823,7 @@
 				</array>
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{575, 415}</string>
+				<reference key="NSNextKeyView" ref="622499586"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSArrayController" id="996728443">
@@ -1756,7 +1770,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NSActionTemplate">{15, 15}</string>
+			<string key="NSActionTemplate">{14, 14}</string>
 			<string key="NSAddTemplate">{8, 8}</string>
 			<string key="NSMenuCheckmark">{11, 11}</string>
 			<string key="NSMenuMixedState">{10, 3}</string>

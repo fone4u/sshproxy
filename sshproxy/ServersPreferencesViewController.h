@@ -9,14 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
 #import "INPopoverController.h"
+#import "BasePreferencesViewController.h"
 
-@interface ServersPreferencesViewController : NSViewController <MASPreferencesViewController, NSTableViewDelegate> {
-}
-
+@interface ServersPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
 
 - (IBAction)remoteStepperAction:(id)sender;
-
-- (IBAction)closePreferencesWindow:(id)sender;
 
 - (IBAction)duplicateServer:(id)sender;
 - (IBAction)removeServer:(id)sender;
@@ -30,7 +27,6 @@
 - (IBAction)authMethodChanged:(id)sender;
 
 @property (strong) IBOutlet NSArrayController *serverArrayController;
-@property (strong) IBOutlet NSUserDefaultsController *userDefaultsController;
 
 @property (strong) IBOutlet NSTextField *remoteHostTextField;
 @property (strong) IBOutlet NSTextField *remotePortTextField;
@@ -44,10 +40,5 @@
 @property (strong) IBOutlet NSTextField *privatekeyLabel;
 
 @property (nonatomic,readonly) INPopoverController *authTipPopoverController;
-
-- (IBAction)applyChanges:(id)sender;
-- (IBAction)revertChanges:(id)sender;
-
-@property (nonatomic, readwrite) BOOL isDirty;
 
 @end

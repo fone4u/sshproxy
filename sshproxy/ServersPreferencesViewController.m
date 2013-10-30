@@ -41,20 +41,14 @@
     return NSLocalizedString(@"Servers", @"Toolbar item name for the Servers preference pane");
 }
 
-#pragma mark - 
+#pragma mark -
 
-- (void)awakeFromNib
+-(void)loadView
 {
-    //    [super awakeFromNib];
+    [super loadView];
     
     CharmNumberFormatter *formatter = [[CharmNumberFormatter alloc] init];
     [self.remotePortTextField setFormatter:formatter];
-}
-
-- (void)viewWillAppear
-{
-    [self.userDefaultsController save:self];
-    self.isDirty = NO;
     
     if ([self.serversTableView numberOfRows]<=0) {
         [self performSelector: @selector(addServer:) withObject:self afterDelay: 0.0f];
@@ -153,10 +147,6 @@
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
-- (IBAction)closePreferencesWindow:(id)sender {
-    [self.view.window performClose:sender];
-}
-
 - (INPopoverController *)authTipPopoverController
 {
     if (!authTipPopoverController) {
@@ -166,60 +156,6 @@
     }
     
     return authTipPopoverController;
-}
-
-- (IBAction)applyChanges:(id)sender
-{
-    // rember index
-    NSInteger index = [SSHHelper getActivatedServerIndex];
-    NSUInteger selected = self.serverArrayController.selectionIndex;
-    
-    // apply changes
-    [self.userDefaultsController save:self];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    self.isDirty = NO;
-    
-    if ( [self.serverArrayController.arrangedObjects count] <= 0) {
-        return;
-    }
-    
-    // recover selection
-    NSDictionary* server = (NSDictionary*)[self.serverArrayController.arrangedObjects objectAtIndex:index];
-    BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
-    
-    if (selected >= [self.serverArrayController.arrangedObjects count]) {
-        selected = [self.serverArrayController.arrangedObjects count] -1;
-    }
-    
-    self.serverArrayController.selectionIndex = selected;
-    
-    // reactive proxy
-    if (isProxyNeedReactive) {
-        AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
-        
-        // it seems must delay some microsenconds to wait user defaults synchronize
-        [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.1];
-    }
-    
-}
-- (IBAction)revertChanges:(id)sender
-{
-    NSUInteger selected = self.serverArrayController.selectionIndex;
-    
-    [self.userDefaultsController revert:self];
-    
-    // save again to prevent dirty settings
-    [self.userDefaultsController save:self];
-    [self.userDefaultsController.defaults synchronize];
-    
-    self.isDirty = NO;
-    
-    if (selected >= [self.serverArrayController.arrangedObjects count]) {
-        selected = [self.serverArrayController.arrangedObjects count] -1;
-    }
-    
-    self.serverArrayController.selectionIndex = selected;
 }
 
 
@@ -286,51 +222,60 @@
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
-- (void)controlTextDidChange:(NSNotification *)aNotification
-{
-    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
-}
+#pragma mark - BasePreferencesViewController
 
-#pragma mark - NSViewController
-
-- (BOOL)commitEditing
+- (IBAction)applyChanges:(id)sender
 {
-    BOOL shouldClose = YES;
+    // rember index
+    NSInteger index = [SSHHelper getActivatedServerIndex];
+    NSUInteger selected = self.serverArrayController.selectionIndex;
     
-    if (self.isDirty) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
-        
-        alert.alertStyle = NSWarningAlertStyle;
-        
-        [alert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        // a simple trick for waiting sheet modal return
-        shouldClose = [NSApp runModalForWindow:alert.window];
+    // apply changes
+    [self.userDefaultsController save:self];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.isDirty = NO;
+    
+    if ( [self.serverArrayController.arrangedObjects count] <= 0) {
+        return;
     }
     
-    return shouldClose;
-}
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn: // apply
-            [self performSelector: @selector(applyChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        case NSAlertOtherReturn: // cancel
-            [NSApp stopModalWithCode:NO];
-            break;
-            
-        case NSAlertAlternateReturn: // don't apply
-            [self performSelector: @selector(revertChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        default:
-            [NSApp stopModalWithCode:YES];
-            break;
+    // recover selection
+    NSDictionary* server = (NSDictionary*)[self.serverArrayController.arrangedObjects objectAtIndex:index];
+    BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
+    
+    if (selected >= [self.serverArrayController.arrangedObjects count]) {
+        selected = [self.serverArrayController.arrangedObjects count] -1;
     }
+    
+    self.serverArrayController.selectionIndex = selected;
+    
+    // reactive proxy
+    if (isProxyNeedReactive) {
+        AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
+        
+        // it seems must delay some microsenconds to wait user defaults synchronize
+        [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.1];
+    }
+    
 }
 
+- (IBAction)revertChanges:(id)sender
+{
+    NSUInteger selected = self.serverArrayController.selectionIndex;
+    
+    [self.userDefaultsController revert:self];
+    
+    // save again to prevent dirty settings
+    [self.userDefaultsController save:self];
+    [self.userDefaultsController.defaults synchronize];
+    
+    self.isDirty = NO;
+    
+    if (selected >= [self.serverArrayController.arrangedObjects count]) {
+        selected = [self.serverArrayController.arrangedObjects count] -1;
+    }
+    
+    self.serverArrayController.selectionIndex = selected;
+}
 @end

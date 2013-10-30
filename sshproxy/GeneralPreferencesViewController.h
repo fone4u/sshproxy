@@ -8,30 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "MASPreferencesViewController.h"
+#import "BasePreferencesViewController.h"
 
-@interface GeneralPreferencesViewController : NSViewController <MASPreferencesViewController>
+@interface GeneralPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController>
 
 - (IBAction)localStepperAction:(id)sender;
 - (IBAction)toggleAutoTurnOnProxy:(id)sender;
 - (IBAction)toggleLaunchAtLogin:(id)sender;
 - (IBAction)toggleShareSocks:(id)sender;
-- (IBAction)closePreferencesWindow:(id)sender;
-- (IBAction)applyChanges:(id)sender;
-- (IBAction)revertChanges:(id)sender;
 
 @property IBOutlet NSTextField* localPortTextField;
 @property IBOutlet NSStepper* localPortStepper;
 @property IBOutlet NSButton* autoConnectButton;
 @property IBOutlet NSButton* startAtLoginButton;
-@property IBOutlet NSButton* revertButton;
-@property IBOutlet NSButton* applyButton;
-@property IBOutlet NSUserDefaultsController *userDefaultsController;
 
 @property IBOutlet NSBox* socksBox;
 @property IBOutlet NSTextField* listeningTextField;
 @property IBOutlet NSTextField* listeningRangeTextField;
 @property IBOutlet NSButton* shareButton;
-
-@property (nonatomic, readwrite) BOOL isDirty;
 
 @end
