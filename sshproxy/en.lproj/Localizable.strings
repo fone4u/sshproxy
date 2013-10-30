@@ -55,8 +55,7 @@
 "sshproxy.pref.servers.host" = "SSH Server :";
 "sshproxy.pref.servers.port" = "Port :";
 "sshproxy.pref.servers.username" = "Username :";
-"sshproxy.pref.servers.auth" = "Authentication";
-
+"sshproxy.pref.servers.auth" = "Authentication :";
 "sshproxy.pref.servers.password" = "Password";
 
 "sshproxy.pref.servers.auth_tip" = "SSH Proxy will automatically popup a dialog prompts you to enter a password, or a passphrase to decrypt private key.
@@ -69,4 +68,15 @@ And you must click \"Public Key\" checkbox again to re-import after private key 
 
 
 "sshproxy.pref.servers.pubkey" = "Public Key";
+
+"sshproxy.pref.servers.advanced" = "Advanced...";
+"sshproxy.pref.servers.duplicate" = "Duplicate Server...";
+"sshproxy.pref.servers.compress" = "Enable SSH compression";
+"sshproxy.pref.servers.through_proxy" = "Connecting through a proxy server";
+"sshproxy.pref.servers.proxy_type" = "Proxy type:";
+"sshproxy.pref.servers.proxy_server" = "Server:";
+"sshproxy.pref.servers.proxy_auth" = "Proxy server requires a password";
+"sshproxy.pref.servers.proxy_username" = "Username:";
+"sshproxy.pref.servers.proxy_password" = "Password:";
+"sshproxy.pref.servers.ok" = "OK";
 

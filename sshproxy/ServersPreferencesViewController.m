@@ -59,6 +59,24 @@
         // invoke tableViewSelectionDidChange
         [[NSNotificationCenter defaultCenter] postNotificationName:NSTableViewSelectionDidChangeNotification object:self.serversTableView];
     }
+    
+    self.remoteHostLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.host", nil);
+    self.remotePortLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.port", nil);
+    self.usernameLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.username", nil);
+    self.authenticationLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.auth", nil);
+    self.passwordRadioCell.title = NSLocalizedString(@"sshproxy.pref.servers.password", nil);
+    self.pubkeyRadioCell.title = NSLocalizedString(@"sshproxy.pref.servers.pubkey", nil);
+    self.advancedButton.title = NSLocalizedString(@"sshproxy.pref.servers.advanced", nil);
+    self.duplicateMenuItem.title =NSLocalizedString(@"sshproxy.pref.servers.duplicate", nil);
+    
+    self.compressCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.compress", nil);
+    self.throughProxyCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.through_proxy", nil);
+    self.proxyTypeLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_type", nil);
+    self.proxyServerLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_server", nil);
+    self.authRequiredCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.proxy_auth", nil);
+    self.proxyUsernameLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_username", nil);
+    self.proxyPasswordLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_password", nil);
+    self.okButton.title = NSLocalizedString(@"sshproxy.pref.servers.ok", nil);
 }
 
 

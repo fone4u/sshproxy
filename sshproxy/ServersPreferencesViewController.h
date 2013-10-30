@@ -39,6 +39,25 @@
 @property (strong) IBOutlet NSMatrix *authMethodMatrix;
 @property (strong) IBOutlet NSTextField *privatekeyLabel;
 
+
+@property (strong) IBOutlet NSTextField *remoteHostLabel;
+@property (strong) IBOutlet NSTextField *remotePortLabel;
+@property (strong) IBOutlet NSTextField *usernameLabel;
+@property (strong) IBOutlet NSTextField *authenticationLabel;
+@property (strong) IBOutlet NSButtonCell *passwordRadioCell;
+@property (strong) IBOutlet NSButtonCell *pubkeyRadioCell;
+@property (strong) IBOutlet NSButton *advancedButton;
+@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
+
+@property (strong) IBOutlet NSButton *compressCheckbox;
+@property (strong) IBOutlet NSButton *throughProxyCheckbox;
+@property (strong) IBOutlet NSTextField *proxyTypeLabel;
+@property (strong) IBOutlet NSTextField *proxyServerLabel;
+@property (strong) IBOutlet NSButton *authRequiredCheckbox;
+@property (strong) IBOutlet NSTextField *proxyUsernameLabel;
+@property (strong) IBOutlet NSTextField *proxyPasswordLabel;
+@property (strong) IBOutlet NSButton *okButton;
+
 @property (nonatomic,readonly) INPopoverController *authTipPopoverController;
 
 @end

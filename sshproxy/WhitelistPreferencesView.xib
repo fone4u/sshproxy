@@ -48,7 +48,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="849696811">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">1804</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="1052433094">
@@ -57,6 +57,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{103, 20}, {12, 32}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1033938263"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -90,6 +91,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{397, 13}, {82, 32}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="248865030"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -115,6 +117,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{479, 13}, {82, 32}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="745105876">
@@ -139,6 +142,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{107, 60}, {448, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1052433094"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -164,6 +168,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{20, 60}, {27, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="111078719"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -192,6 +197,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{46, 60}, {27, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="28380359"/>
 						<string key="NSHuggingPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -220,6 +226,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{72, 60}, {36, 23}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="997848779"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="468443784">
@@ -541,6 +548,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{17, 344}, {541, 51}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="35836188"/>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -588,6 +596,7 @@
 										<object class="NSPSMatrix" key="NSFrameMatrix"/>
 										<string key="NSFrameSize">{533, 243}</string>
 										<reference key="NSSuperview" ref="473291913"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="613257984"/>
 										<bool key="NSEnabled">YES</bool>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -598,6 +607,7 @@
 											<object class="NSPSMatrix" key="NSFrameMatrix"/>
 											<string key="NSFrameSize">{533, 17}</string>
 											<reference key="NSSuperview" ref="559011791"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="473291913"/>
 											<reference key="NSTableView" ref="1019214230"/>
 										</object>
@@ -764,6 +774,7 @@
 								</array>
 								<string key="NSFrame">{{1, 17}, {533, 243}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1019214230"/>
 								<reference key="NSDocView" ref="1019214230"/>
 								<reference key="NSBGColor" ref="695823121"/>
@@ -777,6 +788,7 @@
 								</array>
 								<string key="NSFrame">{{1, 0}, {533, 17}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="93573478"/>
 								<reference key="NSDocView" ref="93573478"/>
 								<reference key="NSBGColor" ref="695823121"/>
@@ -788,6 +800,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{1, 245}, {533, 15}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="148577812"/>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<int key="NSsFlags">1</int>
@@ -800,6 +813,7 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 								<reference key="NSSuperview" ref="35836188"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="674514390"/>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<reference key="NSTarget" ref="35836188"/>
@@ -809,6 +823,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{20, 81}, {535, 261}}</string>
 						<reference key="NSSuperview" ref="849696811"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="559011791"/>
 						<int key="NSsFlags">133682</int>
 						<reference key="NSVScroller" ref="613257984"/>
@@ -823,6 +838,8 @@
 				</array>
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{575, 415}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="622499586"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -1087,6 +1104,22 @@
 						<reference key="destination" ref="1019214230"/>
 					</object>
 					<string key="id">66</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">revertButton</string>
+						<reference key="source" ref="1036333198"/>
+						<reference key="destination" ref="1033938263"/>
+					</object>
+					<string key="id">7mj-gQ-vR6</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">applyButton</string>
+						<reference key="source" ref="1036333198"/>
+						<reference key="destination" ref="248865030"/>
+					</object>
+					<string key="id">2Bb-WK-gk4</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1751,7 +1784,120 @@
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">BasePreferencesViewController</string>
+					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="applyChanges:">id</string>
+						<string key="closePreferencesWindow:">id</string>
+						<string key="revertChanges:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="applyChanges:">
+							<string key="name">applyChanges:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="closePreferencesWindow:">
+							<string key="name">closePreferencesWindow:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="revertChanges:">
+							<string key="name">revertChanges:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="applyButton">NSButton</string>
+						<string key="revertButton">NSButton</string>
+						<string key="userDefaultsController">NSUserDefaultsController</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="applyButton">
+							<string key="name">applyButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="revertButton">
+							<string key="name">revertButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="userDefaultsController">
+							<string key="name">userDefaultsController</string>
+							<string key="candidateClassName">NSUserDefaultsController</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BasePreferencesViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CharmDomainFormatter</string>
+					<string key="superclassName">NSFormatter</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CharmDomainFormatter.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">WhitelistPreferencesViewController</string>
+					<string key="superclassName">BasePreferencesViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="addSite:">id</string>
+						<string key="cellButtonClicked:">id</string>
+						<string key="duplicateSite:">id</string>
+						<string key="emptyWhitelist:">id</string>
+						<string key="importMenuClicked:">id</string>
+						<string key="removeSite:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="addSite:">
+							<string key="name">addSite:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cellButtonClicked:">
+							<string key="name">cellButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="duplicateSite:">
+							<string key="name">duplicateSite:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="emptyWhitelist:">
+							<string key="name">emptyWhitelist:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="importMenuClicked:">
+							<string key="name">importMenuClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="removeSite:">
+							<string key="name">removeSite:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="whitelistArrayController">NSArrayController</string>
+						<string key="whitelistTableView">NSTableView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="whitelistArrayController">
+							<string key="name">whitelistArrayController</string>
+							<string key="candidateClassName">NSArrayController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="whitelistTableView">
+							<string key="name">whitelistTableView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/WhitelistPreferencesViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.previouslyAttemptedUpgradeToXcode5">YES</bool>
