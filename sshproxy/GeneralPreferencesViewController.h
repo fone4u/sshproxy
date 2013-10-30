@@ -27,6 +27,11 @@
 @property IBOutlet NSButton* applyButton;
 @property IBOutlet NSUserDefaultsController *userDefaultsController;
 
+@property IBOutlet NSBox* socksBox;
+@property IBOutlet NSTextField* listeningTextField;
+@property IBOutlet NSTextField* listeningRangeTextField;
+@property IBOutlet NSButton* shareButton;
+
 @property (nonatomic, readwrite) BOOL isDirty;
 
 @end

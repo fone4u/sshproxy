@@ -52,6 +52,15 @@
     
     [self.userDefaultsController save:self];
     self.isDirty = NO;
+    
+    self.socksBox.title = NSLocalizedString(@"sshproxy.pref.general.socksbox", nil);
+    self.listeningTextField.stringValue = NSLocalizedString(@"sshproxy.pref.general.listening", nil);
+    self.listeningRangeTextField.stringValue = NSLocalizedString(@"sshproxy.pref.general.listening_range", nil);
+    self.shareButton.title = NSLocalizedString(@"sshproxy.pref.general.sharesocks", nil);
+    self.autoConnectButton.title = NSLocalizedString(@"sshproxy.pref.general.auto_connect", nil);
+    self.startAtLoginButton.title = NSLocalizedString(@"sshproxy.pref.general.start_at_login", nil);
+    self.applyButton.title = NSLocalizedString(@"sshproxy.pref.apply", nil);
+    self.revertButton.title = NSLocalizedString(@"sshproxy.pref.revert", nil);
 }
 
 

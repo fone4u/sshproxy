@@ -50,7 +50,7 @@
 "sshproxy.pref.general.listening_range" = "( from 1024 to 65535)";
 "sshproxy.pref.general.sharesocks" = "Share SOCKS v5 proxy on LAN";
 "sshproxy.pref.general.auto_connect" = "Automatically turn proxy on whe SSH Proxy starts";
-"sshproxy.pref.general.start_at_ogin" = "Launch when you log in";
+"sshproxy.pref.general.start_at_login" = "Launch when you log in";
 
 "sshproxy.pref.servers.host" = "SSH Server :";
 "sshproxy.pref.servers.port" = "Port :";
