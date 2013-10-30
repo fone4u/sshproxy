@@ -13,7 +13,7 @@
 		4A1BE47C16A5BAA0000E56D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BE47B16A5BAA0000E56D7 /* Foundation.framework */; };
 		4A1BE49D16A68F30000E56D7 /* sshproxy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */; };
 		4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */; };
-		4A27AD99178A4ECA008BC36F /* AuthTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* AuthTipViewController.xib */; };
+		4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* AuthTipView.xib */; };
 		4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */; };
 		4A27AD9D178D3FEC008BC36F /* SSHHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1761743214000D0C57D /* SSHHelper.m */; };
 		4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */; };
@@ -167,7 +167,7 @@
 		4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sshproxy.entitlements; sourceTree = "<group>"; };
 		4A1F18AB16A7E65A00F39F74 /* CharmNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CharmNumberFormatter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CharmNumberFormatter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4A27AD93178A4ECA008BC36F /* AuthTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthTipViewController.xib; sourceTree = "<group>"; };
+		4A27AD93178A4ECA008BC36F /* AuthTipView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthTipView.xib; sourceTree = "<group>"; };
 		4A27AD94178A4ECA008BC36F /* AuthTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthTipViewController.h; sourceTree = "<group>"; };
 		4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthTipViewController.m; sourceTree = "<group>"; };
 		4A27ADA0178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SSToolkitAdditions.h"; path = "sstoolkit/SSToolkit/NSDictionary+SSToolkitAdditions.h"; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 		4A27AD92178A4ECA008BC36F /* HelpView */ = {
 			isa = PBXGroup;
 			children = (
-				4A27AD93178A4ECA008BC36F /* AuthTipViewController.xib */,
+				4A27AD93178A4ECA008BC36F /* AuthTipView.xib */,
 				4A27AD94178A4ECA008BC36F /* AuthTipViewController.h */,
 				4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */,
 			);
@@ -844,7 +844,7 @@
 				4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */,
 				4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */,
 				4A2A3953175EC85D002BF361 /* README.txt in Resources */,
-				4A27AD99178A4ECA008BC36F /* AuthTipViewController.xib in Resources */,
+				4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */,
 				4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,7 +18,7 @@
 
 - (id)init
 {
-    return [super initWithNibName:@"AuthTipViewController" bundle:nil];
+    return [super initWithNibName:@"AuthTipView" bundle:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
