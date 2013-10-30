@@ -80,3 +80,14 @@ And you must click \"Public Key\" checkbox again to re-import after private key 
 "sshproxy.pref.servers.proxy_password" = "Password:";
 "sshproxy.pref.servers.ok" = "OK";
 
+
+"sshproxy.pref.whitelist.tips" = "Whitelist patterns define sites that should be loaded through SOCKS 5 proxy. Please note that whitelist is ignored when SSH Proxy is set to \"Use proxy for all sites\".";
+"sshproxy.pref.whitelist.enabled" = "Enabled";
+"sshproxy.pref.whitelist.address" = "Site address";
+"sshproxy.pref.whitelist.subdomains" = "Subdomains";
+"sshproxy.pref.whitelist.duplicate" = "Duplicate site address...";
+"sshproxy.pref.whitelist.empty" = "Empty whitelist";
+"sshproxy.pref.whitelist.import_all" = "Import all sites below";
+"sshproxy.pref.whitelist.import_developer" = "Import sites for developer";
+"sshproxy.pref.whitelist.import" = "Import";
+"sshproxy.pref.whitelist.sites" = "sites";

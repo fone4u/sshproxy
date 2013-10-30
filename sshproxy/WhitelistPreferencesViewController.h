@@ -23,4 +23,14 @@
 - (IBAction)importMenuClicked:(id)sender;
 - (IBAction)emptyWhitelist:(id)sender;
 
+@property (strong) IBOutlet NSTextField *tipsLabel;
+@property (strong) IBOutlet NSTableColumn *enabledTableColumn;
+@property (strong) IBOutlet NSTableColumn *addressTableColumn;
+@property (strong) IBOutlet NSTableColumn *subdomainsTableColumn;
+
+@property (strong) IBOutlet NSMenu *mainMenu;
+@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
+@property (strong) IBOutlet NSMenuItem *emptyMenuItem;
+@property (strong) IBOutlet NSMenuItem *importAllMenuItem;
+@property (strong) IBOutlet NSMenuItem *importDevMenu;
 @end
