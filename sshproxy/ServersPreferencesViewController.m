@@ -9,15 +9,13 @@
 #import "ServersPreferencesViewController.h"
 #import "CharmNumberFormatter.h"
 #import "SSHHelper.h"
-#import "PasswordHelpViewController.h"
-#import "PublicKeyHelpViewController.h"
+#import "AuthTipViewController.h"
 #import "AppController.h"
 #import <pwd.h>
 
 @implementation ServersPreferencesViewController
 
-@synthesize passwordHelpPopoverController;
-@synthesize publickeyHelpPopoverController;
+@synthesize authTipPopoverController;
 @synthesize isDirty;
 
 - (id)init
@@ -96,21 +94,12 @@
 }
 
 
-- (IBAction)togglePasswordHelpPopover:(id)sender
+- (IBAction)toggleAuthTipPopover:(id)sender
 {
-    if (self.passwordHelpPopoverController.popoverIsVisible) {
-        [self.passwordHelpPopoverController closePopover:nil];
+    if (self.authTipPopoverController.popoverIsVisible) {
+        [self.authTipPopoverController closePopover:nil];
     } else {
-        [self.passwordHelpPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
-    }
-}
-
-- (IBAction)togglePublickeyHelpPopover:(id)sender
-{
-    if (self.publickeyHelpPopoverController.popoverIsVisible) {
-        [self.publickeyHelpPopoverController closePopover:nil];
-    } else {
-        [self.publickeyHelpPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
+        [self.authTipPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
     }
 }
 
@@ -168,25 +157,15 @@
     [self.view.window performClose:sender];
 }
 
-- (INPopoverController *)passwordHelpPopoverController
+- (INPopoverController *)authTipPopoverController
 {
-    if (!passwordHelpPopoverController) {
-        PasswordHelpViewController *viewController = [[PasswordHelpViewController alloc] init];
+    if (!authTipPopoverController) {
+        AuthTipViewController *viewController = [[AuthTipViewController alloc] init];
         
-        passwordHelpPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
+        authTipPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
     }
     
-    return passwordHelpPopoverController;
-}
-- (INPopoverController *)publickeyHelpPopoverController
-{
-    if (!publickeyHelpPopoverController) {
-        PublicKeyHelpViewController *viewController = [[PublicKeyHelpViewController alloc] init];
-        
-        publickeyHelpPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
-    }
-    
-    return publickeyHelpPopoverController;
+    return authTipPopoverController;
 }
 
 - (IBAction)applyChanges:(id)sender

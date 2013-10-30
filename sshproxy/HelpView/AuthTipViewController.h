@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PasswordHelpViewController : NSViewController
+@interface AuthTipViewController : NSViewController
+
+@property (strong) IBOutlet NSTextField *tipTextField;
 
 @end

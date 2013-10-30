@@ -25,8 +25,7 @@
 - (IBAction)showTheSheet:(id)sender;
 - (IBAction)endTheSheet:(id)sender;
 
-- (IBAction)togglePasswordHelpPopover:(id)sender;
-- (IBAction)togglePublickeyHelpPopover:(id)sender;
+- (IBAction)toggleAuthTipPopover:(id)sender;
 
 - (IBAction)authMethodChanged:(id)sender;
 
@@ -44,11 +43,7 @@
 @property (strong) IBOutlet NSMatrix *authMethodMatrix;
 @property (strong) IBOutlet NSTextField *privatekeyLabel;
 
-@property (strong) IBOutlet NSButtonCell *privatekeyButtonCell;
-
-
-@property (nonatomic,readonly) INPopoverController *passwordHelpPopoverController;
-@property (nonatomic,readonly) INPopoverController *publickeyHelpPopoverController;
+@property (nonatomic,readonly) INPopoverController *authTipPopoverController;
 
 - (IBAction)applyChanges:(id)sender;
 - (IBAction)revertChanges:(id)sender;

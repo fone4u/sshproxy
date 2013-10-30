@@ -41,3 +41,32 @@
 "sshproxy.about.release" = "Release Date: 2013-11-11";
 "sshproxy.about.copyright" = "© 2013 Codinn Studio, all rights reserved";
 "sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly";
+
+"sshproxy.pref.apply" = "Apply";
+"sshproxy.pref.revert" = "Revert";
+
+"sshproxy.pref.general.socksbox" = "SOCKS v5 Proxy";
+"sshproxy.pref.general.listening" = "Listening port:";
+"sshproxy.pref.general.listening_range" = "( from 1024 to 65535)";
+"sshproxy.pref.general.sharesocks" = "Share SOCKS v5 proxy on LAN";
+"sshproxy.pref.general.auto_connect" = "Automatically turn proxy on whe SSH Proxy starts";
+"sshproxy.pref.general.start_at_ogin" = "Launch when you log in";
+
+"sshproxy.pref.servers.host" = "SSH Server :";
+"sshproxy.pref.servers.port" = "Port :";
+"sshproxy.pref.servers.username" = "Username :";
+"sshproxy.pref.servers.auth" = "Authentication";
+
+"sshproxy.pref.servers.password" = "Password";
+
+"sshproxy.pref.servers.auth_tip" = "SSH Proxy will automatically popup a dialog prompts you to enter a password, or a passphrase to decrypt private key.
+
+Passwords and passphrases are remembered in OS X Keychain to guarantee the security, you can access them through \"Keychain Access\" utility shipped with OS X.
+
+You will need to import the private key (aka identity) when using \"Public Key\" authentication method.
+
+And you must click \"Public Key\" checkbox again to re-import after private key changed.";
+
+
+"sshproxy.pref.servers.pubkey" = "Public Key";
+
