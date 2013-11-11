@@ -38,7 +38,7 @@
 
 - (NSString *)toolbarItemLabel
 {
-    return NSLocalizedString(@"Servers", @"Toolbar item name for the Servers preference pane");
+    return NSLocalizedString(@"sshproxy.pref.servers.title", nil);
 }
 
 #pragma mark -

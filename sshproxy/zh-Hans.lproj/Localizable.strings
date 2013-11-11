@@ -34,10 +34,62 @@
 "sshproxy.errmsg.failed" = "无法连接到远程代理服务器";
 "sshproxy.errmsg.unknown" = "未知错误";
 
-"sshproxy.about.title" = "关于 SSH 代理";
+"sshproxy.about.title" = "关于 SSH Proxy";
 "sshproxy.about.feedback" = "给我们反馈";
 "sshproxy.about.rateus" = "评价 SSH Proxy";
 "sshproxy.about.version" = "版本: %@";
 "sshproxy.about.release" = "发布日期: 2013-11-11";
 "sshproxy.about.copyright" = "© 2013 Codinn Studio, 版权所有";
 "sshproxy.about.credits" = "感谢: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly";
+
+"sshproxy.pref.apply" = "应用";
+"sshproxy.pref.revert" = "复原";
+
+"sshproxy.pref.general.title" = "通用";
+"sshproxy.pref.general.socksbox" = "SOCKS v5 代理";
+"sshproxy.pref.general.listening" = "监听端口:";
+"sshproxy.pref.general.listening_range" = "( 从 1024 到 65535)";
+"sshproxy.pref.general.sharesocks" = "在局域网分享 SOCKS v5 代理";
+"sshproxy.pref.general.auto_connect" = "SSH Proxy 运行后自动开启代理";
+"sshproxy.pref.general.start_at_login" = "登录 OS X 后自动运行";
+
+"sshproxy.pref.servers.title" = "服务器";
+"sshproxy.pref.servers.host" = "SSH 服务器:";
+"sshproxy.pref.servers.port" = "端口:";
+"sshproxy.pref.servers.username" = "登录名:";
+"sshproxy.pref.servers.auth" = "认证方法:";
+"sshproxy.pref.servers.password" = "密码";
+
+"sshproxy.pref.servers.auth_tip" = "SSH Proxy 将自动弹出对话框提示你输入密码，或私钥解码口令。
+
+为确保安全性，SSH Proxy 把密码和口令保存在 OS X 的钥匙串中，你可以通过 OS X 自带的 “钥匙串” 工具访问它们。
+
+当使用 “公钥” 认证方法时，你需要导入私钥（即身份鉴权）。
+
+如果私钥发生了变化，你需要再次点击 “公钥” 单选框重新导入私钥。";
+
+
+"sshproxy.pref.servers.pubkey" = "公钥";
+
+"sshproxy.pref.servers.advanced" = "高级...";
+"sshproxy.pref.servers.duplicate" = "复制服务器...";
+"sshproxy.pref.servers.compress" = "启用 SSH 压缩";
+"sshproxy.pref.servers.through_proxy" = "通过另一个代理服务器进行连接";
+"sshproxy.pref.servers.proxy_type" = "代理类型:";
+"sshproxy.pref.servers.proxy_server" = "服务器:";
+"sshproxy.pref.servers.proxy_auth" = "代理服务器需要密码认证";
+"sshproxy.pref.servers.proxy_username" = "用户名:";
+"sshproxy.pref.servers.proxy_password" = "密码:";
+"sshproxy.pref.servers.ok" = "好";
+
+"sshproxy.pref.whitelist.title" = "白名单";
+"sshproxy.pref.whitelist.tips" = "白名单罗列了需要经由 SOCKS v5 代理访问的站点清单。请注意，在 “所有网站使用代理访问” 模式下，SSH Proxy 将忽略白名单。";
+"sshproxy.pref.whitelist.enabled" = "启用";
+"sshproxy.pref.whitelist.address" = "网站地址";
+"sshproxy.pref.whitelist.subdomains" = "子域名";
+"sshproxy.pref.whitelist.duplicate" = "复制网站地址...";
+"sshproxy.pref.whitelist.empty" = "清空白名单";
+"sshproxy.pref.whitelist.import_all" = "导入以下所有网站";
+"sshproxy.pref.whitelist.import_developer" = "导入开发者网站";
+"sshproxy.pref.whitelist.import" = "导入";
+"sshproxy.pref.whitelist.sites" = "网站";

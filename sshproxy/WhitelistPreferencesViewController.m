@@ -71,7 +71,7 @@
 
 - (NSString *)toolbarItemLabel
 {
-    return NSLocalizedString(@"Whitelist", @"Toolbar item name for the Whitelist preference pane");
+    return NSLocalizedString(@"sshproxy.pref.whitelist.title", nil);
 }
 
 #pragma - Actions

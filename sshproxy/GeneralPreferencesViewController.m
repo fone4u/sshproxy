@@ -33,7 +33,7 @@
 
 - (NSString *)toolbarItemLabel
 {
-    return NSLocalizedString(@"General", @"Toolbar item name for the General preference pane");
+    return NSLocalizedString(@"sshproxy.pref.general.title", nil);
 }
 
 -(void)loadView
