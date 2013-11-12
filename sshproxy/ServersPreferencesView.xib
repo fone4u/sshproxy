@@ -189,8 +189,8 @@ CA
                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     <string key="NSNotApplicablePlaceholder">22</string>
                                                     <string key="NSNoSelectionPlaceholder">22</string>
-                                                    <string key="NSNullPlaceholder">22</string>
                                                     <string key="NSMultipleValuesPlaceholder">22</string>
+                                                    <string key="NSNullPlaceholder">22</string>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="446"/>
@@ -214,8 +214,8 @@ CA
                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     <string key="NSNotApplicablePlaceholder">Host name or address</string>
                                                     <string key="NSNoSelectionPlaceholder">Host name or address</string>
-                                                    <string key="NSNullPlaceholder">Host name or address</string>
                                                     <string key="NSMultipleValuesPlaceholder">Host name or address</string>
+                                                    <string key="NSNullPlaceholder">Host name or address</string>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="445"/>
@@ -270,8 +270,8 @@ CA
                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     <string key="NSNotApplicablePlaceholder">User name</string>
                                                     <string key="NSNoSelectionPlaceholder">User name</string>
-                                                    <string key="NSNullPlaceholder">User name</string>
                                                     <string key="NSMultipleValuesPlaceholder">User name</string>
+                                                    <string key="NSNullPlaceholder">User name</string>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="447"/>
@@ -426,6 +426,17 @@ DQ
                         <binding destination="-2" name="enabled" keyPath="isDirty" id="461"/>
                     </connections>
                 </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="UaS-e3-Swr">
+                    <rect key="frame" x="18" y="17" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOl-60-fdR">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openHelpURL:" target="-2" id="le2-UG-UgH"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="181" userLabel="Advanced Panel" customClass="NSPanel">
@@ -474,7 +485,7 @@ DQ
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" id="190" customClass="CharmTextField">
-                                    <rect key="frame" x="15" y="149" width="91" height="17"/>
+                                    <rect key="frame" x="14.999989969976717" y="149" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Proxy type:" id="212">
                                         <font key="font" metaFont="system"/>
@@ -541,7 +552,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="193" customClass="CharmTextField">
-                                    <rect key="frame" x="15" y="117" width="91" height="17"/>
+                                    <rect key="frame" x="14.999989969976717" y="117" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Server:" id="209">
                                         <font key="font" metaFont="system"/>
@@ -609,8 +620,8 @@ DQ
                                                 <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 <integer key="NSNotApplicablePlaceholder" value="1080"/>
                                                 <integer key="NSNoSelectionPlaceholder" value="1080"/>
-                                                <integer key="NSNullPlaceholder" value="1080"/>
                                                 <integer key="NSMultipleValuesPlaceholder" value="1080"/>
+                                                <integer key="NSNullPlaceholder" value="1080"/>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -645,7 +656,7 @@ DQ
                                     </connections>
                                 </popUpButton>
                                 <textField verticalHuggingPriority="750" id="192" customClass="CharmTextField">
-                                    <rect key="frame" x="15" y="52" width="91" height="17"/>
+                                    <rect key="frame" x="14.999989969976717" y="52" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Username:" id="210">
                                         <font key="font" metaFont="system"/>

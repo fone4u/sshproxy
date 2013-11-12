@@ -19,5 +19,6 @@
 - (IBAction)applyChanges:(id)sender;
 - (IBAction)revertChanges:(id)sender;
 - (IBAction)closePreferencesWindow:(id)sender;
+- (IBAction)openHelpURL:(id)sender;
 
 @end

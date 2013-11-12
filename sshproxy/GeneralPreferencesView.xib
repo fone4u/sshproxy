@@ -64,8 +64,8 @@
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSNotApplicablePlaceholder">7070</string>
                                             <string key="NSNoSelectionPlaceholder">7070</string>
-                                            <string key="NSNullPlaceholder">7070</string>
                                             <string key="NSMultipleValuesPlaceholder">7070</string>
+                                            <string key="NSNullPlaceholder">7070</string>
                                         </dictionary>
                                     </binding>
                                     <outlet property="delegate" destination="-2" id="2512"/>
@@ -174,6 +174,17 @@ DQ
                     <connections>
                         <action selector="revertChanges:" target="-2" id="2517"/>
                         <binding destination="-2" name="enabled" keyPath="isDirty" id="2502"/>
+                    </connections>
+                </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1dH-Ca-lW4">
+                    <rect key="frame" x="18" y="17" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qCg-JY-ZyI">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openHelpURL:" target="-2" id="Obk-2P-JM3"/>
                     </connections>
                 </button>
             </subviews>

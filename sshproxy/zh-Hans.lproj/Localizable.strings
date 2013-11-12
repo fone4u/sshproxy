@@ -40,8 +40,11 @@
 "sshproxy.about.version" = "版本: %@";
 "sshproxy.about.release" = "发布日期: 2013-11-11";
 "sshproxy.about.copyright" = "© 2013 Codinn Studio, 版权所有";
-"sshproxy.about.credits" = "感谢: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly";
+"sshproxy.about.credits" = "感谢: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea";
 
+"sshproxy.pref.confirm_apply" = "偏好设置更改没有应用，应用您的更改吗?";
+"sshproxy.pref.dont_apply" = "不应用";
+"sshproxy.pref.cancel" = "取消";
 "sshproxy.pref.apply" = "应用";
 "sshproxy.pref.revert" = "复原";
 

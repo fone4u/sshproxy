@@ -32,5 +32,5 @@
 @property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
 @property (strong) IBOutlet NSMenuItem *emptyMenuItem;
 @property (strong) IBOutlet NSMenuItem *importAllMenuItem;
-@property (strong) IBOutlet NSMenuItem *importDevMenu;
+@property (strong) IBOutlet NSMenuItem *importDevMenuItem;
 @end

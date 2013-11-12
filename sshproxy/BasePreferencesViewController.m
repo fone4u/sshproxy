@@ -50,6 +50,12 @@
     [self.view.window performClose:sender];
 }
 
+- (IBAction)openHelpURL:(id)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:
+     [NSURL URLWithString:@"https://github.com/brantyoung/sshproxy/wiki"]];
+}
+
 #pragma - NSViewController
 
 - (BOOL)commitEditing
@@ -57,7 +63,7 @@
     BOOL shouldClose = YES;
     
     if (self.isDirty) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"sshproxy.pref.confirm_apply", nil) defaultButton:NSLocalizedString(@"sshproxy.pref.apply", nil) alternateButton:NSLocalizedString(@"sshproxy.pref.dont_apply", nil) otherButton:NSLocalizedString(@"sshproxy.pref.cancel", nil) informativeTextWithFormat:@""];
         
         alert.alertStyle = NSWarningAlertStyle;
         

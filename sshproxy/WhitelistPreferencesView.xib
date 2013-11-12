@@ -348,6 +348,17 @@ DQ
                         <action selector="closePreferencesWindow:" target="-2" id="67"/>
                     </connections>
                 </button>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="kst-uC-M2S">
+                    <rect key="frame" x="17" y="17" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OfP-zH-6C3">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openHelpURL:" target="-2" id="Fhw-SW-mwZ"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
         <arrayController id="48" userLabel="Whitelist Array Controller">

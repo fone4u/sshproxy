@@ -40,8 +40,11 @@
 "sshproxy.about.version" = "Version: %@";
 "sshproxy.about.release" = "Release Date: 2013-11-11";
 "sshproxy.about.copyright" = "© 2013 Codinn Studio, all rights reserved";
-"sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly";
+"sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea";
 
+"sshproxy.pref.confirm_apply" = "The preference has changes that have not been applied. Would you like to apply them?";
+"sshproxy.pref.dont_apply" = "Don't Apply";
+"sshproxy.pref.cancel" = "Cancel";
 "sshproxy.pref.apply" = "Apply";
 "sshproxy.pref.revert" = "Revert";
 

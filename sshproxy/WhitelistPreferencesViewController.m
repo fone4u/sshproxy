@@ -43,10 +43,20 @@
     self.duplicateMenuItem.title = NSLocalizedString(@"sshproxy.pref.whitelist.duplicate", nil);
     self.emptyMenuItem.title = NSLocalizedString(@"sshproxy.pref.whitelist.empty", nil);
     self.importAllMenuItem.title = NSLocalizedString(@"sshproxy.pref.whitelist.import_all", nil);
-    self.importDevMenu.title = NSLocalizedString(@"sshproxy.pref.whitelist.import_developer", nil);
+    self.importDevMenuItem.title = NSLocalizedString(@"sshproxy.pref.whitelist.import_developer", nil);
     
     for (int i=0; i<self.mainMenu.numberOfItems; i++) {
         NSMenuItem *item = [self.mainMenu itemAtIndex:i];
+        
+        NSString *title = item.title;
+        title = [title stringByReplacingOccurrencesOfString: @"Import" withString:NSLocalizedString(@"sshproxy.pref.whitelist.import", nil)];
+        title = [title stringByReplacingOccurrencesOfString: @"sites" withString:NSLocalizedString(@"sshproxy.pref.whitelist.sites", nil)];
+        
+        item.title = title;
+    }
+    
+    for (int i=0; i<self.importDevMenuItem.submenu.numberOfItems; i++) {
+        NSMenuItem *item = [self.importDevMenuItem.submenu itemAtIndex:i];
         
         NSString *title = item.title;
         title = [title stringByReplacingOccurrencesOfString: @"Import" withString:NSLocalizedString(@"sshproxy.pref.whitelist.import", nil)];
