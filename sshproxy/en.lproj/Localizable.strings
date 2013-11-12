@@ -34,6 +34,13 @@
 "sshproxy.errmsg.failed" = "Failed to connect remote proxy server";
 "sshproxy.errmsg.unknown" = "Unknown error";
 
+"sshproxy.askpass.cancel" = "Cancel";
+"sshproxy.askpass.prompt_passphrase" = "Enter the passphrase for private key imported from “%@”.";
+"sshproxy.askpass.remember_passphrase" = "Remember this passphrase in my keychain";
+"sshproxy.askpass.prompt_password" = "Enter the password for user “%@”.";
+"sshproxy.askpass.remember_password" = "Remember this password in my keychain";
+"sshproxy.askpass.message" = "SSH Proxy connecting to the SSH server “%@”.";
+
 "sshproxy.about.title" = "About SSH Proxy";
 "sshproxy.about.feedback" = "Send Feedback";
 "sshproxy.about.rateus" = "Rate SSH Proxy";
