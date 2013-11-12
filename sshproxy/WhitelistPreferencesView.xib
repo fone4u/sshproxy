@@ -13,7 +13,7 @@
                 <outlet property="emptyMenuItem" destination="120" id="rf6-d6-bgj"/>
                 <outlet property="enabledTableColumn" destination="9" id="aGm-kZ-rFU"/>
                 <outlet property="importAllMenuItem" destination="113" id="bIB-19-DHl"/>
-                <outlet property="importDevMenu" destination="132" id="D8S-Dv-ijh"/>
+                <outlet property="importDevMenuItem" destination="132" id="ehH-9H-bTd"/>
                 <outlet property="mainMenu" destination="41" id="m0t-NF-rfy"/>
                 <outlet property="revertButton" destination="45" id="7mj-gQ-vR6"/>
                 <outlet property="subdomainsTableColumn" destination="18" id="UXB-Yp-FYV"/>
@@ -135,7 +135,7 @@
                 <popUpButton verticalHuggingPriority="750" id="33">
                     <rect key="frame" x="72" y="60" width="36" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="42" id="40">
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="132" id="40">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="41">

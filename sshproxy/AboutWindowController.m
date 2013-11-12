@@ -38,8 +38,8 @@
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     self.titleTextField.stringValue = appName;
     
-    self.feedbackButton.stringValue = NSLocalizedString(@"sshproxy.about.feedback", nil);
-    self.rateUsButton.stringValue = NSLocalizedString(@"sshproxy.about.rateus", nil);
+    self.feedbackButton.title = NSLocalizedString(@"sshproxy.about.feedback", nil);
+    self.rateUsButton.title = NSLocalizedString(@"sshproxy.about.rateus", nil);
     
     NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     self.versionTextField.stringValue = [NSString stringWithFormat: NSLocalizedString(@"sshproxy.about.version", nil), appVersion];
