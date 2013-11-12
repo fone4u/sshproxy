@@ -508,7 +508,7 @@
         // To add a flexible space between General and Advanced preference panes insert [NSNull null]:
         //     NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, [NSNull null], advancedViewController, nil];
         
-        NSString *title = NSLocalizedString(@"SSH Proxy Preferences", @"SSH Proxy Preferences");
+        NSString *title = NSLocalizedString(@"sshproxy.pref.title", nil);
         preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title delegate:self];
         
         [preferencesWindowController.window setReleasedWhenClosed: NO];

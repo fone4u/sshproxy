@@ -55,6 +55,7 @@
 "sshproxy.pref.apply" = "Apply";
 "sshproxy.pref.revert" = "Revert";
 
+"sshproxy.pref.title" = "SSH Proxy Preferences";
 "sshproxy.pref.general.title" = "General";
 "sshproxy.pref.general.socksbox" = "SOCKS v5 Proxy";
 "sshproxy.pref.general.listening" = "Listening port:";

@@ -20,14 +20,14 @@
 "sshproxy.mainmenu.help" = "帮助";
 "sshproxy.mainmenu.quit" = "退出";
 
-"sshproxy.errmsg.invalid_auth" = "无效的身份验证方法, 或私钥不存在";
+"sshproxy.errmsg.invalid_auth" = "无效的身份验证方法，或私钥不存在";
 "sshproxy.errmsg.sshport" = "端口已被占用";
 "sshproxy.errmsg.pubkey" = "无效的口令或私钥";
 "sshproxy.errmsg.password" = "密码错误";
 "sshproxy.errmsg.port" = "端口 (%@) 已被占用";
 "sshproxy.errmsg.hostname" = "无法解析主机名";
 "sshproxy.errmsg.refused" = "连接被拒绝";
-"sshproxy.errmsg.timeout" = "超时, 服务器没有响应";
+"sshproxy.errmsg.timeout" = "超时，服务器没有响应";
 "sshproxy.errmsg.timedout" = "远程代理服务器连接超时";
 "sshproxy.errmsg.timedout2" = "连接超时";
 "sshproxy.errmsg.disconnected" = "与远程代理服务器的连接断开";
@@ -42,7 +42,8 @@
 "sshproxy.about.copyright" = "© 2013 Codinn Studio, 版权所有";
 "sshproxy.about.credits" = "感谢: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea";
 
-"sshproxy.pref.confirm_apply" = "偏好设置更改没有应用，应用您的更改吗?";
+"sshproxy.pref.title" = "SSH Proxy 偏好设置";
+"sshproxy.pref.confirm_apply" = "偏好设置有尚未应用的更改，应用您的更改吗？";
 "sshproxy.pref.dont_apply" = "不应用";
 "sshproxy.pref.cancel" = "取消";
 "sshproxy.pref.apply" = "应用";
@@ -63,14 +64,13 @@
 "sshproxy.pref.servers.auth" = "认证方法:";
 "sshproxy.pref.servers.password" = "密码";
 
-"sshproxy.pref.servers.auth_tip" = "SSH Proxy 将自动弹出对话框提示你输入密码，或私钥解码口令。
+"sshproxy.pref.servers.auth_tip" = "SSH Proxy 会自动弹出对话框提示你输入密码，或私钥解码口令。
 
-为确保安全性，SSH Proxy 把密码和口令保存在 OS X 的钥匙串中，你可以通过 OS X 自带的 “钥匙串” 工具访问它们。
+为确保安全性，SSH Proxy 把密码和口令保存在 OS X 的钥匙串中，你可以通过 OS X 自带的 “钥匙串访问” 工具访问它们。
 
 当使用 “公钥” 认证方法时，你需要导入私钥（即身份鉴权）。
 
 如果私钥发生了变化，你需要再次点击 “公钥” 单选框重新导入私钥。";
-
 
 "sshproxy.pref.servers.pubkey" = "公钥";
 
