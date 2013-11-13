@@ -52,7 +52,7 @@
 "sshproxy.pref.general.title" = "通用";
 "sshproxy.pref.general.socksbox" = "SOCKS v5 代理";
 "sshproxy.pref.general.listening" = "监听端口:";
-"sshproxy.pref.general.listening_range" = "( 从 1024 到 65535)";
+"sshproxy.pref.general.listening_range" = "( 从 1024 到 65535 )";
 "sshproxy.pref.general.sharesocks" = "在局域网分享 SOCKS v5 代理";
 "sshproxy.pref.general.auto_connect" = "SSH Proxy 运行后自动开启代理";
 "sshproxy.pref.general.start_at_login" = "登录 OS X 后自动运行";

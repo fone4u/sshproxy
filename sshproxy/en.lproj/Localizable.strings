@@ -59,7 +59,7 @@
 "sshproxy.pref.general.title" = "General";
 "sshproxy.pref.general.socksbox" = "SOCKS v5 Proxy";
 "sshproxy.pref.general.listening" = "Listening port:";
-"sshproxy.pref.general.listening_range" = "( from 1024 to 65535)";
+"sshproxy.pref.general.listening_range" = "( from 1024 to 65535 )";
 "sshproxy.pref.general.sharesocks" = "Share SOCKS v5 proxy on LAN";
 "sshproxy.pref.general.auto_connect" = "Automatically turn proxy on when SSH Proxy starts";
 "sshproxy.pref.general.start_at_login" = "Launch when you log in";

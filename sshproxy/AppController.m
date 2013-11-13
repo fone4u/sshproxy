@@ -109,12 +109,6 @@
 
 - (void)set2connected
 {
-    NSError *error = [self startServer];
-    if (error) {
-        // failed to establish internal socks server
-        return;
-    }
-    
     proxyStatus = SSHPROXY_CONNECTED;
     [statusItem setImage:onStatusImage];
     [statusItem setAlternateImage:onStatusInverseImage];
@@ -128,8 +122,6 @@
 
 - (void)set2disconnected
 {
-    [self stopServer];
-    
     [statusItem setImage:offStatusImage];
     [statusItem setAlternateImage:offStatusInverseImage];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
@@ -253,6 +245,12 @@
 
 - (void)_turnOnProxy
 {
+    NSError *error = [self startServer];
+    if (error) {
+        // failed to establish internal socks server
+        return;
+    }
+    
     if (task) {
         // task already running, do noting
         return;
@@ -615,6 +613,7 @@
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
         errorMsg = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.errmsg.port", nil), @([SSHHelper getLocalPort])];
         [self set2disconnected];
+        [self stopServer];
 	} else {
 		DDLogInfo(@"SOCKS server on host %@ listening on port %d", _server.host, _server.port);
 	}
@@ -657,7 +656,7 @@
 
 - (BOOL)SOCKSConnectionShouldRelay:(INSOCKSConnection *)connection
 {
-    return [WhitelistHelper isHostShouldProxy:connection.targetHost isProxyOn:self.turnOnMenuItem.isHidden];
+    return [WhitelistHelper isHostShouldProxy:connection.targetHost];
 }
 
 - (NSArray *)SOCKSConnectionGetRelayAddress:(INSOCKSConnection *)connection

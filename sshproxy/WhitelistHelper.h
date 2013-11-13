@@ -17,7 +17,7 @@ enum {
 @interface WhitelistHelper : NSObject
 
 + (void)setProxyMode:(NSInteger)index;
-+ (BOOL)isHostShouldProxy:(NSString *)host isProxyOn:(BOOL)isProxyOn;
++ (BOOL)isHostShouldProxy:(NSString *)host;
 
 + (NSDictionary *)newSite:(NSString *)siteHost;
 
