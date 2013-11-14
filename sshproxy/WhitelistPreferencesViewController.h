@@ -8,18 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
+#import "BasePreferencesViewController.h"
 
-@interface WhitelistPreferencesViewController : NSViewController <MASPreferencesViewController, NSTableViewDelegate>
+@interface WhitelistPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
 
 @property (strong) IBOutlet NSArrayController *whitelistArrayController;
-@property (strong) IBOutlet NSUserDefaultsController *userDefaultsController;
 @property (strong) IBOutlet NSTableView *whitelistTableView;
-
-@property (nonatomic, readwrite) BOOL isDirty;
-
-- (IBAction)closePreferencesWindow:(id)sender;
-- (IBAction)applyChanges:(id)sender;
-- (IBAction)revertChanges:(id)sender;
 
 - (IBAction)duplicateSite:(id)sender;
 - (IBAction)removeSite:(id)sender;
@@ -29,4 +23,14 @@
 - (IBAction)importMenuClicked:(id)sender;
 - (IBAction)emptyWhitelist:(id)sender;
 
+@property (strong) IBOutlet NSTextField *tipsLabel;
+@property (strong) IBOutlet NSTableColumn *enabledTableColumn;
+@property (strong) IBOutlet NSTableColumn *addressTableColumn;
+@property (strong) IBOutlet NSTableColumn *subdomainsTableColumn;
+
+@property (strong) IBOutlet NSMenu *mainMenu;
+@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
+@property (strong) IBOutlet NSMenuItem *emptyMenuItem;
+@property (strong) IBOutlet NSMenuItem *importAllMenuItem;
+@property (strong) IBOutlet NSMenuItem *importDevMenuItem;
 @end

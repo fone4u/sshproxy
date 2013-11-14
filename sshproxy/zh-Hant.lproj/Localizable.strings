@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  sshproxy
+
+  Created by Brant Young on 10/26/13.
+  Copyright (c) 2013 Codinn Studio. All rights reserved.
+ */
+
+"sshproxy.mainmenu.proxy_off" = "代理: 關閉";
+"sshproxy.mainmenu.proxy_connecting" = "代理: 正在連接...";
+"sshproxy.mainmenu.proxy_reconnecting" = "代理: 重新連接...";
+"sshproxy.mainmenu.proxy_on" = "代理: 開啟";
+"sshproxy.mainmenu.turn_off" = "關閉代理";
+"sshproxy.mainmenu.turn_on" = "開啟代理";
+"sshproxy.mainmenu.add_to_whitelist" = "添加站點到白名單";
+"sshproxy.mainmenu.use_proxy_for_all_sites" = "所有網站使用代理訪問";
+"sshproxy.mainmenu.use_proxy_for_whitelist" = "只有白名單使用代理訪問";
+"sshproxy.mainmenu.direct_connection" = "直接訪問 (不使用代理)";
+"sshproxy.mainmenu.preferences" = "偏好設定...";
+"sshproxy.mainmenu.help" = "輔助說明";
+"sshproxy.mainmenu.quit" = "結束";
+
+"sshproxy.errmsg.invalid_auth" = "無效的身份驗證方法，或私鑰不存在";
+"sshproxy.errmsg.sshport" = "端口已被佔用";
+"sshproxy.errmsg.pubkey" = "無效的口令或私鑰";
+"sshproxy.errmsg.password" = "密碼錯誤";
+"sshproxy.errmsg.port" = "端口 (%@) 已被佔用";
+"sshproxy.errmsg.hostname" = "無法解析主機名";
+"sshproxy.errmsg.refused" = "連接被拒絕";
+"sshproxy.errmsg.timeout" = "超時，伺服器沒有應答";
+"sshproxy.errmsg.timedout" = "遠程代理伺服器連接超時";
+"sshproxy.errmsg.timedout2" = "連接超時";
+"sshproxy.errmsg.disconnected" = "於遠程代理伺服器的連接斷開";
+"sshproxy.errmsg.failed" = "無法連接到遠程代理伺服器";
+"sshproxy.errmsg.unknown" = "未知錯誤";
+
+"sshproxy.about.title" = "關於 SSH Proxy";
+"sshproxy.about.feedback" = "給我們反饋";
+"sshproxy.about.rateus" = "評價 SSH Proxy";
+"sshproxy.about.version" = "版本: %@";
+"sshproxy.about.release" = "發佈日期: 2013-11-11";
+"sshproxy.about.copyright" = "© 2013 Codinn Studio, 版權所有";
+"sshproxy.about.credits" = "感謝: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea";
+
+"sshproxy.pref.title" = "SSH Proxy 偏好設定";
+"sshproxy.pref.confirm_apply" = "偏好設定有尚未套用的更改，套用您的更改嗎？";
+"sshproxy.pref.dont_apply" = "不套用";
+"sshproxy.pref.cancel" = "取消";
+"sshproxy.pref.apply" = "套用";
+"sshproxy.pref.revert" = "回復";
+
+"sshproxy.pref.general.title" = "一般";
+"sshproxy.pref.general.socksbox" = "SOCKS v5 代理";
+"sshproxy.pref.general.listening" = "偵聽端口:";
+"sshproxy.pref.general.listening_range" = "( 從 1024 到 65535 )";
+"sshproxy.pref.general.sharesocks" = "在局域網絡分享 SOCKS v5 代理";
+"sshproxy.pref.general.auto_connect" = "SSH Proxy 打開後自動開啟代理";
+"sshproxy.pref.general.start_at_login" = "登入 OS X 後自動打開";
+
+"sshproxy.pref.servers.title" = "伺服器";
+"sshproxy.pref.servers.host" = "SSH 伺服器:";
+"sshproxy.pref.servers.port" = "端口:";
+"sshproxy.pref.servers.username" = "登錄名:";
+"sshproxy.pref.servers.auth" = "認證方法:";
+"sshproxy.pref.servers.password" = "密碼";
+
+"sshproxy.pref.servers.auth_tip" = "SSH Proxy 會自動彈出對話框提示你錄入密碼，或私鑰解碼口令。
+
+為確保安全性，SSH Proxy 把密碼和口令存儲在 OS X 的鑰匙圈中，你可以透過 OS X 自帶的 “鑰匙圈存取” 工具訪問它們。
+
+當使用 “公鑰” 認證方法時，你需要導入私鑰（即身份鑒權）。
+
+如果私鑰發生了變化，你需要再次點擊 “公鑰” 單選框重新導入私鑰。";
+
+
+"sshproxy.pref.servers.pubkey" = "公鑰";
+
+"sshproxy.pref.servers.advanced" = "進階...";
+"sshproxy.pref.servers.duplicate" = "複製伺服器...";
+"sshproxy.pref.servers.compress" = "啟用 SSH 壓縮";
+"sshproxy.pref.servers.through_proxy" = "透過另一個代理伺服器進行連接";
+"sshproxy.pref.servers.proxy_type" = "代理類型:";
+"sshproxy.pref.servers.proxy_server" = "伺服器:";
+"sshproxy.pref.servers.proxy_auth" = "代理伺服器需要密碼認證";
+"sshproxy.pref.servers.proxy_username" = "使用者名稱:";
+"sshproxy.pref.servers.proxy_password" = "密碼:";
+"sshproxy.pref.servers.ok" = "好";
+
+"sshproxy.pref.whitelist.title" = "白名單";
+"sshproxy.pref.whitelist.tips" = "白名單列出了需要經由 SOCKS v5 代理訪問的站點清單。請注意，在 “所有網站使用代理訪問” 模式下，SSH Proxy 將忽略白名單。";
+"sshproxy.pref.whitelist.enabled" = "啟用";
+"sshproxy.pref.whitelist.address" = "網站地址";
+"sshproxy.pref.whitelist.subdomains" = "子域名";
+"sshproxy.pref.whitelist.duplicate" = "複製網站地址...";
+"sshproxy.pref.whitelist.empty" = "清空白名單";
+"sshproxy.pref.whitelist.import_all" = "導入以下所有網站";
+"sshproxy.pref.whitelist.import_developer" = "導入開發者網站";
+"sshproxy.pref.whitelist.import" = "導入";
+"sshproxy.pref.whitelist.sites" = "網站";

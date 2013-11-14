@@ -1,0 +1,106 @@
+/* 
+  Localizable.strings
+  sshproxy
+
+  Created by Brant Young on 10/26/13.
+  Copyright (c) 2013 Codinn Studio. All rights reserved.
+ */
+
+"sshproxy.mainmenu.proxy_off" = "Proxy: Off";
+"sshproxy.mainmenu.proxy_connecting" = "Proxy: Connecting...";
+"sshproxy.mainmenu.proxy_reconnecting" = "Proxy: Reconnecting...";
+"sshproxy.mainmenu.proxy_on" = "Proxy: On";
+"sshproxy.mainmenu.turn_off" = "Turn Proxy Off";
+"sshproxy.mainmenu.turn_on" = "Turn Proxy On";
+"sshproxy.mainmenu.add_to_whitelist" = "Add site to whitelist";
+"sshproxy.mainmenu.use_proxy_for_all_sites" = "Use proxy for all sites";
+"sshproxy.mainmenu.use_proxy_for_whitelist" = "Use proxy only for sites on whitelist";
+"sshproxy.mainmenu.direct_connection" = "Direct internet connection (no proxy)";
+"sshproxy.mainmenu.preferences" = "Preferences...";
+"sshproxy.mainmenu.help" = "Help";
+"sshproxy.mainmenu.quit" = "Quit";
+
+"sshproxy.errmsg.invalid_auth" = "Invalid authentication method or private key does not exist";
+"sshproxy.errmsg.sshport" = "Port already in use";
+"sshproxy.errmsg.pubkey" = "Invalid passphrase or private key";
+"sshproxy.errmsg.password" = "Incorrect password";
+"sshproxy.errmsg.port" = "Port (%@) already in use";
+"sshproxy.errmsg.hostname" = "Could not resolve hostname";
+"sshproxy.errmsg.refused" = "Connection refused";
+"sshproxy.errmsg.timeout" = "Timeout, server not responding";
+"sshproxy.errmsg.timedout" = "Remote proxy server connection timed out";
+"sshproxy.errmsg.timedout2" = "Connection timed out";
+"sshproxy.errmsg.disconnected" = "Disconnected from remote proxy server";
+"sshproxy.errmsg.failed" = "Failed to connect remote proxy server";
+"sshproxy.errmsg.unknown" = "Unknown error";
+
+"sshproxy.askpass.cancel" = "Cancel";
+"sshproxy.askpass.prompt_passphrase" = "Enter the passphrase for private key imported from “%@”.";
+"sshproxy.askpass.remember_passphrase" = "Remember this passphrase in my keychain";
+"sshproxy.askpass.prompt_password" = "Enter the password for user “%@”.";
+"sshproxy.askpass.remember_password" = "Remember this password in my keychain";
+"sshproxy.askpass.message" = "SSH Proxy connecting to the SSH server “%@”.";
+
+"sshproxy.about.title" = "About SSH Proxy";
+"sshproxy.about.feedback" = "Send Feedback";
+"sshproxy.about.rateus" = "Rate SSH Proxy";
+"sshproxy.about.version" = "Version: %@";
+"sshproxy.about.release" = "Release Date: 2013-11-11";
+"sshproxy.about.copyright" = "© 2013 Codinn Studio, all rights reserved";
+"sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea";
+
+"sshproxy.pref.confirm_apply" = "The preference has changes that have not been applied. Would you like to apply them?";
+"sshproxy.pref.dont_apply" = "Don't Apply";
+"sshproxy.pref.cancel" = "Cancel";
+"sshproxy.pref.apply" = "Apply";
+"sshproxy.pref.revert" = "Revert";
+
+"sshproxy.pref.title" = "SSH Proxy Preferences";
+"sshproxy.pref.general.title" = "General";
+"sshproxy.pref.general.socksbox" = "SOCKS v5 Proxy";
+"sshproxy.pref.general.listening" = "Listening port:";
+"sshproxy.pref.general.listening_range" = "( from 1024 to 65535 )";
+"sshproxy.pref.general.sharesocks" = "Share SOCKS v5 proxy on LAN";
+"sshproxy.pref.general.auto_connect" = "Automatically turn proxy on when SSH Proxy starts";
+"sshproxy.pref.general.start_at_login" = "Launch when you log in";
+
+"sshproxy.pref.servers.title" = "Servers";
+"sshproxy.pref.servers.host" = "SSH Server:";
+"sshproxy.pref.servers.port" = "Port:";
+"sshproxy.pref.servers.username" = "Login:";
+"sshproxy.pref.servers.auth" = "Authentication:";
+"sshproxy.pref.servers.password" = "Password";
+
+"sshproxy.pref.servers.auth_tip" = "SSH Proxy will automatically popup a dialog prompts you to enter a password, or a passphrase to decrypt private key.
+
+Passwords and passphrases are remembered in OS X Keychain to guarantee the security, you can access them through \"Keychain Access\" utility shipped with OS X.
+
+You will need to import the private key (aka identity) when using \"Public Key\" authentication method.
+
+And you must click \"Public Key\" checkbox again to re-import after private key changed.";
+
+
+"sshproxy.pref.servers.pubkey" = "Public Key";
+
+"sshproxy.pref.servers.advanced" = "Advanced...";
+"sshproxy.pref.servers.duplicate" = "Duplicate Server...";
+"sshproxy.pref.servers.compress" = "Enable SSH compression";
+"sshproxy.pref.servers.through_proxy" = "Connecting through a proxy server";
+"sshproxy.pref.servers.proxy_type" = "Proxy type:";
+"sshproxy.pref.servers.proxy_server" = "Server:";
+"sshproxy.pref.servers.proxy_auth" = "Proxy server requires a password";
+"sshproxy.pref.servers.proxy_username" = "Username:";
+"sshproxy.pref.servers.proxy_password" = "Password:";
+"sshproxy.pref.servers.ok" = "OK";
+
+"sshproxy.pref.whitelist.title" = "Whitelist";
+"sshproxy.pref.whitelist.tips" = "Whitelist patterns define sites that should be loaded through SOCKS v5 proxy. Please note that whitelist is ignored when SSH Proxy is set to \"Use proxy for all sites\".";
+"sshproxy.pref.whitelist.enabled" = "Enabled";
+"sshproxy.pref.whitelist.address" = "Site address";
+"sshproxy.pref.whitelist.subdomains" = "Subdomains";
+"sshproxy.pref.whitelist.duplicate" = "Duplicate site address...";
+"sshproxy.pref.whitelist.empty" = "Empty whitelist";
+"sshproxy.pref.whitelist.import_all" = "Import all sites below";
+"sshproxy.pref.whitelist.import_developer" = "Import sites for developer";
+"sshproxy.pref.whitelist.import" = "Import";
+"sshproxy.pref.whitelist.sites" = "sites";

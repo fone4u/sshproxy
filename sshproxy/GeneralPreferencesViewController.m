@@ -14,8 +14,6 @@
 
 @implementation GeneralPreferencesViewController
 
-@synthesize isDirty;
-
 #pragma mark - MASPreferencesViewController
 
 - (id)init
@@ -35,7 +33,7 @@
 
 - (NSString *)toolbarItemLabel
 {
-    return NSLocalizedString(@"General", @"Toolbar item name for the General preference pane");
+    return NSLocalizedString(@"sshproxy.pref.general.title", nil);
 }
 
 -(void)loadView
@@ -50,12 +48,16 @@
     self.localPortTextField.integerValue = localPort;
     self.localPortStepper.integerValue = localPort;
     
-    [self.userDefaultsController save:self];
-    self.isDirty = NO;
+    self.socksBox.title = NSLocalizedString(@"sshproxy.pref.general.socksbox", nil);
+    self.listeningTextField.stringValue = NSLocalizedString(@"sshproxy.pref.general.listening", nil);
+    self.listeningRangeTextField.stringValue = NSLocalizedString(@"sshproxy.pref.general.listening_range", nil);
+    self.shareButton.title = NSLocalizedString(@"sshproxy.pref.general.sharesocks", nil);
+    self.autoConnectButton.title = NSLocalizedString(@"sshproxy.pref.general.auto_connect", nil);
+    self.startAtLoginButton.title = NSLocalizedString(@"sshproxy.pref.general.start_at_login", nil);
 }
 
 
-#pragma - Actions
+#pragma mark - Actions
 
 - (IBAction)localStepperAction:(id)sender {
 	self.localPortTextField.intValue = self.localPortStepper.intValue;
@@ -95,15 +97,21 @@
     }
 }
 
--(IBAction)closePreferencesWindow:(id)sender
+- (IBAction)toggleShareSocks:(id)sender
 {
-    [self.view.window performClose:sender];
+    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
+
+- (void)dealloc
+{
+}
+
+#pragma mark - BasePreferencesViewController
 
 - (IBAction)applyChanges:(id)sender
 {
-//    BOOL isProxyNeedReactive = [SSHHelper getLocalPort]!=self.localPortTextField.integerValue;
-//    BOOL isSocksServerNeedRestart = [SSHHelper isShareSOCKS]!=self.shareSocksButton.state;
+    //    BOOL isProxyNeedReactive = [SSHHelper getLocalPort]!=self.localPortTextField.integerValue;
+    //    BOOL isSocksServerNeedRestart = [SSHHelper isShareSOCKS]!=self.shareSocksButton.state;
     
     [self.userDefaultsController save:self];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -112,14 +120,14 @@
     
     AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
     
-//    if (isSocksServerNeedRestart) {
-//        [appController performSelector: @selector(restartServer) withObject:nil afterDelay: 0.0];
-//    }
+    //    if (isSocksServerNeedRestart) {
+    //        [appController performSelector: @selector(restartServer) withObject:nil afterDelay: 0.0];
+    //    }
     
     // reactive proxy
-//    if (isProxyNeedReactive) {
+    //    if (isProxyNeedReactive) {
     [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.0];
-//    }
+    //    }
 }
 - (IBAction)revertChanges:(id)sender
 {
@@ -128,62 +136,6 @@
     // save again to prevent dirty settings
     [self.userDefaultsController save:self];
     self.isDirty = NO;
-}
-
-#pragma - NSViewController
-
-- (BOOL)commitEditing
-{
-    BOOL shouldClose = YES;
-    
-    if (self.isDirty) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
-        
-        alert.alertStyle = NSWarningAlertStyle;
-        
-        [alert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        // a simple trick for waiting sheet modal return
-        shouldClose = [NSApp runModalForWindow:alert.window];
-    }
-    
-    return shouldClose;
-}
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn: // apply
-            [self performSelector: @selector(applyChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        case NSAlertOtherReturn: // cancel
-            [NSApp stopModalWithCode:NO];
-            break;
-            
-        case NSAlertAlternateReturn: // don't apply
-            [self performSelector: @selector(revertChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        default:
-            [NSApp stopModalWithCode:YES];
-            break;
-    }
-}
-
-- (void)dealloc
-{
-}
-
-- (void)controlTextDidChange:(NSNotification *)aNotification
-{
-    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
-}
-
-- (IBAction)toggleShareSocks:(id)sender
-{
-    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
 @end

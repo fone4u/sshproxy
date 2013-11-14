@@ -9,15 +9,13 @@
 #import "ServersPreferencesViewController.h"
 #import "CharmNumberFormatter.h"
 #import "SSHHelper.h"
-#import "PasswordHelpViewController.h"
-#import "PublicKeyHelpViewController.h"
+#import "AuthTipViewController.h"
 #import "AppController.h"
 #import <pwd.h>
 
 @implementation ServersPreferencesViewController
 
-@synthesize passwordHelpPopoverController;
-@synthesize publickeyHelpPopoverController;
+@synthesize authTipPopoverController;
 @synthesize isDirty;
 
 - (id)init
@@ -40,23 +38,17 @@
 
 - (NSString *)toolbarItemLabel
 {
-    return NSLocalizedString(@"Servers", @"Toolbar item name for the Servers preference pane");
+    return NSLocalizedString(@"sshproxy.pref.servers.title", nil);
 }
 
-#pragma mark - 
+#pragma mark -
 
-- (void)awakeFromNib
+-(void)loadView
 {
-    //    [super awakeFromNib];
+    [super loadView];
     
     CharmNumberFormatter *formatter = [[CharmNumberFormatter alloc] init];
     [self.remotePortTextField setFormatter:formatter];
-}
-
-- (void)viewWillAppear
-{
-    [self.userDefaultsController save:self];
-    self.isDirty = NO;
     
     if ([self.serversTableView numberOfRows]<=0) {
         [self performSelector: @selector(addServer:) withObject:self afterDelay: 0.0f];
@@ -67,6 +59,24 @@
         // invoke tableViewSelectionDidChange
         [[NSNotificationCenter defaultCenter] postNotificationName:NSTableViewSelectionDidChangeNotification object:self.serversTableView];
     }
+    
+    self.remoteHostLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.host", nil);
+    self.remotePortLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.port", nil);
+    self.usernameLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.username", nil);
+    self.authenticationLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.auth", nil);
+    self.passwordRadioCell.title = NSLocalizedString(@"sshproxy.pref.servers.password", nil);
+    self.pubkeyRadioCell.title = NSLocalizedString(@"sshproxy.pref.servers.pubkey", nil);
+    self.advancedButton.title = NSLocalizedString(@"sshproxy.pref.servers.advanced", nil);
+    self.duplicateMenuItem.title =NSLocalizedString(@"sshproxy.pref.servers.duplicate", nil);
+    
+    self.compressCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.compress", nil);
+    self.throughProxyCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.through_proxy", nil);
+    self.proxyTypeLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_type", nil);
+    self.proxyServerLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_server", nil);
+    self.authRequiredCheckbox.title = NSLocalizedString(@"sshproxy.pref.servers.proxy_auth", nil);
+    self.proxyUsernameLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_username", nil);
+    self.proxyPasswordLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.proxy_password", nil);
+    self.okButton.title = NSLocalizedString(@"sshproxy.pref.servers.ok", nil);
 }
 
 
@@ -96,21 +106,12 @@
 }
 
 
-- (IBAction)togglePasswordHelpPopover:(id)sender
+- (IBAction)toggleAuthTipPopover:(id)sender
 {
-    if (self.passwordHelpPopoverController.popoverIsVisible) {
-        [self.passwordHelpPopoverController closePopover:nil];
+    if (self.authTipPopoverController.popoverIsVisible) {
+        [self.authTipPopoverController closePopover:nil];
     } else {
-        [self.passwordHelpPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
-    }
-}
-
-- (IBAction)togglePublickeyHelpPopover:(id)sender
-{
-    if (self.publickeyHelpPopoverController.popoverIsVisible) {
-        [self.publickeyHelpPopoverController closePopover:nil];
-    } else {
-        [self.publickeyHelpPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
+        [self.authTipPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
     }
 }
 
@@ -164,83 +165,15 @@
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
-- (IBAction)closePreferencesWindow:(id)sender {
-    [self.view.window performClose:sender];
-}
-
-- (INPopoverController *)passwordHelpPopoverController
+- (INPopoverController *)authTipPopoverController
 {
-    if (!passwordHelpPopoverController) {
-        PasswordHelpViewController *viewController = [[PasswordHelpViewController alloc] init];
+    if (!authTipPopoverController) {
+        AuthTipViewController *viewController = [[AuthTipViewController alloc] init];
         
-        passwordHelpPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
+        authTipPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
     }
     
-    return passwordHelpPopoverController;
-}
-- (INPopoverController *)publickeyHelpPopoverController
-{
-    if (!publickeyHelpPopoverController) {
-        PublicKeyHelpViewController *viewController = [[PublicKeyHelpViewController alloc] init];
-        
-        publickeyHelpPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
-    }
-    
-    return publickeyHelpPopoverController;
-}
-
-- (IBAction)applyChanges:(id)sender
-{
-    // rember index
-    NSInteger index = [SSHHelper getActivatedServerIndex];
-    NSUInteger selected = self.serverArrayController.selectionIndex;
-    
-    // apply changes
-    [self.userDefaultsController save:self];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    self.isDirty = NO;
-    
-    if ( [self.serverArrayController.arrangedObjects count] <= 0) {
-        return;
-    }
-    
-    // recover selection
-    NSDictionary* server = (NSDictionary*)[self.serverArrayController.arrangedObjects objectAtIndex:index];
-    BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
-    
-    if (selected >= [self.serverArrayController.arrangedObjects count]) {
-        selected = [self.serverArrayController.arrangedObjects count] -1;
-    }
-    
-    self.serverArrayController.selectionIndex = selected;
-    
-    // reactive proxy
-    if (isProxyNeedReactive) {
-        AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
-        
-        // it seems must delay some microsenconds to wait user defaults synchronize
-        [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.1];
-    }
-    
-}
-- (IBAction)revertChanges:(id)sender
-{
-    NSUInteger selected = self.serverArrayController.selectionIndex;
-    
-    [self.userDefaultsController revert:self];
-    
-    // save again to prevent dirty settings
-    [self.userDefaultsController save:self];
-    [self.userDefaultsController.defaults synchronize];
-    
-    self.isDirty = NO;
-    
-    if (selected >= [self.serverArrayController.arrangedObjects count]) {
-        selected = [self.serverArrayController.arrangedObjects count] -1;
-    }
-    
-    self.serverArrayController.selectionIndex = selected;
+    return authTipPopoverController;
 }
 
 
@@ -307,51 +240,60 @@
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
-- (void)controlTextDidChange:(NSNotification *)aNotification
-{
-    self.isDirty = self.userDefaultsController.hasUnappliedChanges;
-}
+#pragma mark - BasePreferencesViewController
 
-#pragma mark - NSViewController
-
-- (BOOL)commitEditing
+- (IBAction)applyChanges:(id)sender
 {
-    BOOL shouldClose = YES;
+    // rember index
+    NSInteger index = [SSHHelper getActivatedServerIndex];
+    NSUInteger selected = self.serverArrayController.selectionIndex;
     
-    if (self.isDirty) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The preference has changes that have not been applied. Would you like to apply them?" defaultButton:@"Apply" alternateButton:@"Don't Apply" otherButton:@"Cancel" informativeTextWithFormat:@""];
-        
-        alert.alertStyle = NSWarningAlertStyle;
-        
-        [alert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-        
-        // a simple trick for waiting sheet modal return
-        shouldClose = [NSApp runModalForWindow:alert.window];
+    // apply changes
+    [self.userDefaultsController save:self];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.isDirty = NO;
+    
+    if ( [self.serverArrayController.arrangedObjects count] <= 0) {
+        return;
     }
     
-    return shouldClose;
-}
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn: // apply
-            [self performSelector: @selector(applyChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        case NSAlertOtherReturn: // cancel
-            [NSApp stopModalWithCode:NO];
-            break;
-            
-        case NSAlertAlternateReturn: // don't apply
-            [self performSelector: @selector(revertChanges:) withObject:nil afterDelay: 0.0];
-            [NSApp stopModalWithCode:YES];
-            break;
-            
-        default:
-            [NSApp stopModalWithCode:YES];
-            break;
+    // recover selection
+    NSDictionary* server = (NSDictionary*)[self.serverArrayController.arrangedObjects objectAtIndex:index];
+    BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
+    
+    if (selected >= [self.serverArrayController.arrangedObjects count]) {
+        selected = [self.serverArrayController.arrangedObjects count] -1;
     }
+    
+    self.serverArrayController.selectionIndex = selected;
+    
+    // reactive proxy
+    if (isProxyNeedReactive) {
+        AppController *appController = (AppController *)([NSApplication sharedApplication].delegate);
+        
+        // it seems must delay some microsenconds to wait user defaults synchronize
+        [appController performSelector: @selector(reactiveProxy:) withObject:self afterDelay: 0.1];
+    }
+    
 }
 
+- (IBAction)revertChanges:(id)sender
+{
+    NSUInteger selected = self.serverArrayController.selectionIndex;
+    
+    [self.userDefaultsController revert:self];
+    
+    // save again to prevent dirty settings
+    [self.userDefaultsController save:self];
+    [self.userDefaultsController.defaults synchronize];
+    
+    self.isDirty = NO;
+    
+    if (selected >= [self.serverArrayController.arrangedObjects count]) {
+        selected = [self.serverArrayController.arrangedObjects count] -1;
+    }
+    
+    self.serverArrayController.selectionIndex = selected;
+}
 @end

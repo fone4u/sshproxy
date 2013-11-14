@@ -9,14 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
 #import "INPopoverController.h"
+#import "BasePreferencesViewController.h"
 
-@interface ServersPreferencesViewController : NSViewController <MASPreferencesViewController, NSTableViewDelegate> {
-}
-
+@interface ServersPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
 
 - (IBAction)remoteStepperAction:(id)sender;
-
-- (IBAction)closePreferencesWindow:(id)sender;
 
 - (IBAction)duplicateServer:(id)sender;
 - (IBAction)removeServer:(id)sender;
@@ -25,13 +22,11 @@
 - (IBAction)showTheSheet:(id)sender;
 - (IBAction)endTheSheet:(id)sender;
 
-- (IBAction)togglePasswordHelpPopover:(id)sender;
-- (IBAction)togglePublickeyHelpPopover:(id)sender;
+- (IBAction)toggleAuthTipPopover:(id)sender;
 
 - (IBAction)authMethodChanged:(id)sender;
 
 @property (strong) IBOutlet NSArrayController *serverArrayController;
-@property (strong) IBOutlet NSUserDefaultsController *userDefaultsController;
 
 @property (strong) IBOutlet NSTextField *remoteHostTextField;
 @property (strong) IBOutlet NSTextField *remotePortTextField;
@@ -44,15 +39,25 @@
 @property (strong) IBOutlet NSMatrix *authMethodMatrix;
 @property (strong) IBOutlet NSTextField *privatekeyLabel;
 
-@property (strong) IBOutlet NSButtonCell *privatekeyButtonCell;
 
+@property (strong) IBOutlet NSTextField *remoteHostLabel;
+@property (strong) IBOutlet NSTextField *remotePortLabel;
+@property (strong) IBOutlet NSTextField *usernameLabel;
+@property (strong) IBOutlet NSTextField *authenticationLabel;
+@property (strong) IBOutlet NSButtonCell *passwordRadioCell;
+@property (strong) IBOutlet NSButtonCell *pubkeyRadioCell;
+@property (strong) IBOutlet NSButton *advancedButton;
+@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
 
-@property (nonatomic,readonly) INPopoverController *passwordHelpPopoverController;
-@property (nonatomic,readonly) INPopoverController *publickeyHelpPopoverController;
+@property (strong) IBOutlet NSButton *compressCheckbox;
+@property (strong) IBOutlet NSButton *throughProxyCheckbox;
+@property (strong) IBOutlet NSTextField *proxyTypeLabel;
+@property (strong) IBOutlet NSTextField *proxyServerLabel;
+@property (strong) IBOutlet NSButton *authRequiredCheckbox;
+@property (strong) IBOutlet NSTextField *proxyUsernameLabel;
+@property (strong) IBOutlet NSTextField *proxyPasswordLabel;
+@property (strong) IBOutlet NSButton *okButton;
 
-- (IBAction)applyChanges:(id)sender;
-- (IBAction)revertChanges:(id)sender;
-
-@property (nonatomic, readwrite) BOOL isDirty;
+@property (nonatomic,readonly) INPopoverController *authTipPopoverController;
 
 @end

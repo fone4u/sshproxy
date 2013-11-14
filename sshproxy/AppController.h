@@ -11,10 +11,12 @@
 #import "MASPreferencesWindowController.h"
 #import "INSOCKSServer.h"
 #import "INSOCKSConnection.h"
+#import "AboutWindowController.h"
 
 @interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSConnectionDelegate, INSOCKSServerDelegate>
 
 @property (nonatomic, readwrite) MASPreferencesWindowController *preferencesWindowController;
+@property (nonatomic, readwrite) AboutWindowController* aboutWindowController;
 
 /* Our IBAction which will call the helloWorld method when our connected Menu Item is pressed */
 
@@ -24,8 +26,6 @@
 - (IBAction)openWhitelistPreferences:(id)sender;
 - (IBAction)openHelpURL:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
-- (IBAction)openSendFeedback:(id)sender;
-- (IBAction)openMacAppStore:(id)sender;
 - (IBAction)switchProxyMode:(id)sender;
 
 
@@ -35,7 +35,15 @@
 @property IBOutlet NSMenuItem* cautionMenuItem;
 @property IBOutlet NSMenuItem* turnOnMenuItem;
 @property IBOutlet NSMenuItem* turnOffMenuItem;
-@property IBOutlet NSWindow* aboutWindow;
+@property IBOutlet NSMenuItem* add2WhitelistMenuItem;
+@property IBOutlet NSMenuItem* allSitesMenuItem;
+@property IBOutlet NSMenuItem* onlyWhitelistMenuItem;
+@property IBOutlet NSMenuItem* directConnectMenuItem;
+@property IBOutlet NSMenuItem* preferenceMenuItem;
+@property IBOutlet NSMenuItem* helpMenuItem;
+@property IBOutlet NSMenuItem* aboutMenuItem;
+@property IBOutlet NSMenuItem* quitMenuItem;
+
 @property IBOutlet NSMenu* mainMenu;
 @property IBOutlet NSArrayController* serverArrayController;
 

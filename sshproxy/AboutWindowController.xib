@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController">
+            <connections>
+                <outlet property="copyrightTextField" destination="xTR-ik-pEs" id="OSS-m2-DYE"/>
+                <outlet property="creditsTextField" destination="XFl-tJ-EAX" id="imn-AW-1UW"/>
+                <outlet property="feedbackButton" destination="94B-Nq-AvX" id="xBR-bP-tC7"/>
+                <outlet property="rateUsButton" destination="Dwd-UW-wHF" id="mbQ-Ui-chR"/>
+                <outlet property="releaseDateTextField" destination="ciG-Li-XeX" id="PqD-gc-b83"/>
+                <outlet property="titleTextField" destination="Jla-Nc-9Ff" id="YEz-Q5-xmQ"/>
+                <outlet property="versionTextField" destination="7y3-Re-mYs" id="vMi-Ew-Z6m"/>
+                <outlet property="window" destination="jOh-3Q-Wpw" id="bf4-fl-eoW"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="About SSH Proxy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="jOh-3Q-Wpw" userLabel="About SSH Proxy Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
+            <rect key="contentRect" x="554" y="411" width="379" height="323"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="shT-I0-eJc">
+                <rect key="frame" x="0.0" y="0.0" width="379" height="323"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="fbU-SH-Dcp" userLabel="Close Button (Hide)">
+                        <rect key="frame" x="-378" y="-359" width="12" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="mTt-fM-yW0">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent">w</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="orderOut:" target="jOh-3Q-Wpw" id="cD3-Xa-v9I"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="Xuw-qf-ldc" userLabel="Close Button (Hide, ESC)">
+                        <rect key="frame" x="-189" y="-209" width="12" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="w3c-lr-BZN">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="orderOut:" target="jOh-3Q-Wpw" id="Fpb-FB-3Ck"/>
+                        </connections>
+                    </button>
+                    <imageView id="Heq-UK-E21">
+                        <rect key="frame" x="157" y="239" width="64" height="64"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="URT-1Q-jgM"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" id="Jla-Nc-9Ff">
+                        <rect key="frame" x="17" y="212" width="345" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="SSH Proxy" id="Iwh-sH-Kke">
+                            <font key="font" size="16" name="LucidaGrande-Bold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box autoresizesSubviews="NO" title="Box" boxType="custom" borderType="none" id="vhb-Rt-gMC">
+                        <rect key="frame" x="0.0" y="0.0" width="379" height="188"/>
+                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="379" height="188"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" id="7y3-Re-mYs">
+                                    <rect key="frame" x="13" y="93" width="353" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version: 13.10" id="eMc-zz-Wna">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="ciG-Li-XeX">
+                                    <rect key="frame" x="13" y="71" width="353" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Release Date: 2013-10-26" id="QFb-p1-cc1">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="xTR-ik-pEs">
+                                    <rect key="frame" x="13" y="49" width="353" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="© 2013 Codinn Studio, all rights reserved" id="FtH-3g-Cka">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="XFl-tJ-EAX">
+                                    <rect key="frame" x="13" y="10" width="353" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Credits: People Name" id="acv-zj-GCi">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" id="94B-Nq-AvX">
+                                    <rect key="frame" x="122" y="144" width="134" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Send Feedback" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2jB-rU-DA5">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="openSendFeedback:" target="-2" id="iUK-Qb-ucf"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" id="Dwd-UW-wHF">
+                                    <rect key="frame" x="122" y="111" width="134" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Rate SSH Proxy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oas-Bo-HDw">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="openMacAppStore:" target="-2" id="uJe-FW-h2B"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" red="0.91372555489999996" green="1" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                        <font key="titleFont" size="11" name="LucidaGrande"/>
+                    </box>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="3Kp-ob-vyM"/>
+            </connections>
+        </window>
+    </objects>
+    <resources>
+        <image name="AppIcon" width="128" height="128"/>
+    </resources>
+</document>

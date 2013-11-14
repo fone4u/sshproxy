@@ -35,6 +35,7 @@
 }
 
 @synthesize preferencesWindowController;
+@synthesize aboutWindowController;
 
 -(id)init
 {
@@ -69,12 +70,25 @@
     //Tells the NSStatusItem what action to active
     [statusItem setAction:@selector(statusItemClicked)];
     //Sets the tooptip for our item
-    [statusItem setToolTip:@"SSH Proxy"];
+    [statusItem setToolTip:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
     //Enables highlighting
     [statusItem setHighlightMode:YES];
     
     // upgrade user preferences from 13.04 to 13.05
     [SSHHelper upgrade1:self.serverArrayController];
+    
+    // init menu text
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
+    self.turnOffMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.turn_off", nil);
+    self.turnOnMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.turn_on", nil);
+    self.add2WhitelistMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.add_to_whitelist", nil);
+    self.allSitesMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.use_proxy_for_all_sites", nil);
+    self.onlyWhitelistMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.use_proxy_for_whitelist", nil);
+    self.directConnectMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.direct_connection", nil);
+    self.preferenceMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.preferences", nil);
+    self.helpMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.help", nil);
+    self.aboutMenuItem.title = NSLocalizedString(@"sshproxy.about.title", nil);
+    self.quitMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.quit", nil);
     
     [self.cautionMenuItem setHidden:YES];
 }
@@ -85,7 +99,7 @@
 {
     [statusItem setImage:inStatusImage];
     [statusItem setAlternateImage:inStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Connecting..."];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_connecting", nil);
     
     [self setCautionMessage];
     
@@ -98,7 +112,7 @@
     proxyStatus = SSHPROXY_CONNECTED;
     [statusItem setImage:onStatusImage];
     [statusItem setAlternateImage:onStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: On"];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_on", nil);
     
     [self setCautionMessage];
     
@@ -110,7 +124,7 @@
 {
     [statusItem setImage:offStatusImage];
     [statusItem setAlternateImage:offStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Off"];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
     
     [self setCautionMessage];
     
@@ -132,7 +146,7 @@
 {
     [statusItem setImage:inStatusImage];
     [statusItem setAlternateImage:inStatusInverseImage];
-    [self.statusMenuItem setTitle:@"Proxy: Reconnecting..."];
+    self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_reconnecting", nil);
     
     [self setCautionMessage];
     
@@ -298,7 +312,7 @@
     
     if (!arguments) {
         // abort connection
-        errorMsg = @"Invalid authentication method or private key does not exist";
+        errorMsg = NSLocalizedString(@"sshproxy.errmsg.invalid_auth", nil);
         [self set2disconnected];
         return;
     }
@@ -404,7 +418,7 @@
         [fh waitForDataInBackgroundAndNotify];
     } else {
         if ([taskOutput rangeOfString:@"bind: Address already in use"].location != NSNotFound) {
-            errorMsg = @"Port already in use";
+            errorMsg = NSLocalizedString(@"sshproxy.errmsg.sshport", nil);
             [self set2disconnected];
             return;
         } else if ([taskOutput rangeOfString:@"Permission denied "].location != NSNotFound) {
@@ -412,22 +426,29 @@
             BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
 
             if (isPublicKeyMode) {
-                errorMsg = @"Invalid passphrase or private key";
+                errorMsg = NSLocalizedString(@"sshproxy.errmsg.pubkey", nil);
             } else {
-                errorMsg = @"Incorrect password";
+                errorMsg = NSLocalizedString(@"sshproxy.errmsg.password", nil);
             }
             [self set2disconnected];
             return;
         } else {
             NSArray* errors = @[
-                                @[@"ssh: Could not resolve hostname"   , @"Could not resolve hostname"],
-                                @[@"Connection refused"                , @"Connection refused"],
-                                @[@"Timeout,"                          , @"Timeout, server not responding"],
-                                @[@"Connection timed out during banner exchange"                     , @"Remote proxy server connection timed out"],
-                                @[@"timed out"                         , @"Connection timed out"],
-                                @[@"Write failed: Broken pipe"         , @"Disconnected from remote proxy server"],
-                                @[@"Connection closed by remote host"  , @"Failed to connect remote proxy server"],
-                                @[@"unknown error"                     , @"Unknown error"],
+                                @[@"ssh: Could not resolve hostname"   , NSLocalizedString(@"sshproxy.errmsg.hostname", nil)],
+                                
+                                @[@"Connection refused"                , NSLocalizedString(@"sshproxy.errmsg.refused", nil)],
+                                
+                                @[@"Timeout,"                          , NSLocalizedString(@"sshproxy.errmsg.timeout", nil)],
+                                
+                                @[@"Connection timed out during banner exchange" , NSLocalizedString(@"sshproxy.errmsg.timedout", nil)],
+                                
+                                @[@"timed out"                         , NSLocalizedString(@"sshproxy.errmsg.timedout2", nil)],
+                                
+                                @[@"Write failed: Broken pipe"         , NSLocalizedString(@"sshproxy.errmsg.disconnected", nil)],
+                                
+                                @[@"Connection closed by remote host"  , NSLocalizedString(@"sshproxy.errmsg.failed", nil)],
+                                
+                                @[@"unknown error"                     , NSLocalizedString(@"sshproxy.errmsg.unknown", nil)],
                                 ];
             for (NSArray* error in errors) {
                 if ( ([taskOutput rangeOfString:[error objectAtIndex:0]].location != NSNotFound) || [[error objectAtIndex:0] isEqual:@"unknown error"]) {
@@ -485,7 +506,7 @@
         // To add a flexible space between General and Advanced preference panes insert [NSNull null]:
         //     NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, [NSNull null], advancedViewController, nil];
         
-        NSString *title = NSLocalizedString(@"SSH Proxy Preferences", @"SSH Proxy Preferences");
+        NSString *title = NSLocalizedString(@"sshproxy.pref.title", nil);
         preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title delegate:self];
         
         [preferencesWindowController.window setReleasedWhenClosed: NO];
@@ -495,11 +516,20 @@
     return preferencesWindowController;
 }
 
+- (AboutWindowController *)aboutWindowController
+{
+    if (!aboutWindowController)
+    {
+        aboutWindowController = [[AboutWindowController alloc] init];
+    }
+    return aboutWindowController;
+}
+
 - (IBAction)openPreferences:(id)sender
 {
     [NSApp activateIgnoringOtherApps:YES];
-    //    [[self.preferencesWindowController window] makeKeyAndOrderFront:nil];
-    //    [[self.preferencesWindowController window] setLevel:NSFloatingWindowLevel];
+    [[self.preferencesWindowController window] makeKeyAndOrderFront:nil];
+    [[self.preferencesWindowController window] setLevel:NSFloatingWindowLevel];
     [[self.preferencesWindowController window] setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
 //    [[self.preferencesWindowController window] center];
     [self.preferencesWindowController showWindow:nil];
@@ -525,29 +555,12 @@
 {
     [NSApp activateIgnoringOtherApps:YES];
     
-    [self.aboutWindow makeKeyAndOrderFront:nil];
-    [self.aboutWindow setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
-    [self.aboutWindow center];
-}
-
--(IBAction)openSendFeedback:(id)sender
-{
-    NSString *encodedSubject = @"subject=SSH Proxy Support";
-    NSString *encodedBody = @"body=Hi Yang,";
-    NSString *encodedTo = @"yang@codinnstudio.com";
-    NSString *encodedURLString = [NSString stringWithFormat:@"mailto:%@?%@&%@",
-                                  [encodedTo stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                  [encodedSubject stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                  [encodedBody stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    DDLogVerbose(@"%@", encodedURLString);
-    NSURL *mailtoURL = [NSURL URLWithString:encodedURLString];
-    [[NSWorkspace sharedWorkspace] openURL:mailtoURL];
-}
-
--(IBAction)openMacAppStore:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:
-     [NSURL URLWithString:@"macappstore://itunes.apple.com/app/ssh-proxy/id597790822?mt=12"]];
+    [self.aboutWindowController.window makeKeyAndOrderFront:nil];
+    [self.aboutWindowController.window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+    [self.aboutWindowController.window center];
+    [self.aboutWindowController.window setLevel:NSFloatingWindowLevel];
+    
+    [self.aboutWindowController showWindow:nil];
 }
 
 - (IBAction)openHelpURL:(id)sender
@@ -598,7 +611,7 @@
     
 	if (error) {
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
-        errorMsg = [NSString stringWithFormat:@"Port (%@) already in use", @([SSHHelper getLocalPort])];
+        errorMsg = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.errmsg.port", nil), @([SSHHelper getLocalPort])];
         [self set2disconnected];
         [self stopServer];
 	} else {
@@ -643,7 +656,7 @@
 
 - (BOOL)SOCKSConnectionShouldRelay:(INSOCKSConnection *)connection
 {
-    return [WhitelistHelper isHostShouldProxy:connection.targetHost isProxyOn:self.turnOnMenuItem.isHidden];
+    return [WhitelistHelper isHostShouldProxy:connection.targetHost];
 }
 
 - (NSArray *)SOCKSConnectionGetRelayAddress:(INSOCKSConnection *)connection
