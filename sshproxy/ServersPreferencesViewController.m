@@ -140,6 +140,7 @@
     
     [self.serversTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
     [self.serversTableView scrollRowToVisible:index];
+    [self.serversTableView.window makeFirstResponder:self.serversTableView];
     
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }

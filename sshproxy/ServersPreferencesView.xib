@@ -114,6 +114,7 @@
                             </buttonCell>
                             <connections>
                                 <action selector="addServer:" target="-2" id="224"/>
+                                <binding destination="215" name="enabled" keyPath="canAdd" id="MD6-Et-67L"/>
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" id="133">
