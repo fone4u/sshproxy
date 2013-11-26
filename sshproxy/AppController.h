@@ -13,7 +13,7 @@
 #import "INSOCKSConnection.h"
 #import "AboutWindowController.h"
 
-@interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSConnectionDelegate, INSOCKSServerDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSServerDelegate>
 
 @property (nonatomic, readwrite) MASPreferencesWindowController *preferencesWindowController;
 @property (nonatomic, readwrite) AboutWindowController* aboutWindowController;
