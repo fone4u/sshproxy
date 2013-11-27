@@ -140,6 +140,7 @@
     
     [self.serversTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
     [self.serversTableView scrollRowToVisible:index];
+    [self.serversTableView.window makeFirstResponder:self.serversTableView];
     
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
@@ -215,12 +216,19 @@
                                     
                                     // copy key
                                     
-                                    if ( [[NSFileManager defaultManager] fileExistsAtPath:importedKeyPath isDirectory:NO] )
+                                    NSFileManager *defaultManager = [NSFileManager defaultManager];
+                                    
+                                    if ( [defaultManager fileExistsAtPath:importedKeyPath isDirectory:NO] )
                                     {
-                                        [[NSFileManager defaultManager] removeItemAtPath:importedKeyPath error:nil];
+                                        [defaultManager removeItemAtPath:importedKeyPath error:nil];
                                     }
                                     
-                                    [[NSFileManager defaultManager] copyItemAtPath:selectedKeyPath toPath:importedKeyPath error:nil];
+                                    [defaultManager copyItemAtPath:selectedKeyPath toPath:importedKeyPath error:nil];
+                                    
+                                    // set permission to 0600, or ssh will failed
+                                    
+                                    NSDictionary* attributes = [NSDictionary dictionaryWithObject:[NSNumber numberWithShort:0600] forKey:NSFilePosixPermissions];
+                                    [defaultManager setAttributes:attributes ofItemAtPath:importedKeyPath error:nil];
                                     
                                     // hack code to make sure user defaults controller is aware of server array controller is changed.
                                     NSUInteger selected = [self.serverArrayController selectionIndex];

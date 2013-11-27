@@ -39,6 +39,8 @@
 		4A42311B1719AB5100ABD4F6 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A42311A1719AB5100ABD4F6 /* libresolv.dylib */; };
 		4A44D67E16A8368900EB44A8 /* SSH Proxy - Ask Password in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BE47916A5BAA0000E56D7 /* SSH Proxy - Ask Password */; };
 		4A44D68216A837CB00EB44A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D67F16A8379C00EB44A8 /* main.m */; };
+		4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */; };
+		4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */; };
 		4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
 		4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A30A5181EADFF00F652B4 /* Media.xcassets */; };
 		4A70ACB71774536000777818 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAA1774536000777818 /* RNCryptor.m */; };
@@ -70,8 +72,8 @@
 		4AA6473316BE3F0C00DE5CAD /* SSH Proxy Helper.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 4AA6471A16BE3DB900DE5CAD /* SSH Proxy Helper.app */; };
 		4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1313178FAA4A00F1DF01 /* GCDAsyncSocket.m */; };
 		4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */; };
-		4AAF131C178FAE1C00F1DF01 /* INSOCKSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF131B178FAE1C00F1DF01 /* INSOCKSConnection.m */; };
 		4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */; };
+		4AC2DC351842E92200038079 /* INSOCKSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2DC341842E92200038079 /* INSOCKSConnection.m */; };
 		4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9BEFF1794D68700E9A997 /* WhitelistPreferencesViewController.m */; };
 		4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC9BF001794D68700E9A997 /* WhitelistPreferencesView.xib */; };
 		4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9BF041794EAA500E9A997 /* WhitelistHelper.m */; };
@@ -213,6 +215,10 @@
 		4A42311C1719AB8100ABD4F6 /* connect.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = connect.entitlements; sourceTree = "<group>"; };
 		4A44D67F16A8379C00EB44A8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = askpass/main.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4A44D68116A837A800EB44A8 /* askpass-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "askpass-Prefix.pch"; path = "askpass/askpass-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		4A49EEBB183AFFA900E7296E /* INSOCKSRelayConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSRelayConnection.h; sourceTree = "<group>"; };
+		4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSRelayConnection.m; sourceTree = "<group>"; };
+		4A49EEBE183B0D7A00E7296E /* INSOCKSDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSDirectConnection.h; sourceTree = "<group>"; };
+		4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSDirectConnection.m; sourceTree = "<group>"; };
 		4A6A30A5181EADFF00F652B4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4A70ACA71774535F00777818 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
 		4A70ACA91774536000777818 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
@@ -258,9 +264,9 @@
 		4AAF1317178FAAA800F1DF01 /* INSOCKSServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSServer.h; sourceTree = "<group>"; };
 		4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSServer.m; sourceTree = "<group>"; };
 		4AAF131A178FAE1C00F1DF01 /* INSOCKSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSConnection.h; sourceTree = "<group>"; };
-		4AAF131B178FAE1C00F1DF01 /* INSOCKSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSConnection.m; sourceTree = "<group>"; };
 		4AB29FC218212F440026C8CC /* BasePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePreferencesViewController.h; sourceTree = "<group>"; };
 		4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePreferencesViewController.m; sourceTree = "<group>"; };
+		4AC2DC341842E92200038079 /* INSOCKSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSConnection.m; sourceTree = "<group>"; };
 		4AC9BEFE1794D68700E9A997 /* WhitelistPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhitelistPreferencesViewController.h; sourceTree = "<group>"; };
 		4AC9BEFF1794D68700E9A997 /* WhitelistPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhitelistPreferencesViewController.m; sourceTree = "<group>"; };
 		4AC9BF001794D68700E9A997 /* WhitelistPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhitelistPreferencesView.xib; sourceTree = "<group>"; };
@@ -520,7 +526,11 @@
 				4AAF1317178FAAA800F1DF01 /* INSOCKSServer.h */,
 				4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */,
 				4AAF131A178FAE1C00F1DF01 /* INSOCKSConnection.h */,
-				4AAF131B178FAE1C00F1DF01 /* INSOCKSConnection.m */,
+				4AC2DC341842E92200038079 /* INSOCKSConnection.m */,
+				4A49EEBB183AFFA900E7296E /* INSOCKSRelayConnection.h */,
+				4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */,
+				4A49EEBE183B0D7A00E7296E /* INSOCKSDirectConnection.h */,
+				4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */,
 			);
 			name = INSOCKSServer;
 			path = INSOCKSServer/INSOCKSServer/Classes;
@@ -944,12 +954,14 @@
 				4A70ACE11774B06400777818 /* INPopoverController.m in Sources */,
 				4A70ACE21774B06400777818 /* INPopoverParentWindow.m in Sources */,
 				4A70ACE31774B06400777818 /* INPopoverWindow.m in Sources */,
+				4AC2DC351842E92200038079 /* INSOCKSConnection.m in Sources */,
 				4A70ACE41774B06400777818 /* INPopoverWindowFrame.m in Sources */,
 				4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */,
 				4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */,
 				4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */,
 				4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */,
-				4AAF131C178FAE1C00F1DF01 /* INSOCKSConnection.m in Sources */,
+				4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */,
+				4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */,
 				4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */,
 				4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */,
 				4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */,

@@ -626,7 +626,7 @@
 	if (!_server) return;
     
     _server.delegate = nil;
-	[_server disconnectAll];
+	[_server disconnect];
 	_server = nil;
 }
 
@@ -649,24 +649,16 @@
 
 - (void)SOCKSServer:(INSOCKSServer *)server didAcceptConnection:(INSOCKSConnection *)connection
 {
-	connection.delegate = self;
 }
 
-#pragma mark - INSOCKSConnectionDelegate
-
-- (BOOL)SOCKSConnectionShouldRelay:(INSOCKSConnection *)connection
+- (BOOL)SOCKSServer:(INSOCKSServer *)server shouldRelay:(INSOCKSConnection *)connection
 {
     return [WhitelistHelper isHostShouldProxy:connection.targetHost];
 }
 
-- (NSArray *)SOCKSConnectionGetRelayAddress:(INSOCKSConnection *)connection
+- (NSArray *)SOCKSServerGetRelayAddress:(INSOCKSServer *)server
 {
     return @[@"127.0.0.1", @([SSHHelper getSSHLocalPort])];
-}
-
-- (void)SOCKSConnection:(INSOCKSConnection *)connection didDisconnectWithError:(NSError *)error
-{
-    [_server disconnect:connection];
 }
 
 @end

@@ -83,7 +83,9 @@
     return @[
              @[ // google
                  @"google.com",
+                 @"googlevideo.com",
                  @"googleapis.com",
+                 @"googlesyndication.com",
                  @"googlecode.com",
                  @"google-analytics.com",
                  @"feedburner.com",
@@ -107,6 +109,10 @@
                  @"youtu.be",
                  @"ytimg.com",
                  @"y2u.be",
+                 @"googlevideo.com",
+                 @"googleusercontent.com",
+                 @"googlesyndication.com",
+                 @"youtube-nocookie.com",
                  ],
              @[ // blogger
                  @"blogger.com",
