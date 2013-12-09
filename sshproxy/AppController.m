@@ -37,6 +37,8 @@
 @synthesize preferencesWindowController;
 @synthesize aboutWindowController;
 
+static int sshProcessIdentifier;
+
 -(id)init
 {
     self = [super init];
@@ -372,6 +374,8 @@
     [[NSFileManager defaultManager] removeItemAtPath:lockFile error:nil];
     
     [task launch];
+    
+    sshProcessIdentifier = task.processIdentifier;
 }
 
 - (void)reconnectIfNeed:(NSString*) state
@@ -462,6 +466,8 @@
 // When the process is done, we should do some cleanup:
 - (void)taskTerminated:(NSNotification *)note
 {
+    [AppController initSshProcessIdentifier];
+    
     task = nil;
 
     errorMsg = nil;
@@ -659,6 +665,16 @@
 - (NSArray *)SOCKSServerGetRelayAddress:(INSOCKSServer *)server
 {
     return @[@"127.0.0.1", @([SSHHelper getSSHLocalPort])];
+}
+
++ (int)sshProcessIdentifier
+{
+    return sshProcessIdentifier;
+}
+
++ (void)initSshProcessIdentifier
+{
+    sshProcessIdentifier = -100;
 }
 
 @end
