@@ -3,12 +3,12 @@
     {
       "idiom" : "mac",
       "scale" : "1x",
-      "filename" : "disconnected-inverse.png"
+      "filename" : "disconnected.png"
     },
     {
       "idiom" : "mac",
       "scale" : "2x",
-      "filename" : "disconnected-inverse@2x.png"
+      "filename" : "disconnected@2x.png"
     }
   ],
   "info" : {
