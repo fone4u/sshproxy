@@ -56,6 +56,7 @@ enum {
     SSHPROXY_ON,
 //    SSHPROXY_DISCONNECTED,
     SSHPROXY_CONNECTED,
+    SSHPROXY_INIT,
 };
 
 @end

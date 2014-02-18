@@ -221,7 +221,9 @@ static int sshProcessIdentifier;
     BOOL autoLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"auto_launch"];
     
     if (! disableAutoconnect) {
-        [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
+        proxyStatus = SSHPROXY_INIT;
+        [self set2connect];
+        [self performSelector: @selector(_turnOnProxy) withObject:nil afterDelay: 0.0];
     }
     
     if (autoLaunch) {
@@ -377,7 +379,7 @@ static int sshProcessIdentifier;
 
 - (void)reconnectIfNeed:(NSString*) state
 {
-    if (proxyStatus==SSHPROXY_CONNECTED) {
+    if (proxyStatus==SSHPROXY_CONNECTED || proxyStatus==SSHPROXY_INIT) {
         errorMsg = state;
         [self set2reconnect];
         [self performSelector: @selector(_turnOnProxy) withObject:nil afterDelay: 3.0];
