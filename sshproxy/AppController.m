@@ -19,7 +19,8 @@
     NSStatusItem *statusItem;
     NSImage *offStatusImage;
     NSImage *onStatusImage;
-    NSImage *inStatusImage;
+    NSImage *in1StatusImage;
+    NSImage *in2StatusImage;
     
     NSTask *task;
     NSPipe *pipe;
@@ -29,6 +30,8 @@
     NSString *errorMsg;
     
 	INSOCKSServer *_server;
+    
+    NSTimer *_rollImageTimer;
 }
 
 @synthesize preferencesWindowController;
@@ -56,7 +59,8 @@ static int sshProcessIdentifier;
     //Allocates and loads the images into the application which will be used for our NSStatusItem
     offStatusImage = [NSImage imageNamed:@"disconnectedTemplate"];
     onStatusImage = [NSImage imageNamed:@"connectedTemplate"];
-    inStatusImage = [NSImage imageNamed:@"connecting1Template"];
+    in1StatusImage = [NSImage imageNamed:@"connecting1Template"];
+    in2StatusImage = [NSImage imageNamed:@"connecting2Template"];
     
     //Sets the images in our NSStatusItem
     [statusItem setImage:offStatusImage];
@@ -91,7 +95,7 @@ static int sshProcessIdentifier;
 
 - (void)set2connect
 {
-    [statusItem setImage:inStatusImage];
+    [self startRollImageTimer:self];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_connecting", nil);
     
     [self setCautionMessage];
@@ -103,7 +107,10 @@ static int sshProcessIdentifier;
 - (void)set2connected
 {
     proxyStatus = SSHPROXY_CONNECTED;
+    
+    [self stopRollImageTimer:self];
     [statusItem setImage:onStatusImage];
+    
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_on", nil);
     
     [self setCautionMessage];
@@ -114,7 +121,9 @@ static int sshProcessIdentifier;
 
 - (void)set2disconnected
 {
+    [self stopRollImageTimer:self];
     [statusItem setImage:offStatusImage];
+    
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
     
     [self setCautionMessage];
@@ -135,7 +144,7 @@ static int sshProcessIdentifier;
 
 - (void)set2reconnect
 {
-    [statusItem setImage:inStatusImage];
+    [self startRollImageTimer:self];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_reconnecting", nil);
     
     [self setCautionMessage];
@@ -583,6 +592,35 @@ static int sshProcessIdentifier;
     [task interrupt];
     [self stopServer];
     return NSTerminateNow;
+}
+
+#pragma mark - Connecting images roll
+- (IBAction)startRollImageTimer:(id)sender
+{
+    if (_rollImageTimer == nil) {
+        _rollImageTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                                  target:self
+                                                selector:@selector(rollConnectingImage)
+                                                userInfo:nil
+                                                 repeats:YES];
+    }
+}
+
+- (IBAction)stopRollImageTimer:(id)sender
+{
+    if (_rollImageTimer != nil) {
+        [_rollImageTimer invalidate];
+        _rollImageTimer = nil;
+    }
+}
+
+- (void)rollConnectingImage
+{
+    if (statusItem.image == in1StatusImage) {
+        statusItem.image = in2StatusImage;
+    } else {
+        statusItem.image = in1StatusImage;
+    }
 }
 
 #pragma mark - SOCKS server control
