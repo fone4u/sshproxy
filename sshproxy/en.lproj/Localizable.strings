@@ -45,9 +45,9 @@
 "sshproxy.about.feedback" = "Send Feedback";
 "sshproxy.about.rateus" = "Rate SSH Proxy";
 "sshproxy.about.version" = "Version: %@";
-"sshproxy.about.release" = "Release Date: 2013-12-01";
-"sshproxy.about.copyright" = "© 2013 Codinn Studio, all rights reserved";
-"sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang";
+"sshproxy.about.release" = "Release Date: 2014-02-25";
+"sshproxy.about.copyright" = "© 2014 Codinn Studio, all rights reserved";
+"sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang, Hypo Hsu";
 
 "sshproxy.pref.confirm_apply" = "The preference has changes that have not been applied. Would you like to apply them?";
 "sshproxy.pref.dont_apply" = "Don't Apply";

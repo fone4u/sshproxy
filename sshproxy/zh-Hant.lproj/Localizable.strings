@@ -38,9 +38,9 @@
 "sshproxy.about.feedback" = "給我們反饋";
 "sshproxy.about.rateus" = "評價 SSH Proxy";
 "sshproxy.about.version" = "版本: %@";
-"sshproxy.about.release" = "發佈日期: 2013-12-01";
-"sshproxy.about.copyright" = "© 2013 Codinn Studio, 版權所有";
-"sshproxy.about.credits" = "感謝: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang";
+"sshproxy.about.release" = "發佈日期: 2014-02-25";
+"sshproxy.about.copyright" = "© 2014 Codinn Studio, 版權所有";
+"sshproxy.about.credits" = "感謝: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang, Hypo Hsu";
 
 "sshproxy.pref.title" = "SSH Proxy 偏好設定";
 "sshproxy.pref.confirm_apply" = "偏好設定有尚未套用的更改，套用您的更改嗎？";
