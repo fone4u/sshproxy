@@ -18,11 +18,8 @@
     /* The other stuff :P */
     NSStatusItem *statusItem;
     NSImage *offStatusImage;
-    NSImage *offStatusInverseImage;
     NSImage *onStatusImage;
-    NSImage *onStatusInverseImage;
     NSImage *inStatusImage;
-    NSImage *inStatusInverseImage;
     
     NSTask *task;
     NSPipe *pipe;
@@ -57,17 +54,12 @@ static int sshProcessIdentifier;
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     //Allocates and loads the images into the application which will be used for our NSStatusItem
-    offStatusImage = [NSImage imageNamed:@"disconnected"];
-    onStatusImage = [NSImage imageNamed:@"connected"];
-    inStatusImage = [NSImage imageNamed:@"connecting"];
-    
-    offStatusInverseImage = [NSImage imageNamed:@"disconnected-inverse"];
-    onStatusInverseImage = [NSImage imageNamed:@"connected-inverse"];
-    inStatusInverseImage = [NSImage imageNamed:@"connecting-inverse"];
+    offStatusImage = [NSImage imageNamed:@"disconnectedTemplate"];
+    onStatusImage = [NSImage imageNamed:@"connectedTemplate"];
+    inStatusImage = [NSImage imageNamed:@"connecting1Template"];
     
     //Sets the images in our NSStatusItem
     [statusItem setImage:offStatusImage];
-    [statusItem setAlternateImage:offStatusInverseImage];
     
     //Tells the NSStatusItem what action to active
     [statusItem setAction:@selector(statusItemClicked)];
@@ -100,7 +92,6 @@ static int sshProcessIdentifier;
 - (void)set2connect
 {
     [statusItem setImage:inStatusImage];
-    [statusItem setAlternateImage:inStatusInverseImage];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_connecting", nil);
     
     [self setCautionMessage];
@@ -113,7 +104,6 @@ static int sshProcessIdentifier;
 {
     proxyStatus = SSHPROXY_CONNECTED;
     [statusItem setImage:onStatusImage];
-    [statusItem setAlternateImage:onStatusInverseImage];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_on", nil);
     
     [self setCautionMessage];
@@ -125,7 +115,6 @@ static int sshProcessIdentifier;
 - (void)set2disconnected
 {
     [statusItem setImage:offStatusImage];
-    [statusItem setAlternateImage:offStatusInverseImage];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
     
     [self setCautionMessage];
@@ -147,7 +136,6 @@ static int sshProcessIdentifier;
 - (void)set2reconnect
 {
     [statusItem setImage:inStatusImage];
-    [statusItem setAlternateImage:inStatusInverseImage];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_reconnecting", nil);
     
     [self setCautionMessage];

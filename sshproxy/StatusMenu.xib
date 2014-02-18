@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -240,7 +240,7 @@
                 <menuItem title="Proxy: Off" enabled="NO" id="796" userLabel="Status Item">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
-                <menuItem title="Error message here" image="warning_24x24" id="1224">
+                <menuItem title="Error message here" image="warningTemplate" id="1224">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem title="Turn Proxy On" id="797" userLabel="Turn On Item">
@@ -360,6 +360,6 @@
         <userDefaultsController representsSharedInstance="YES" id="1221"/>
     </objects>
     <resources>
-        <image name="warning_24x24" width="16" height="16"/>
+        <image name="warningTemplate" width="16" height="16"/>
     </resources>
 </document>
