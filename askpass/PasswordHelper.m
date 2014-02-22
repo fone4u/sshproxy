@@ -155,14 +155,14 @@
     NSString *passwordMessageString = nil;
     NSString *remeberCheckBoxTitle = nil;
     if (isPublicKeyMode) {
-        passwordMessageString = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.askpass.prompt_passphrase", nil), [SSHHelper privateKeyPathFromServer:server]];
-        remeberCheckBoxTitle = NSLocalizedString(@"sshproxy.askpass.remember_passphrase", nil);
+        passwordMessageString = [NSString stringWithFormat:@"Enter the passphrase for private key imported from “%@”.", [SSHHelper privateKeyPathFromServer:server]];
+        remeberCheckBoxTitle = @"Remember this passphrase in my keychain";
     } else {
-        passwordMessageString = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.askpass.prompt_password", nil), loginUser];
-        remeberCheckBoxTitle = NSLocalizedString(@"sshproxy.askpass.remember_password", nil);
+        passwordMessageString = [NSString stringWithFormat:@"Enter the password for user “%@”.", loginUser];
+        remeberCheckBoxTitle = @"Remember this password in my keychain";
     }
     
-    NSString* headerString = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.askpass.message", nil), hostString];
+    NSString* headerString = [NSString stringWithFormat:@"SSH Proxy connecting to the SSH server “%@”.", hostString];
     
     NSURL *iconURL = [[NSBundle mainBundle] URLForResource:@"AppIcon" withExtension:@"icns" subdirectory:@""];
     
@@ -171,7 +171,7 @@
                                headerString,kCFUserNotificationAlertHeaderKey,
                                passwordMessageString,kCFUserNotificationAlertMessageKey,
 							   @"",kCFUserNotificationTextFieldTitlesKey,
-							   NSLocalizedString(@"sshproxy.askpass.cancel", nil),kCFUserNotificationAlternateButtonTitleKey,
+							   @"Cancel",kCFUserNotificationAlternateButtonTitleKey,
                                remeberCheckBoxTitle,
                                kCFUserNotificationCheckBoxTitlesKey,
 							   nil];

@@ -15,6 +15,9 @@
 
 @interface AppController : NSObject <NSApplicationDelegate, NSMenuDelegate, MASPreferencesWindowDelegate, INSOCKSServerDelegate>
 
++ (int)sshProcessIdentifier;
++ (void)initSshProcessIdentifier;
+
 @property (nonatomic, readwrite) MASPreferencesWindowController *preferencesWindowController;
 @property (nonatomic, readwrite) AboutWindowController* aboutWindowController;
 
@@ -27,7 +30,6 @@
 - (IBAction)openHelpURL:(id)sender;
 - (IBAction)openAboutWindow:(id)sender;
 - (IBAction)switchProxyMode:(id)sender;
-
 
 /* Our outlets which allow us to access the interface */
 @property IBOutlet NSMenu *statusMenu;
@@ -54,6 +56,7 @@ enum {
     SSHPROXY_ON,
 //    SSHPROXY_DISCONNECTED,
     SSHPROXY_CONNECTED,
+    SSHPROXY_INIT,
 };
 
 @end

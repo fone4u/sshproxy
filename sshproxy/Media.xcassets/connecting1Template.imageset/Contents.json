@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "mac",
+      "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "disconnected-inverse.png"
+      "filename" : "connecting2.png"
     },
     {
-      "idiom" : "mac",
+      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "disconnected-inverse@2x.png"
+      "filename" : "connecting2@2x.png"
     }
   ],
   "info" : {

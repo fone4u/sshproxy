@@ -18,11 +18,9 @@
     /* The other stuff :P */
     NSStatusItem *statusItem;
     NSImage *offStatusImage;
-    NSImage *offStatusInverseImage;
     NSImage *onStatusImage;
-    NSImage *onStatusInverseImage;
-    NSImage *inStatusImage;
-    NSImage *inStatusInverseImage;
+    NSImage *in1StatusImage;
+    NSImage *in2StatusImage;
     
     NSTask *task;
     NSPipe *pipe;
@@ -32,10 +30,14 @@
     NSString *errorMsg;
     
 	INSOCKSServer *_server;
+    
+    NSTimer *_rollImageTimer;
 }
 
 @synthesize preferencesWindowController;
 @synthesize aboutWindowController;
+
+static int sshProcessIdentifier;
 
 -(id)init
 {
@@ -55,17 +57,13 @@
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     //Allocates and loads the images into the application which will be used for our NSStatusItem
-    offStatusImage = [NSImage imageNamed:@"disconnected"];
-    onStatusImage = [NSImage imageNamed:@"connected"];
-    inStatusImage = [NSImage imageNamed:@"connecting"];
-    
-    offStatusInverseImage = [NSImage imageNamed:@"disconnected-inverse"];
-    onStatusInverseImage = [NSImage imageNamed:@"connected-inverse"];
-    inStatusInverseImage = [NSImage imageNamed:@"connecting-inverse"];
+    offStatusImage = [NSImage imageNamed:@"disconnectedTemplate"];
+    onStatusImage = [NSImage imageNamed:@"connectedTemplate"];
+    in1StatusImage = [NSImage imageNamed:@"connecting1Template"];
+    in2StatusImage = [NSImage imageNamed:@"connecting2Template"];
     
     //Sets the images in our NSStatusItem
     [statusItem setImage:offStatusImage];
-    [statusItem setAlternateImage:offStatusInverseImage];
     
     //Tells the NSStatusItem what action to active
     [statusItem setAction:@selector(statusItemClicked)];
@@ -97,8 +95,7 @@
 
 - (void)set2connect
 {
-    [statusItem setImage:inStatusImage];
-    [statusItem setAlternateImage:inStatusInverseImage];
+    [self startRollImageTimer:self];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_connecting", nil);
     
     [self setCautionMessage];
@@ -110,8 +107,10 @@
 - (void)set2connected
 {
     proxyStatus = SSHPROXY_CONNECTED;
+    
+    [self stopRollImageTimer:self];
     [statusItem setImage:onStatusImage];
-    [statusItem setAlternateImage:onStatusInverseImage];
+    
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_on", nil);
     
     [self setCautionMessage];
@@ -122,8 +121,9 @@
 
 - (void)set2disconnected
 {
+    [self stopRollImageTimer:self];
     [statusItem setImage:offStatusImage];
-    [statusItem setAlternateImage:offStatusInverseImage];
+    
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
     
     [self setCautionMessage];
@@ -144,8 +144,7 @@
 
 - (void)set2reconnect
 {
-    [statusItem setImage:inStatusImage];
-    [statusItem setAlternateImage:inStatusInverseImage];
+    [self startRollImageTimer:self];
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_reconnecting", nil);
     
     [self setCautionMessage];
@@ -222,7 +221,9 @@
     BOOL autoLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"auto_launch"];
     
     if (! disableAutoconnect) {
-        [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
+        proxyStatus = SSHPROXY_INIT;
+        [self set2connect];
+        [self performSelector: @selector(_turnOnProxy) withObject:nil afterDelay: 0.0];
     }
     
     if (autoLaunch) {
@@ -372,11 +373,13 @@
     [[NSFileManager defaultManager] removeItemAtPath:lockFile error:nil];
     
     [task launch];
+    
+    sshProcessIdentifier = task.processIdentifier;
 }
 
 - (void)reconnectIfNeed:(NSString*) state
 {
-    if (proxyStatus==SSHPROXY_CONNECTED) {
+    if (proxyStatus==SSHPROXY_CONNECTED || proxyStatus==SSHPROXY_INIT) {
         errorMsg = state;
         [self set2reconnect];
         [self performSelector: @selector(_turnOnProxy) withObject:nil afterDelay: 3.0];
@@ -462,6 +465,8 @@
 // When the process is done, we should do some cleanup:
 - (void)taskTerminated:(NSNotification *)note
 {
+    [AppController initSshProcessIdentifier];
+    
     task = nil;
 
     errorMsg = nil;
@@ -591,6 +596,35 @@
     return NSTerminateNow;
 }
 
+#pragma mark - Connecting images roll
+- (IBAction)startRollImageTimer:(id)sender
+{
+    if (_rollImageTimer == nil) {
+        _rollImageTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                                  target:self
+                                                selector:@selector(rollConnectingImage)
+                                                userInfo:nil
+                                                 repeats:YES];
+    }
+}
+
+- (IBAction)stopRollImageTimer:(id)sender
+{
+    if (_rollImageTimer != nil) {
+        [_rollImageTimer invalidate];
+        _rollImageTimer = nil;
+    }
+}
+
+- (void)rollConnectingImage
+{
+    if (statusItem.image == in1StatusImage) {
+        statusItem.image = in2StatusImage;
+    } else {
+        statusItem.image = in1StatusImage;
+    }
+}
+
 #pragma mark - SOCKS server control
 
 - (NSError *)startServer
@@ -659,6 +693,16 @@
 - (NSArray *)SOCKSServerGetRelayAddress:(INSOCKSServer *)server
 {
     return @[@"127.0.0.1", @([SSHHelper getSSHLocalPort])];
+}
+
++ (int)sshProcessIdentifier
+{
+    return sshProcessIdentifier;
+}
+
++ (void)initSshProcessIdentifier
+{
+    sshProcessIdentifier = -100;
 }
 
 @end
