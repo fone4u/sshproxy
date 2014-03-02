@@ -148,7 +148,7 @@
 	int button;
 	CFStringRef passwordRef;
     
-	NSMutableArray *returnArray = [NSMutableArray arrayWithObjects:@"PasswordString",[NSNumber numberWithInt:0],[NSNumber numberWithInt:1],nil];
+	NSMutableArray *returnArray = [NSMutableArray arrayWithObjects:@"PasswordString",@0,@1,nil];
     
     NSString* hostString = [NSString stringWithFormat:@"%@:%d", remoteHost, remotePort];
     
@@ -166,15 +166,12 @@
     
     NSURL *iconURL = [[NSBundle mainBundle] URLForResource:@"AppIcon" withExtension:@"icns" subdirectory:@""];
     
-	NSDictionary *panelDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                               iconURL, kCFUserNotificationIconURLKey,
-                               headerString,kCFUserNotificationAlertHeaderKey,
-                               passwordMessageString,kCFUserNotificationAlertMessageKey,
-							   @"",kCFUserNotificationTextFieldTitlesKey,
-							   @"Cancel",kCFUserNotificationAlternateButtonTitleKey,
-                               remeberCheckBoxTitle,
-                               kCFUserNotificationCheckBoxTitlesKey,
-							   nil];
+	NSDictionary *panelDict = @{(id)kCFUserNotificationIconURLKey: iconURL,
+                               (id)kCFUserNotificationAlertHeaderKey: headerString,
+                               (id)kCFUserNotificationAlertMessageKey: passwordMessageString,
+							   (id)kCFUserNotificationTextFieldTitlesKey: @"",
+							   (id)kCFUserNotificationAlternateButtonTitleKey: @"Cancel",
+                               (id)kCFUserNotificationCheckBoxTitlesKey: remeberCheckBoxTitle};
     
 	passwordDialog = CFUserNotificationCreate(kCFAllocatorDefault,
 											  0,
@@ -188,7 +185,7 @@
 	if (error){
 		// There was an error creating the password dialog
 		CFRelease(passwordDialog);
-        [returnArray replaceObjectAtIndex:1 withObject:@(error)];
+        returnArray[1] = @(error);
 		return returnArray;
 	}
     
@@ -198,7 +195,7 @@
     
 	if (error){
 		CFRelease(passwordDialog);
-        [returnArray replaceObjectAtIndex:1 withObject:@(error)];
+        returnArray[1] = @(error);
 		return returnArray;
 	}
     
@@ -206,19 +203,19 @@
 	button = responseFlags & 0x3;
 	if (button == kCFUserNotificationAlternateResponse) {
 		CFRelease(passwordDialog);
-        [returnArray replaceObjectAtIndex:1 withObject:@1];
+        returnArray[1] = @1;
 		return returnArray;
 	}
     
 	if ( responseFlags & CFUserNotificationCheckBoxChecked(0) ) {
-        [returnArray replaceObjectAtIndex:2 withObject:@0];
+        returnArray[2] = @0;
 	}
 	passwordRef = CFUserNotificationGetResponseValue(passwordDialog,
 													 kCFUserNotificationTextFieldValuesKey,
 													 0);
     
     
-    [returnArray replaceObjectAtIndex:0 withObject:(__bridge NSString*)passwordRef];
+    returnArray[0] = (__bridge NSString*)passwordRef;
 	CFRelease(passwordDialog); // Note that this will release the passwordRef as well
 	return returnArray;
 }

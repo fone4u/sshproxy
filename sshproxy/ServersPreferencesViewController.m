@@ -149,11 +149,11 @@
 {
     NSMutableDictionary* defaultServer = [[NSMutableDictionary alloc] init];
     
-    [defaultServer setObject:@"example.com" forKey:@"remote_host"];
-    [defaultServer setObject:[NSNumber numberWithInt:22] forKey:@"remote_port"];
-    [defaultServer setObject:@"user" forKey:@"login_name"];
-    [defaultServer setObject:[NSNumber numberWithBool:NO] forKey:@"enable_compression"];
-    [defaultServer setObject:[NSNumber numberWithBool:NO] forKey:@"share_socks"];
+    defaultServer[@"remote_host"] = @"example.com";
+    defaultServer[@"remote_port"] = @22;
+    defaultServer[@"login_name"] = @"user";
+    defaultServer[@"enable_compression"] = @NO;
+    defaultServer[@"share_socks"] = @NO;
     
     [self _addServer:defaultServer];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
@@ -161,7 +161,7 @@
 
 - (IBAction)duplicateServer:(id)sender
 {
-    NSDictionary* server = (NSDictionary*)[self.serverArrayController.selectedObjects objectAtIndex:0];
+    NSDictionary* server = (NSDictionary*)(self.serverArrayController.selectedObjects)[0];
     [self _addServer:[server mutableCopy]];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
@@ -205,7 +205,7 @@
         [openDlg beginSheetModalForWindow:self.view.window
                         completionHandler:^(NSInteger returnCode) {
                             if (returnCode == NSOKButton) {
-                                NSDictionary *server = [self.serverArrayController.selectedObjects objectAtIndex:0];
+                                NSDictionary *server = (self.serverArrayController.selectedObjects)[0];
                                 
                                 if (server) {
                                     NSString *selectedKeyPath = openDlg.URL.path;
@@ -227,7 +227,7 @@
                                     
                                     // set permission to 0600, or ssh will failed
                                     
-                                    NSDictionary* attributes = [NSDictionary dictionaryWithObject:[NSNumber numberWithShort:0600] forKey:NSFilePosixPermissions];
+                                    NSDictionary* attributes = @{NSFilePosixPermissions: [NSNumber numberWithShort:0600]};
                                     [defaultManager setAttributes:attributes ofItemAtPath:importedKeyPath error:nil];
                                     
                                     // hack code to make sure user defaults controller is aware of server array controller is changed.
@@ -267,7 +267,7 @@
     }
     
     // recover selection
-    NSDictionary* server = (NSDictionary*)[self.serverArrayController.arrangedObjects objectAtIndex:index];
+    NSDictionary* server = (NSDictionary*)(self.serverArrayController.arrangedObjects)[index];
     BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
     
     if (selected >= [self.serverArrayController.arrangedObjects count]) {

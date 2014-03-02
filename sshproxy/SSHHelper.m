@@ -172,7 +172,7 @@
     }
     
     NSInteger index = [SSHHelper getActivatedServerIndex];
-    return [servers objectAtIndex:index];
+    return servers[index];
 }
 
 + (void) setActivatedServer:(int) index
@@ -224,20 +224,20 @@
     
     NSMutableDictionary* server = [[NSMutableDictionary alloc] init];
     
-    [server setObject:remoteHost forKey:@"remote_host"];
-    [server setObject:[NSNumber numberWithInt:remotePort] forKey:@"remote_port"];
-    [server setObject:loginName forKey:@"login_name"];
-    [server setObject:[NSNumber numberWithBool:enableCompression] forKey:@"enable_compression"];
+    server[@"remote_host"] = remoteHost;
+    server[@"remote_port"] = @(remotePort);
+    server[@"login_name"] = loginName;
+    server[@"enable_compression"] = @(enableCompression);
     
-    [server setObject:[NSNumber numberWithBool:proxyCommand] forKey:@"proxy_command"];
-    [server setObject:[NSNumber numberWithBool:proxyCommandType] forKey:@"proxy_command_type"];
-    if (proxyCommandHost) [server setObject:proxyCommandHost forKey:@"proxy_command_host"];
-    [server setObject:[NSNumber numberWithInt:proxyCommandPort] forKey:@"proxy_command_port"];
+    server[@"proxy_command"] = @(proxyCommand);
+    server[@"proxy_command_type"] = [NSNumber numberWithBool:proxyCommandType];
+    if (proxyCommandHost) server[@"proxy_command_host"] = proxyCommandHost;
+    server[@"proxy_command_port"] = @(proxyCommandPort);
     
     
-    [server setObject:[NSNumber numberWithBool:proxyCommandAuth] forKey:@"proxy_command_auth"];
-    if (proxyCommandUsername) [server setObject:proxyCommandUsername forKey:@"proxy_command_username"];
-    if (proxyCommandPassword) [server setObject:proxyCommandPassword forKey:@"proxy_command_password"];
+    server[@"proxy_command_auth"] = @(proxyCommandAuth);
+    if (proxyCommandUsername) server[@"proxy_command_username"] = proxyCommandUsername;
+    if (proxyCommandPassword) server[@"proxy_command_password"] = proxyCommandPassword;
     
     [serverArrayController addObject:server];
     

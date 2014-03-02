@@ -129,7 +129,7 @@
 
 - (IBAction)duplicateSite:(id)sender
 {
-    NSDictionary* site = (NSDictionary*)[self.whitelistArrayController.selectedObjects objectAtIndex:0];
+    NSDictionary* site = (NSDictionary*)(self.whitelistArrayController.selectedObjects)[0];
     [self _addSite:[site copy]];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }

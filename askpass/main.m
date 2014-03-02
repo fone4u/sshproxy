@@ -30,7 +30,7 @@ int main() {
         // The arguments array should contain three elements. The second element is a string which we can use to determine the context in which this program was invoked. This string is either a message prompting for a yes/no or a message prompting for a password. We check it and supply the right response.
         NSArray *argumentsArray = [[NSProcessInfo processInfo] arguments];
         if ( [argumentsArray count] >= 2 ){
-            NSRange yesnoRange = [[argumentsArray objectAtIndex:1] rangeOfString:[NSString stringWithFormat:@"(yes/no)"]];
+            NSRange yesnoRange = [argumentsArray[1] rangeOfString:[NSString stringWithFormat:@"(yes/no)"]];
             
             // If the string yes/no was found in the arguments array then we need to return a YES instead of password
             if ( yesnoRange.location != NSNotFound ){
@@ -62,13 +62,13 @@ int main() {
             // so we should prompt the user for it.
             
             NSArray *promptArray = [PasswordHelper promptPasswordForServer:server];
-            NSInteger returnCode = [[promptArray objectAtIndex:1] intValue];
+            NSInteger returnCode = [promptArray[1] intValue];
             if ( returnCode == 0 ){
                 // Found a valid password entry
-                password = [promptArray objectAtIndex:0];
+                password = promptArray[0];
                 
                 // Set the password in the keychain if the user requested this.
-                if ( [[promptArray objectAtIndex:2] intValue]==0 ){
+                if ( [promptArray[2] intValue]==0 ){
                     if (isPublicKeyMode) {
                         [PasswordHelper setPassphrase:password forServer:server];
                     } else {

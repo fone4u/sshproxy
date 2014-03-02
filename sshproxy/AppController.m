@@ -173,7 +173,7 @@ static int sshProcessIdentifier;
             item.action = @selector(switchServer:);
             item.indentationLevel = 1;
             
-            item.representedObject = [NSNumber numberWithInt:i];
+            item.representedObject = @(i);
             
             if (i==activatedServerIndex) {
                 [item setState:NSOnState];
@@ -454,8 +454,8 @@ static int sshProcessIdentifier;
                                 @[@"unknown error"                     , NSLocalizedString(@"sshproxy.errmsg.unknown", nil)],
                                 ];
             for (NSArray* error in errors) {
-                if ( ([taskOutput rangeOfString:[error objectAtIndex:0]].location != NSNotFound) || [[error objectAtIndex:0] isEqual:@"unknown error"]) {
-                    [self reconnectIfNeed:[error objectAtIndex:1]];
+                if ( ([taskOutput rangeOfString:error[0]].location != NSNotFound) || [error[0] isEqual:@"unknown error"]) {
+                    [self reconnectIfNeed:error[1]];
                     break;
                 }
             }
@@ -506,7 +506,7 @@ static int sshProcessIdentifier;
         NSViewController *generalViewController = [[GeneralPreferencesViewController alloc] init];
         NSViewController *serversViewController = [[ServersPreferencesViewController alloc] init];
         NSViewController *whitelistViewController = [[WhitelistPreferencesViewController alloc] init];
-        NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, serversViewController, whitelistViewController, nil];
+        NSArray *controllers = @[generalViewController, serversViewController, whitelistViewController];
         
         // To add a flexible space between General and Advanced preference panes insert [NSNull null]:
         //     NSArray *controllers = [[NSArray alloc] initWithObjects:generalViewController, [NSNull null], advancedViewController, nil];
