@@ -9,7 +9,7 @@
 
 #import "GeneralPreferencesViewController.h"
 #import "CharmNumberFormatter.h"
-#import "SSHHelper.h"
+#import "CSProxy.h"
 #import "AppController.h"
 
 @implementation GeneralPreferencesViewController
@@ -43,7 +43,7 @@
     CharmPortFormatter *formatter = [[CharmPortFormatter alloc] init];
     self.localPortTextField.formatter = formatter;
     
-    NSInteger localPort = [SSHHelper getLocalPort];
+    NSInteger localPort = [CSProxy getLocalPort];
     
     self.localPortTextField.integerValue = localPort;
     self.localPortStepper.integerValue = localPort;
@@ -110,8 +110,8 @@
 
 - (IBAction)applyChanges:(id)sender
 {
-    //    BOOL isProxyNeedReactive = [SSHHelper getLocalPort]!=self.localPortTextField.integerValue;
-    //    BOOL isSocksServerNeedRestart = [SSHHelper isShareSOCKS]!=self.shareSocksButton.state;
+    //    BOOL isProxyNeedReactive = [CSProxy getLocalPort]!=self.localPortTextField.integerValue;
+    //    BOOL isSocksServerNeedRestart = [CSProxy isShareSOCKS]!=self.shareSocksButton.state;
     
     [self.userDefaultsController save:self];
     [[NSUserDefaults standardUserDefaults] synchronize];

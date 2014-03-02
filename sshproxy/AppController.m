@@ -11,7 +11,7 @@
 #import "ServersPreferencesViewController.h"
 #import "WhitelistPreferencesViewController.h"
 #import "MASPreferencesWindowController.h"
-#import "SSHHelper.h"
+#import "CSProxy.h"
 #import "WhitelistHelper.h"
 
 @implementation AppController {
@@ -72,8 +72,9 @@ static int sshProcessIdentifier;
     //Enables highlighting
     [statusItem setHighlightMode:YES];
     
-    // upgrade user preferences from 13.04 to 13.05
-    [SSHHelper upgrade1:self.serverArrayController];
+    // upgrade
+    [CSProxy upgrade1:self.serverArrayController];
+    [CSProxy upgrade2:self.serverArrayController];
     
     // init menu text
     self.statusMenuItem.title = NSLocalizedString(@"sshproxy.mainmenu.proxy_off", nil);
@@ -160,16 +161,16 @@ static int sshProcessIdentifier;
     NSMenu* menu = [self.statusMenu copy];
     menu.minimumWidth = 256.0;
     
-    NSArray* servers = [SSHHelper getServers];
-    NSInteger activatedServerIndex = [SSHHelper getActivatedServerIndex];
+    NSArray* servers = [CSProxy getProxyServers];
+    NSInteger activatedServerIndex = [CSProxy getActivatedServerIndex];
     
     if (servers && servers.count>0) {
         //        [menu insertItemWithTitle:@"Servers:" action:nil keyEquivalent:@"" atIndex:4];
         
         int i = 0;
-        for (NSDictionary* server in servers) {
+        for (CSProxy* server in servers) {
             NSMenuItem* item = [NSMenuItem alloc];
-            item.title = [NSString stringWithFormat:@" %@@%@", [SSHHelper userFromServer:server], [SSHHelper hostFromServer:server]];
+            item.title = [NSString stringWithFormat:@" %@@%@", server.ssh_user, server.ssh_host];
             item.action = @selector(switchServer:);
             item.indentationLevel = 1;
             
@@ -195,7 +196,7 @@ static int sshProcessIdentifier;
     NSMenuItem* menuItem = (NSMenuItem*)sender;
     
     int index = [(NSNumber*)menuItem.representedObject intValue];
-    [SSHHelper setActivatedServer:index];
+    [CSProxy setActivatedServer:index];
     
     [self _turnOffProxy];
     [self performSelector: @selector(turnOnProxy:) withObject:self afterDelay: 0.0];
@@ -257,7 +258,7 @@ static int sshProcessIdentifier;
         return;
     }
     
-    NSDictionary* server = [SSHHelper getActivatedServer];
+    CSProxy* server = [CSProxy getActivatedServer];
     
     // open preferences window if remoteHost is empty
     if (!server) {
@@ -267,18 +268,18 @@ static int sshProcessIdentifier;
         return;
     }
     
-    NSString* remoteHost = [SSHHelper hostFromServer:server];
-    NSString* loginName = [SSHHelper userFromServer:server];
-    int remotePort = [SSHHelper portFromServer:server];
-    NSInteger localPort = [SSHHelper getSSHLocalPort];
-    BOOL enableCompression = [SSHHelper isEnableCompress:server];
+    NSString* remoteHost = server.ssh_host;
+    NSString* loginName = server.ssh_user;
+    int remotePort = server.ssh_port;
+    NSInteger localPort = [CSProxy getSSHLocalPort];
+    BOOL enableCompression = server.enable_compression.boolValue;
     
     // Get the path of our Askpass program, which we've included as part of the main application bundle
     NSString *askPassPath = [NSBundle pathForResource:@"SSH Proxy - Ask Password" ofType:@""
                                           inDirectory:[[NSBundle mainBundle] bundlePath]];
     
     
-    NSString *encryptedServerInfo = [SSHHelper encryptServerInfo:server];
+    NSString *encryptedServerInfo = [CSProxy encryptServerInfo:server];
     
     // This creates a dictionary of environment variables (keys) and their values (objects) to be set in the environment where the task will be run. This environment dictionary will then be accessible to our Askpass program.
 
@@ -290,7 +291,7 @@ static int sshProcessIdentifier;
                                 @"1",@"INTERACTION",
                                 NSHomeDirectory(), @"SSHPROXY_USER_HOME",
                                 nil];
-    [env addEntriesFromDictionary:[SSHHelper getProxyCommandEnv:server]];
+    [env addEntriesFromDictionary:server.getProxyCommandEnv];
     
     NSMutableString* advancedOptions = [NSMutableString stringWithString:@"-"];
 //    if (shareSocks==NSOnState) {
@@ -303,12 +304,12 @@ static int sshProcessIdentifier;
     
     //    DLog(@"Environment dict %@",env);
     NSMutableArray *arguments = nil;
-    BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
+    BOOL isPublicKeyMode = server.auth_method.integerValue==CSSSHAuthMethodPublicKey;
 
     if ( isPublicKeyMode ) {
-        arguments = [SSHHelper getPublicKeyMethodConnectArgsForServer:server];
+        arguments = [server getPublicKeyMethodConnectArgs];
     } else {
-        arguments = [SSHHelper getPasswordMethodConnectArgs];
+        arguments = [server getPasswordMethodConnectArgs];
     }
     
     if (!arguments) {
@@ -318,7 +319,7 @@ static int sshProcessIdentifier;
         return;
     }
     
-    NSString *proxyCommandStr = [SSHHelper getProxyCommandStr:server];
+    NSString *proxyCommandStr = server.getProxyCommandStr;
     
     if (proxyCommandStr) {
         [arguments addObject:proxyCommandStr];
@@ -425,8 +426,8 @@ static int sshProcessIdentifier;
             [self set2disconnected];
             return;
         } else if ([taskOutput rangeOfString:@"Permission denied "].location != NSNotFound) {
-            NSDictionary *server = [SSHHelper getActivatedServer];
-            BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
+            CSProxy *server = [CSProxy getActivatedServer];
+            BOOL isPublicKeyMode = server.auth_method.integerValue==CSSSHAuthMethodPublicKey;
 
             if (isPublicKeyMode) {
                 errorMsg = NSLocalizedString(@"sshproxy.errmsg.pubkey", nil);
@@ -633,19 +634,19 @@ static int sshProcessIdentifier;
     
 	NSError *error = nil;
     
-    BOOL shareSocks = [SSHHelper isShareSOCKS];
+    BOOL shareSocks = [CSProxy isShareSOCKS];
     
     if (shareSocks) {
-        _server = [[INSOCKSServer alloc] initWithPort:[SSHHelper getLocalPort] error:&error];
+        _server = [[INSOCKSServer alloc] initWithPort:[CSProxy getLocalPort] error:&error];
     } else {
-        _server = [[INSOCKSServer alloc] initWithInterface:@"127.0.0.1" port:[SSHHelper getLocalPort] error:&error];
+        _server = [[INSOCKSServer alloc] initWithInterface:@"127.0.0.1" port:[CSProxy getLocalPort] error:&error];
     }
     
 	_server.delegate = self;
     
 	if (error) {
 		DDLogInfo(@"Error starting server: %@, %@", error, error.userInfo);
-        errorMsg = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.errmsg.port", nil), @([SSHHelper getLocalPort])];
+        errorMsg = [NSString stringWithFormat:NSLocalizedString(@"sshproxy.errmsg.port", nil), @([CSProxy getLocalPort])];
         [self set2disconnected];
         [self stopServer];
 	} else {
@@ -692,7 +693,7 @@ static int sshProcessIdentifier;
 
 - (NSArray *)SOCKSServerGetRelayAddress:(INSOCKSServer *)server
 {
-    return @[@"127.0.0.1", @([SSHHelper getSSHLocalPort])];
+    return @[@"127.0.0.1", @([CSProxy getSSHLocalPort])];
 }
 
 + (int)sshProcessIdentifier

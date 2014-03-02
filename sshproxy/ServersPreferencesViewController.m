@@ -8,7 +8,7 @@
 
 #import "ServersPreferencesViewController.h"
 #import "CharmNumberFormatter.h"
-#import "SSHHelper.h"
+#import "CSProxy.h"
 #import "AuthTipViewController.h"
 #import "AppController.h"
 #import <pwd.h>
@@ -53,7 +53,7 @@
     if ([self.serversTableView numberOfRows]<=0) {
         [self performSelector: @selector(addServer:) withObject:self afterDelay: 0.0f];
     } else {
-        NSInteger index = [SSHHelper getActivatedServerIndex];
+        NSInteger index = [CSProxy getActivatedServerIndex];
         [self.serversTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
         
         // invoke tableViewSelectionDidChange
@@ -182,7 +182,7 @@
 {
     NSUInteger selectedTag = self.authMethodMatrix.selectedTag;
     
-    if (OW_AUTH_METHOD_PUBLICKEY==selectedTag) {
+    if (CSSSHAuthMethodPublicKey==selectedTag) {
         // http://stackoverflow.com/questions/10952225/is-there-any-way-to-give-my-sandboxed-mac-app-read-only-access-to-files-in-lib/10955994
         const char *home = getpwuid(getuid())->pw_dir;
         NSString *path = [[NSFileManager defaultManager]
@@ -205,14 +205,14 @@
         [openDlg beginSheetModalForWindow:self.view.window
                         completionHandler:^(NSInteger returnCode) {
                             if (returnCode == NSOKButton) {
-                                NSDictionary *server = (self.serverArrayController.selectedObjects)[0];
+                                CSProxy *server = (self.serverArrayController.selectedObjects)[0];
                                 
                                 if (server) {
                                     NSString *selectedKeyPath = openDlg.URL.path;
                                     
-                                    [SSHHelper setPrivateKeyPath:selectedKeyPath forServer:server];
+                                    server.privatekey_path = selectedKeyPath;
                                     
-                                    NSString *importedKeyPath = [SSHHelper importedPrivateKeyPathFromServer:server];
+                                    NSString *importedKeyPath = [server importedPrivateKeyPath];
                                     
                                     // copy key
                                     
@@ -253,7 +253,7 @@
 - (IBAction)applyChanges:(id)sender
 {
     // rember index
-    NSInteger index = [SSHHelper getActivatedServerIndex];
+    NSInteger index = [CSProxy getActivatedServerIndex];
     NSUInteger selected = self.serverArrayController.selectionIndex;
     
     // apply changes
@@ -267,8 +267,8 @@
     }
     
     // recover selection
-    NSDictionary* server = (NSDictionary*)(self.serverArrayController.arrangedObjects)[index];
-    BOOL isProxyNeedReactive = ![server isEqualToDictionary:[SSHHelper getActivatedServer]];
+    CSProxy* server = (CSProxy *)(self.serverArrayController.arrangedObjects)[index];
+    BOOL isProxyNeedReactive = ![server isEqual:[CSProxy getActivatedServer]];
     
     if (selected >= [self.serverArrayController.arrangedObjects count]) {
         selected = [self.serverArrayController.arrangedObjects count] -1;

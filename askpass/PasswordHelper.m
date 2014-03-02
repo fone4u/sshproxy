@@ -7,7 +7,7 @@
 //
 
 #import "PasswordHelper.h"
-#import "SSHHelper.h"
+#import "CSProxy.h"
 #import "EMKeychain.h"
 
 @implementation PasswordHelper
@@ -27,11 +27,11 @@
     return keychainItem ? keychainItem.password : @"";
 }
 
-+ (NSString *)passwordForServer:(NSDictionary *)server
++ (NSString *)passwordForServer:(CSProxy *)server
 {
-    NSString* remoteHost = [SSHHelper hostFromServer:server];
-    NSString* loginName = [SSHHelper userFromServer:server];
-    int remotePort = [SSHHelper portFromServer:server];
+    NSString* remoteHost = server.ssh_host;
+    NSString* loginName = server.ssh_user;
+    int remotePort = server.ssh_port;
     
     return [self passwordForHost:remoteHost port:remotePort user:loginName];
 }
@@ -55,11 +55,11 @@
     keychainItem.password = newPassword;
     return YES;
 }
-+ (BOOL)setPassword:(NSString *)newPassword forServer:(NSDictionary *)server
++ (BOOL)setPassword:(NSString *)newPassword forServer:(CSProxy *)server
 {
-    NSString* remoteHost = [SSHHelper hostFromServer:server];
-    NSString* loginName = [SSHHelper userFromServer:server];
-    int remotePort = [SSHHelper portFromServer:server];
+    NSString* remoteHost = server.ssh_host;
+    NSString* loginName = server.ssh_user;
+    int remotePort = server.ssh_port;
     
     return [self setPassword:newPassword forHost:remoteHost port:remotePort user:loginName];
 }
@@ -84,30 +84,30 @@
 #pragma mark - Passphrase Helper
 
 //! Simply looks for the keychain entry corresponding to a username and hostname and returns it. Returns nil if the password is not found
-+ (NSString *)passphraseForServer:(NSDictionary *)server
++ (NSString *)passphraseForServer:(CSProxy *)server
 {
 	if ( !server ){
 		return nil;
 	}
 	
-	EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[SSHHelper importedPrivateKeyNameFromServer:server]];
+	EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     return keychainItem ? keychainItem.password : @"";
 }
 
 
 /*! Set the password into the keychain for a specific user and host. If the username/hostname combo already has an entry in the keychain then change it. If not then add a new entry */
-+ (BOOL)setPassphrase:(NSString *)newPassphrase forServer:(NSDictionary *)server
++ (BOOL)setPassphrase:(NSString *)newPassphrase forServer:(CSProxy *)server
 {
 	if ( !server ) {
 		return NO;
 	}
 	
 	// Look for a password in the keychain
-    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[SSHHelper importedPrivateKeyNameFromServer:server]];
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
-        keychainItem = [EMGenericKeychainItem addGenericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[SSHHelper importedPrivateKeyNameFromServer:server] password:newPassphrase];
+        keychainItem = [EMGenericKeychainItem addGenericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName] password:newPassphrase];
         return NO;
     }
     
@@ -115,14 +115,14 @@
     return YES;
 }
 
-+ (BOOL)deletePassphraseForServer:(NSDictionary *)server
++ (BOOL)deletePassphraseForServer:(CSProxy *)server
 {
 	if ( !server ) {
 		return NO;
 	}
     
 	// Look for a password in the keychain
-    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[SSHHelper importedPrivateKeyNameFromServer:server]];
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
         return NO;
@@ -134,13 +134,13 @@
 
 #pragma mark Prompt Password
 
-+ (NSArray *)promptPasswordForServer:(NSDictionary *)server
++ (NSArray *)promptPasswordForServer:(CSProxy *)server
 {
-    NSString* remoteHost = [SSHHelper hostFromServer:server];
-    int remotePort = [SSHHelper portFromServer:server];
-    NSString* loginUser = [SSHHelper userFromServer:server];
+    NSString* remoteHost = server.ssh_host;
+    NSString* loginUser = server.ssh_user;
+    int remotePort = server.ssh_port;
     
-    BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server] == OW_AUTH_METHOD_PUBLICKEY;
+    BOOL isPublicKeyMode = server.auth_method.integerValue == CSSSHAuthMethodPassword;
     
 	CFUserNotificationRef passwordDialog;
 	SInt32 error;
@@ -155,7 +155,7 @@
     NSString *passwordMessageString = nil;
     NSString *remeberCheckBoxTitle = nil;
     if (isPublicKeyMode) {
-        passwordMessageString = [NSString stringWithFormat:@"Enter the passphrase for private key imported from “%@”.", [SSHHelper privateKeyPathFromServer:server]];
+        passwordMessageString = [NSString stringWithFormat:@"Enter the passphrase for private key imported from “%@”.", server.privatekey_path];
         remeberCheckBoxTitle = @"Remember this passphrase in my keychain";
     } else {
         passwordMessageString = [NSString stringWithFormat:@"Enter the password for user “%@”.", loginUser];

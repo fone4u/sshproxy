@@ -8,6 +8,9 @@
 
 #import "CSSSHBaseInfo.h"
 
+#define OW_SSHPROXY_ASKPASS_LOCK @".sshproxy_askpass_lock"
+#define OW_SSHPROXY_DECRYPT_LOCK @".sshproxy_decrypt_lock"
+
 @interface CSProxy : CSSSHBaseInfo
 
 #pragma mark - Included in Persistent
@@ -21,5 +24,38 @@
 @property (nonatomic) NSNumber              *proxy_command_auth;
 @property (nonatomic) NSString              *proxy_command_username;
 @property (nonatomic) NSString              *proxy_command_password;
+@property (nonatomic) NSString              *privatekey_path;
+
+// Private Key
+- (NSString *)importedPrivateKeyName;
+- (NSString *)importedPrivateKeyPath;
+
+- (NSMutableArray*)getPasswordMethodConnectArgs;
+- (NSMutableArray*)getPublicKeyMethodConnectArgs;
+
+
+// for ProxyCommand
+-(NSDictionary *) getProxyCommandEnv;
+-(NSString *)getProxyCommandStr;
+
++ (NSArray *)getProxyServers;
++ (NSInteger)getActivatedServerIndex;
++ (CSProxy*)getActivatedServer;
++ (void)setActivatedServer:(int)index;
+
+// for local settings
++ (NSInteger)getLocalPort;
++ (NSInteger)getSSHLocalPort;
++ (BOOL)isShareSOCKS;
+
+
++ (NSString *)encryptServerInfo:(NSDictionary *)server;
++ (NSDictionary *)decryptServerInfo:(NSString *)encryptedServerInfo forDir:(NSString *)dir;
+
+// code that upgrade user preferences from 13.04 to 14.03
++ (void)upgrade1:(NSArrayController *)proxyArrayController;
+
+// code that upgrade user preferences to 14.03
++ (void)upgrade2:(NSArrayController*)proxyArrayController;
 
 @end

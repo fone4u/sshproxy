@@ -15,7 +15,6 @@
 		4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */; };
 		4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* AuthTipView.xib */; };
 		4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */; };
-		4A27AD9D178D3FEC008BC36F /* SSHHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1761743214000D0C57D /* SSHHelper.m */; };
 		4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */; };
 		4A27AD9F178D4CA1008BC36F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD3FDDD16A56EF400378F77 /* Cocoa.framework */; };
 		4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */; };
@@ -106,7 +105,6 @@
 		4ADB926017476F700064D82D /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB925E17476F700064D82D /* RSVerticallyCenteredTextFieldCell.m */; };
 		4AE2C1711742151D00D0C57D /* ServersPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE2C1701742151D00D0C57D /* ServersPreferencesView.xib */; };
 		4AE2C1741742154100D0C57D /* ServersPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1731742154100D0C57D /* ServersPreferencesViewController.m */; };
-		4AE2C1771743214000D0C57D /* SSHHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE2C1761743214000D0C57D /* SSHHelper.m */; };
 		4AEC465916A6A35E008BD118 /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AEC465816A6A35E008BD118 /* GeneralPreferencesView.xib */; };
 		4AEC465C16A6A3F5008BD118 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC465B16A6A3F5008BD118 /* GeneralPreferencesViewController.m */; };
 		4AECC518181EAA920074C6A3 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
@@ -380,8 +378,6 @@
 		4AE2C1701742151D00D0C57D /* ServersPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServersPreferencesView.xib; sourceTree = "<group>"; };
 		4AE2C1721742154100D0C57D /* ServersPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersPreferencesViewController.h; sourceTree = "<group>"; };
 		4AE2C1731742154100D0C57D /* ServersPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServersPreferencesViewController.m; sourceTree = "<group>"; };
-		4AE2C1751743214000D0C57D /* SSHHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSHHelper.h; sourceTree = "<group>"; };
-		4AE2C1761743214000D0C57D /* SSHHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSHHelper.m; sourceTree = "<group>"; };
 		4AEC465816A6A35E008BD118 /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
 		4AEC465A16A6A3F5008BD118 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4AEC465B16A6A3F5008BD118 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -703,8 +699,6 @@
 				4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */,
 				4AC9BF06179519B400E9A997 /* CharmDomainFormatter.h */,
 				4AC9BF07179519B500E9A997 /* CharmDomainFormatter.m */,
-				4AE2C1751743214000D0C57D /* SSHHelper.h */,
-				4AE2C1761743214000D0C57D /* SSHHelper.m */,
 				4AC9BF031794EAA500E9A997 /* WhitelistHelper.h */,
 				4AC9BF041794EAA500E9A997 /* WhitelistHelper.m */,
 				4A6B0B1218C3501A007790CC /* CSProxy.h */,
@@ -1095,7 +1089,6 @@
 				4A70ACC917746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
 				4A70ACCE177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */,
 				4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */,
-				4A27AD9D178D3FEC008BC36F /* SSHHelper.m in Sources */,
 				4A6B0B5D18C35F2F007790CC /* CSSSHCommon.m in Sources */,
 				4A6B0B5C18C35EE0007790CC /* CSProxy.m in Sources */,
 				4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */,
@@ -1135,7 +1128,6 @@
 				4AA6471416BD006700DE5CAD /* MASPreferencesWindowController.m in Sources */,
 				4A37A086171AEC6300605BE1 /* CharmTextField.m in Sources */,
 				4AE2C1741742154100D0C57D /* ServersPreferencesViewController.m in Sources */,
-				4AE2C1771743214000D0C57D /* SSHHelper.m in Sources */,
 				4ADB926017476F700064D82D /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				4A6B0B0E18C34FD8007790CC /* CSSSHPrivateKey.m in Sources */,
 				4A2E4C31181C08C80029579B /* AboutWindowController.m in Sources */,

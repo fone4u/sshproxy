@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PasswordHelper.h"
-#import "SSHHelper.h"
+#import "CSProxy.h"
 
 /*! The ASKPASS program for SSH Proxy.
  
@@ -25,7 +25,7 @@ int main() {
         NSString* userHome = [dict valueForKey:@"SSHPROXY_USER_HOME"];
         
         NSString* encryptedServerInfo = [dict valueForKey:@"SSHPROXY_SERVER_INFO"];
-        NSDictionary *server = [SSHHelper decryptServerInfo:encryptedServerInfo forDir:userHome];
+        CSProxy *server = [CSProxy decryptServerInfo:encryptedServerInfo forDir:userHome];
                 
         // The arguments array should contain three elements. The second element is a string which we can use to determine the context in which this program was invoked. This string is either a message prompting for a yes/no or a message prompting for a password. We check it and supply the right response.
         NSArray *argumentsArray = [[NSProcessInfo processInfo] arguments];
@@ -46,7 +46,7 @@ int main() {
         NSString* lockFile= [userHome stringByAppendingPathComponent:OW_SSHPROXY_ASKPASS_LOCK];
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:lockFile];
         
-        BOOL isPublicKeyMode = [SSHHelper authMethodFromServer:server]==OW_AUTH_METHOD_PUBLICKEY;
+        BOOL isPublicKeyMode = server.auth_method.integerValue==CSSSHAuthMethodPublicKey;
         
         // First try to get the password from the keychain
         NSString *password = nil;

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CSProxy;
+
 @interface PasswordHelper : NSObject
 
 // password helper
@@ -16,13 +18,13 @@
 
 + (BOOL)deletePasswordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;
 + (NSString *)passwordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;
-+ (NSString *)passwordForServer:(NSDictionary *)server;
++ (NSString *)passwordForServer:(CSProxy *)server;
 
 // passphrase helper
-+ (BOOL)setPassphrase:(NSString *)newPassphrased forServer:(NSDictionary *)server;
-+ (BOOL)deletePassphraseForServer:(NSDictionary *)server;
-+ (NSString *)passphraseForServer:(NSDictionary *)server;
++ (BOOL)setPassphrase:(NSString *)newPassphrased forServer:(CSProxy *)server;
++ (BOOL)deletePassphraseForServer:(CSProxy *)server;
++ (NSString *)passphraseForServer:(CSProxy *)server;
 
-+ (NSArray *)promptPasswordForServer:(NSDictionary *)server;
++ (NSArray *)promptPasswordForServer:(CSProxy *)server;
 
 @end
