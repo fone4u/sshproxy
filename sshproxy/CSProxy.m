@@ -99,7 +99,7 @@
 
 #pragma mark Others
 
-- (NSArray *)getProxyServers
++ (NSArray *)getProxyServers
 {
     return [[NSUserDefaults standardUserDefaults] arrayForKey:@"proxies"];
 }

@@ -14,7 +14,7 @@
 
 // password helper
 + (BOOL)setPassword:(NSString *)newPassword forHost:(NSString*)hostname port:(int) hostport user:(NSString *) username;
-+ (BOOL)setPassword:(NSString *)newPassword forServer:(NSDictionary *)server;
++ (BOOL)setPassword:(NSString *)newPassword forServer:(CSProxy *)server;
 
 + (BOOL)deletePasswordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;
 + (NSString *)passwordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;

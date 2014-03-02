@@ -49,8 +49,8 @@
 + (BOOL)isShareSOCKS;
 
 
-+ (NSString *)encryptServerInfo:(NSDictionary *)server;
-+ (NSDictionary *)decryptServerInfo:(NSString *)encryptedServerInfo forDir:(NSString *)dir;
++ (NSString *)encryptServerInfo:(CSProxy *)server;
++ (CSProxy *)decryptServerInfo:(NSString *)encryptedServerInfo forDir:(NSString *)dir;
 
 // code that upgrade user preferences from 13.04 to 14.03
 + (void)upgrade1:(NSArrayController *)proxyArrayController;
