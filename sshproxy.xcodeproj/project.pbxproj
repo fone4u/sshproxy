@@ -48,6 +48,13 @@
 		4A6B0B1418C3501A007790CC /* CSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1318C3501A007790CC /* CSProxy.m */; };
 		4A6B0B2118C358CC007790CC /* OWKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1E18C358CC007790CC /* OWKeychain.m */; };
 		4A6B0B5B18C35958007790CC /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B5A18C35958007790CC /* FileHash.m */; };
+		4A6B0B5C18C35EE0007790CC /* CSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1318C3501A007790CC /* CSProxy.m */; };
+		4A6B0B5D18C35F2F007790CC /* CSSSHCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0318C34FD8007790CC /* CSSSHCommon.m */; };
+		4A6B0B5E18C35F40007790CC /* CSSSHBaseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0118C34FD8007790CC /* CSSSHBaseInfo.m */; };
+		4A6B0B6418C36018007790CC /* libMantle-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB0669118C34E0400CAF5A3 /* libMantle-Mac.a */; };
+		4A6B0B6518C3601E007790CC /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B5A18C35958007790CC /* FileHash.m */; };
+		4A6B0B6618C36029007790CC /* CSSSHPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0518C34FD8007790CC /* CSSSHPrivateKey.m */; };
+		4A6B0B6718C36043007790CC /* libMantle-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB0669118C34E0400CAF5A3 /* libMantle-Mac.a */; };
 		4A70ACB71774536000777818 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAA1774536000777818 /* RNCryptor.m */; };
 		4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
 		4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
@@ -119,6 +126,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4A4231081719A96800ABD4F6;
 			remoteInfo = connect;
+		};
+		4A6B0B6818C3604E007790CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D0A56B451804B04900A84EDC;
+			remoteInfo = "Mantle-Mac";
 		};
 		4AA6473416BE3FDC00DE5CAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -379,6 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6B0B6418C36018007790CC /* libMantle-Mac.a in Frameworks */,
 				4A27AD9F178D4CA1008BC36F /* Cocoa.framework in Frameworks */,
 				4A70ACC5177453BB00777818 /* Security.framework in Frameworks */,
 				4A1BE47C16A5BAA0000E56D7 /* Foundation.framework in Frameworks */,
@@ -406,6 +421,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6B0B6718C36043007790CC /* libMantle-Mac.a in Frameworks */,
 				4A70ACE71774B0F600777818 /* QuartzCore.framework in Frameworks */,
 				4A41067D16BE7FD000D46D91 /* Security.framework in Frameworks */,
 				4A41067C16BE7FB000D46D91 /* ServiceManagement.framework in Frameworks */,
@@ -834,6 +850,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4A6B0B6918C3604E007790CC /* PBXTargetDependency */,
 			);
 			name = askpass;
 			productName = askpass;
@@ -1069,13 +1086,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A44D68216A837CB00EB44A8 /* main.m in Sources */,
+				4A6B0B5E18C35F40007790CC /* CSSSHBaseInfo.m in Sources */,
 				4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBC1774536000777818 /* RNDecryptor.m in Sources */,
+				4A6B0B6618C36029007790CC /* CSSSHPrivateKey.m in Sources */,
 				4A70ACBE1774536000777818 /* RNEncryptor.m in Sources */,
+				4A6B0B6518C3601E007790CC /* FileHash.m in Sources */,
 				4A70ACC917746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
 				4A70ACCE177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */,
 				4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */,
 				4A27AD9D178D3FEC008BC36F /* SSHHelper.m in Sources */,
+				4A6B0B5D18C35F2F007790CC /* CSSSHCommon.m in Sources */,
+				4A6B0B5C18C35EE0007790CC /* CSProxy.m in Sources */,
 				4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */,
 				4A27ADA3178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */,
 				4A27ADA4178D5864008BC36F /* RNCryptor.m in Sources */,
@@ -1171,6 +1193,11 @@
 			isa = PBXTargetDependency;
 			target = 4A4231081719A96800ABD4F6 /* connect */;
 			targetProxy = 4A4231181719AADD00ABD4F6 /* PBXContainerItemProxy */;
+		};
+		4A6B0B6918C3604E007790CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mantle-Mac";
+			targetProxy = 4A6B0B6818C3604E007790CC /* PBXContainerItemProxy */;
 		};
 		4AA6473516BE3FDC00DE5CAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -275,74 +275,26 @@
         return;
     }
     
-    for (NSDictionary* server in servers) {
-        CSProxy proxy = [[CSProxy alloc]init];
-    }
-    
-    
-    NSString* loginName = [prefs stringForKey:@"login_name"];
-    if (!loginName) {
-        loginName = @"";
-    }
-    
-    int remotePort = (int)[prefs integerForKey:@"remote_port"];
-    if (remotePort<=0 || remotePort>65535) {
-        remotePort = 22;
-    }
-    
-    BOOL enableCompression = [prefs boolForKey:@"enable_compression"];
-    
-    BOOL proxyCommand = [prefs boolForKey:@"proxy_command"];
-    int proxyCommandType = (int)[prefs integerForKey:@"proxy_command_type"];
-    NSString* proxyCommandHost = (NSString*)[prefs stringForKey:@"proxy_command_host"];
-    int proxyCommandPort = (int)[prefs integerForKey:@"proxy_command_port"];
-    
-    if (proxyCommandPort<=0 || proxyCommandPort>65535) {
-        proxyCommandPort = 1080;
-    }
-    
-    BOOL proxyCommandAuth = [prefs boolForKey:@"proxy_command_auth"];
-    NSString* proxyCommandUsername = [prefs stringForKey:@"proxy_command_username"];
-    NSString* proxyCommandPassword = [prefs stringForKey:@"proxy_command_password"];
-    
     // upgrade
-    
-    NSMutableDictionary* server = [[NSMutableDictionary alloc] init];
-    
-    server[@"remote_host"] = remoteHost;
-    server[@"remote_port"] = @(remotePort);
-    server[@"login_name"] = loginName;
-    server[@"enable_compression"] = @(enableCompression);
-    
-    server[@"proxy_command"] = @(proxyCommand);
-    server[@"proxy_command_type"] = [NSNumber numberWithBool:proxyCommandType];
-    if (proxyCommandHost) server[@"proxy_command_host"] = proxyCommandHost;
-    server[@"proxy_command_port"] = @(proxyCommandPort);
-    
-    
-    server[@"proxy_command_auth"] = @(proxyCommandAuth);
-    if (proxyCommandUsername) server[@"proxy_command_username"] = proxyCommandUsername;
-    if (proxyCommandPassword) server[@"proxy_command_password"] = proxyCommandPassword;
-    
-    [serverArrayController addObject:server];
+    for (NSDictionary* server in servers) {
+        CSProxy *proxy = [[CSProxy alloc] init];
+        
+        proxy.ssh_host = server[@"remote_host"];
+        proxy.ssh_port = server[@"remote_port"];
+        proxy.ssh_user = server[@"login_name"];
+        proxy.enable_compression = server[@"enable_compression"];
+        proxy.proxy_command = server[@"proxy_command"];
+        proxy.proxy_command_type = server[@"proxy_command_type"];
+        proxy.proxy_command_host = server[@"proxy_command_host"];
+        proxy.proxy_command_port = server[@"proxy_command_port"];
+        proxy.proxy_command_auth = server[@"proxy_command_auth"];
+        proxy.proxy_command_username = server[@"proxy_command_username"];
+        proxy.proxy_command_password = server[@"proxy_command_password"];
+        [proxyArrayController addObject:server];
+    }
     
     // remove old preferences
-    
-    [prefs removeObjectForKey:@"remote_host"];
-    [prefs removeObjectForKey:@"remote_port"];
-    [prefs removeObjectForKey:@"login_name"];
-    
-    [prefs removeObjectForKey:@"enable_compression"];
-    
-    [prefs removeObjectForKey:@"proxy_command"];
-    [prefs removeObjectForKey:@"proxy_command_type"];
-    [prefs removeObjectForKey:@"proxy_command_host"];
-    [prefs removeObjectForKey:@"proxy_command_port"];
-    
-    [prefs removeObjectForKey:@"proxy_command_auth"];
-    [prefs removeObjectForKey:@"proxy_command_username"];
-    [prefs removeObjectForKey:@"proxy_command_password"];
-    
+    [prefs removeObjectForKey:@"servers"];
     [prefs synchronize];
 }
 
