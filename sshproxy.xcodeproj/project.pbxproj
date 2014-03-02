@@ -24,9 +24,6 @@
 		4A2A394E175EC85D002BF361 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A3941175EC85D002BF361 /* DDFileLogger.m */; };
 		4A2A394F175EC85D002BF361 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A3943175EC85D002BF361 /* DDLog.m */; };
 		4A2A3950175EC85D002BF361 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A3945175EC85D002BF361 /* DDTTYLogger.m */; };
-		4A2A3951175EC85D002BF361 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A3948175EC85D002BF361 /* ContextFilterLogFormatter.m */; };
-		4A2A3952175EC85D002BF361 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2A394A175EC85D002BF361 /* DispatchQueueLogFormatter.m */; };
-		4A2A3953175EC85D002BF361 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A2A394B175EC85D002BF361 /* README.txt */; };
 		4A2E4C31181C08C80029579B /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E4C2F181C08C80029579B /* AboutWindowController.m */; };
 		4A2E4C32181C08C80029579B /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E4C30181C08C80029579B /* AboutWindowController.xib */; };
 		4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E9081181BA4B200609D95 /* Localizable.strings */; };
@@ -72,6 +69,10 @@
 		4AA6473316BE3F0C00DE5CAD /* SSH Proxy Helper.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 4AA6471A16BE3DB900DE5CAD /* SSH Proxy Helper.app */; };
 		4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1313178FAA4A00F1DF01 /* GCDAsyncSocket.m */; };
 		4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */; };
+		4AB0667418C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0666E18C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m */; };
+		4AB0667518C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0667018C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m */; };
+		4AB0667618C31EAA00CAF5A3 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0667218C31EAA00CAF5A3 /* DDMultiFormatter.m */; };
+		4AB0667718C31EAA00CAF5A3 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0667318C31EAA00CAF5A3 /* README.txt */; };
 		4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */; };
 		4AC2DC351842E92200038079 /* INSOCKSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2DC341842E92200038079 /* INSOCKSConnection.m */; };
 		4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9BEFF1794D68700E9A997 /* WhitelistPreferencesViewController.m */; };
@@ -181,11 +182,6 @@
 		4A2A3943175EC85D002BF361 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
 		4A2A3944175EC85D002BF361 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		4A2A3945175EC85D002BF361 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		4A2A3947175EC85D002BF361 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		4A2A3948175EC85D002BF361 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		4A2A3949175EC85D002BF361 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		4A2A394A175EC85D002BF361 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		4A2A394B175EC85D002BF361 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4A2E4C2E181C08C80029579B /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4A2E4C2F181C08C80029579B /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		4A2E4C30181C08C80029579B /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
@@ -264,6 +260,13 @@
 		4AAF1317178FAAA800F1DF01 /* INSOCKSServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSServer.h; sourceTree = "<group>"; };
 		4AAF1318178FAAA800F1DF01 /* INSOCKSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSServer.m; sourceTree = "<group>"; };
 		4AAF131A178FAE1C00F1DF01 /* INSOCKSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSConnection.h; sourceTree = "<group>"; };
+		4AB0666D18C31EAA00CAF5A3 /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		4AB0666E18C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		4AB0666F18C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		4AB0667018C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		4AB0667118C31EAA00CAF5A3 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		4AB0667218C31EAA00CAF5A3 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		4AB0667318C31EAA00CAF5A3 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4AB29FC218212F440026C8CC /* BasePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePreferencesViewController.h; sourceTree = "<group>"; };
 		4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePreferencesViewController.m; sourceTree = "<group>"; };
 		4AC2DC341842E92200038079 /* INSOCKSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSConnection.m; sourceTree = "<group>"; };
@@ -388,28 +391,16 @@
 		4A2A393B175EC85D002BF361 /* Lumberjack */ = {
 			isa = PBXGroup;
 			children = (
+				4AB0666C18C31EAA00CAF5A3 /* Extensions */,
 				4A2A3940175EC85D002BF361 /* DDFileLogger.h */,
 				4A2A3941175EC85D002BF361 /* DDFileLogger.m */,
 				4A2A3942175EC85D002BF361 /* DDLog.h */,
 				4A2A3943175EC85D002BF361 /* DDLog.m */,
 				4A2A3944175EC85D002BF361 /* DDTTYLogger.h */,
 				4A2A3945175EC85D002BF361 /* DDTTYLogger.m */,
-				4A2A3946175EC85D002BF361 /* Extensions */,
 			);
 			name = Lumberjack;
 			path = CocoaLumberjack/Lumberjack;
-			sourceTree = "<group>";
-		};
-		4A2A3946175EC85D002BF361 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4A2A3947175EC85D002BF361 /* ContextFilterLogFormatter.h */,
-				4A2A3948175EC85D002BF361 /* ContextFilterLogFormatter.m */,
-				4A2A3949175EC85D002BF361 /* DispatchQueueLogFormatter.h */,
-				4A2A394A175EC85D002BF361 /* DispatchQueueLogFormatter.m */,
-				4A2A394B175EC85D002BF361 /* README.txt */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4A2FAD0F17715555004C8F7B /* EMKeychain */ = {
@@ -534,6 +525,20 @@
 			);
 			name = INSOCKSServer;
 			path = INSOCKSServer/INSOCKSServer/Classes;
+			sourceTree = "<group>";
+		};
+		4AB0666C18C31EAA00CAF5A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4AB0666D18C31EAA00CAF5A3 /* DDContextFilterLogFormatter.h */,
+				4AB0666E18C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m */,
+				4AB0666F18C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.h */,
+				4AB0667018C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m */,
+				4AB0667118C31EAA00CAF5A3 /* DDMultiFormatter.h */,
+				4AB0667218C31EAA00CAF5A3 /* DDMultiFormatter.m */,
+				4AB0667318C31EAA00CAF5A3 /* README.txt */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4AC9BF1717952FF000E9A997 /* Vendor */ = {
@@ -853,12 +858,12 @@
 				4AEC465916A6A35E008BD118 /* GeneralPreferencesView.xib in Resources */,
 				4A021B3F16B801CD00F98FBC /* askpass.entitlements in Resources */,
 				4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */,
+				4AB0667718C31EAA00CAF5A3 /* README.txt in Resources */,
 				4AE2C1711742151D00D0C57D /* ServersPreferencesView.xib in Resources */,
 				4ADB925F17476F700064D82D /* MIT-License.rtf in Resources */,
 				4AECC518181EAA920074C6A3 /* AppIcon.xcassets in Resources */,
 				4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */,
 				4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */,
-				4A2A3953175EC85D002BF361 /* README.txt in Resources */,
 				4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */,
 				4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */,
 			);
@@ -941,10 +946,10 @@
 				4ADB926017476F700064D82D /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				4A2E4C31181C08C80029579B /* AboutWindowController.m in Sources */,
 				4A2A394E175EC85D002BF361 /* DDFileLogger.m in Sources */,
+				4AB0667518C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m in Sources */,
 				4A2A394F175EC85D002BF361 /* DDLog.m in Sources */,
+				4AB0667618C31EAA00CAF5A3 /* DDMultiFormatter.m in Sources */,
 				4A2A3950175EC85D002BF361 /* DDTTYLogger.m in Sources */,
-				4A2A3951175EC85D002BF361 /* ContextFilterLogFormatter.m in Sources */,
-				4A2A3952175EC85D002BF361 /* DispatchQueueLogFormatter.m in Sources */,
 				4A70ACB71774536000777818 /* RNCryptor.m in Sources */,
 				4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBB1774536000777818 /* RNDecryptor.m in Sources */,
@@ -962,6 +967,7 @@
 				4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */,
 				4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */,
 				4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */,
+				4AB0667418C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m in Sources */,
 				4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */,
 				4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */,
 				4AB29FC418212F440026C8CC /* BasePreferencesViewController.m in Sources */,
@@ -1180,7 +1186,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-fobjc-arc";
 				SDKROOT = macosx;
@@ -1208,7 +1214,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = "-fobjc-arc";
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;

@@ -45,7 +45,7 @@
 "sshproxy.about.feedback" = "Send Feedback";
 "sshproxy.about.rateus" = "Rate SSH Proxy";
 "sshproxy.about.version" = "Version: %@";
-"sshproxy.about.release" = "Release Date: 2014-02-25";
+"sshproxy.about.release" = "Release Date: 2014-03-25";
 "sshproxy.about.copyright" = "© 2014 Codinn Studio, all rights reserved";
 "sshproxy.about.credits" = "Credits: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang, Hypo Hsu";
 

@@ -38,7 +38,7 @@
 "sshproxy.about.feedback" = "给我们反馈";
 "sshproxy.about.rateus" = "评价 SSH Proxy";
 "sshproxy.about.version" = "版本: %@";
-"sshproxy.about.release" = "发布日期: 2014-02-25";
+"sshproxy.about.release" = "发布日期: 2014-03-25";
 "sshproxy.about.copyright" = "© 2014 Codinn Studio, 版权所有";
 "sshproxy.about.credits" = "感谢: Qiao Changliang, Abby Wang, Fane Gigel, Mamdouh Al-Shethry, Byungho Min, Can Wang, Lucian Maly, Razvan C. Oprea, Edson Daquinta, Zhiguang Wang, Hypo Hsu";
 
