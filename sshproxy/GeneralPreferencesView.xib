@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
+        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -27,8 +27,8 @@
             <rect key="frame" x="0.0" y="0.0" width="533" height="237"/>
             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
             <subviews>
-                <button id="1796">
-                    <rect key="frame" x="18" y="61" width="309" height="18"/>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="1796">
+                    <rect key="frame" x="18" y="61" width="497" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <buttonCell key="cell" type="check" title="Launch when you log in" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1881">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -39,16 +39,19 @@
                         <binding destination="2518" name="value" keyPath="values.auto_launch" id="2524"/>
                     </connections>
                 </button>
-                <box autoresizesSubviews="NO" title="SOCKS v5 Proxy" borderType="line" id="2403">
+                <box autoresizesSubviews="NO" title="SOCKS v5 Proxy" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2403">
                     <rect key="frame" x="17" y="94" width="499" height="123"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="497" height="107"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" id="1856">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1856">
                                 <rect key="frame" x="116" y="68" width="76" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="GsC-aZ-ldA"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="7070" drawsBackground="YES" id="1870">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -64,23 +67,26 @@
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSNotApplicablePlaceholder">7070</string>
                                             <string key="NSNoSelectionPlaceholder">7070</string>
-                                            <string key="NSMultipleValuesPlaceholder">7070</string>
                                             <string key="NSNullPlaceholder">7070</string>
+                                            <string key="NSMultipleValuesPlaceholder">7070</string>
                                         </dictionary>
                                     </binding>
                                     <outlet property="delegate" destination="-2" id="2512"/>
                                 </connections>
                             </textField>
-                            <textField verticalHuggingPriority="750" id="1858">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1858">
                                 <rect key="frame" x="15" y="70" width="96" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="EgZ-hL-yzb"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Listening port:" id="1868">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1857" userLabel="Local Port Stepper">
+                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1857" userLabel="Local Port Stepper">
                                 <rect key="frame" x="191" y="65" width="19" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="65535" doubleValue="1" id="1869"/>
@@ -89,7 +95,7 @@
                                     <binding destination="2489" name="value" keyPath="values.local_port" id="2493"/>
                                 </connections>
                             </stepper>
-                            <button id="1855">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1855">
                                 <rect key="frame" x="16" y="11" width="465" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Automatically turn proxy on when SSH Proxy starts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1872">
@@ -105,7 +111,7 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" id="2410" userLabel="Close Button (Hide)">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2410" userLabel="Close Button (Hide)">
                                 <rect key="frame" x="242" y="47" width="12" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="2411">
@@ -118,8 +124,8 @@
                                     <action selector="closePreferencesWindow:" target="-2" id="2412"/>
                                 </connections>
                             </button>
-                            <button id="RRN-6a-4JA">
-                                <rect key="frame" x="16" y="37" width="341" height="18"/>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="RRN-6a-4JA">
+                                <rect key="frame" x="16" y="37" width="465" height="18"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Share SOCKS v5 proxy on LAN" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Fss-no-cz3">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -134,8 +140,8 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OUa-5J-0GG">
-                                <rect key="frame" x="212" y="70" width="188" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OUa-5J-0GG">
+                                <rect key="frame" x="212" y="70" width="265" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="( from 1024 to 65535 )" placeholderString="" id="RoS-aH-jG1">
                                     <font key="font" metaFont="system"/>
@@ -145,13 +151,34 @@
                             </textField>
                         </subviews>
                     </view>
+                    <constraints>
+                        <constraint firstItem="1856" firstAttribute="top" secondItem="2403" secondAttribute="top" constant="32" id="E4l-gP-27S"/>
+                        <constraint firstItem="1856" firstAttribute="centerY" secondItem="1858" secondAttribute="centerY" constant="-0.5" id="Eqf-n6-RC4"/>
+                        <constraint firstItem="1856" firstAttribute="leading" secondItem="1858" secondAttribute="trailing" constant="7" id="GIM-aI-rQY"/>
+                        <constraint firstAttribute="trailing" secondItem="OUa-5J-0GG" secondAttribute="trailing" constant="20" id="HdX-AQ-Z46"/>
+                        <constraint firstAttribute="trailing" secondItem="1855" secondAttribute="trailing" constant="16" id="KSu-YK-kJO"/>
+                        <constraint firstItem="1857" firstAttribute="centerY" secondItem="1856" secondAttribute="centerY" id="MLj-T7-UzZ"/>
+                        <constraint firstAttribute="trailing" secondItem="RRN-6a-4JA" secondAttribute="trailing" constant="16" id="O6h-Sk-yqK"/>
+                        <constraint firstItem="1858" firstAttribute="leading" secondItem="2403" secondAttribute="leading" constant="15" id="PjT-zO-7VO"/>
+                        <constraint firstItem="OUa-5J-0GG" firstAttribute="centerY" secondItem="1856" secondAttribute="centerY" constant="0.5" id="Xn3-cD-3Wv"/>
+                        <constraint firstAttribute="bottom" secondItem="1855" secondAttribute="bottom" constant="10" id="bgi-YO-BAR"/>
+                        <constraint firstItem="1855" firstAttribute="top" secondItem="RRN-6a-4JA" secondAttribute="bottom" constant="12" id="cyv-LO-C29"/>
+                        <constraint firstItem="RRN-6a-4JA" firstAttribute="top" secondItem="1856" secondAttribute="bottom" constant="15" id="dOo-wW-Dlx"/>
+                        <constraint firstItem="OUa-5J-0GG" firstAttribute="leading" secondItem="1857" secondAttribute="trailing" constant="7" id="foX-as-C0J"/>
+                        <constraint firstItem="1855" firstAttribute="leading" secondItem="2403" secondAttribute="leading" constant="16" id="iuA-Ji-fLK"/>
+                        <constraint firstItem="RRN-6a-4JA" firstAttribute="leading" secondItem="2403" secondAttribute="leading" constant="16" id="ofi-4n-APs"/>
+                        <constraint firstItem="1857" firstAttribute="leading" secondItem="1856" secondAttribute="trailing" constant="2" id="zpd-d5-NDd"/>
+                    </constraints>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" size="11" name="LucidaGrande"/>
                 </box>
-                <button verticalHuggingPriority="750" id="2413">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2413">
                     <rect key="frame" x="437" y="13" width="82" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="1Cd-UK-lNx"/>
+                    </constraints>
                     <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2416">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -164,7 +191,7 @@ DQ
                         <binding destination="-2" name="enabled" keyPath="isDirty" id="2515"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="2414">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2414">
                     <rect key="frame" x="355" y="13" width="82" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Revert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2415">
@@ -176,7 +203,7 @@ DQ
                         <binding destination="-2" name="enabled" keyPath="isDirty" id="2502"/>
                     </connections>
                 </button>
-                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1dH-Ca-lW4">
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1dH-Ca-lW4">
                     <rect key="frame" x="18" y="17" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qCg-JY-ZyI">
@@ -188,6 +215,22 @@ DQ
                     </connections>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2403" secondAttribute="trailing" constant="20" id="2Sm-9y-1e5"/>
+                <constraint firstAttribute="bottom" secondItem="1dH-Ca-lW4" secondAttribute="bottom" constant="20" id="8Jk-8w-POd"/>
+                <constraint firstItem="2403" firstAttribute="leading" secondItem="2178" secondAttribute="leading" constant="20" id="CNS-nN-vD6"/>
+                <constraint firstAttribute="trailing" secondItem="1796" secondAttribute="trailing" constant="20" id="Coz-Ch-4fI"/>
+                <constraint firstItem="2403" firstAttribute="top" secondItem="2178" secondAttribute="top" constant="20" id="Gw0-Mn-d6E"/>
+                <constraint firstItem="1796" firstAttribute="top" secondItem="2403" secondAttribute="bottom" constant="21" id="SMZ-mH-tbZ"/>
+                <constraint firstItem="1796" firstAttribute="leading" secondItem="2178" secondAttribute="leading" constant="20" id="TKV-An-mam"/>
+                <constraint firstItem="2413" firstAttribute="top" secondItem="1796" secondAttribute="bottom" constant="22" id="WV7-A4-vBh"/>
+                <constraint firstItem="1dH-Ca-lW4" firstAttribute="leading" secondItem="2178" secondAttribute="leading" constant="20" id="ZQT-sw-GAa"/>
+                <constraint firstAttribute="trailing" secondItem="2413" secondAttribute="trailing" constant="20" id="dR9-8Q-kXa"/>
+                <constraint firstItem="2414" firstAttribute="centerY" secondItem="2413" secondAttribute="centerY" id="dqg-bg-LI6"/>
+                <constraint firstItem="2414" firstAttribute="width" secondItem="2413" secondAttribute="width" id="esK-cP-1Ai"/>
+                <constraint firstItem="2413" firstAttribute="leading" secondItem="2414" secondAttribute="trailing" constant="12" id="j53-K5-u3h"/>
+                <constraint firstAttribute="bottom" secondItem="2413" secondAttribute="bottom" constant="20" id="rg2-gp-AsM"/>
+            </constraints>
         </customView>
         <userDefaultsController appliesImmediately="NO" id="2489"/>
         <userDefaultsController representsSharedInstance="YES" id="2518"/>
