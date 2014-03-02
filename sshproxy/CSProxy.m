@@ -20,4 +20,13 @@
     return self;
 }
 
+#pragma mark NSCopying
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+	CSProxy *copied = [[self.class allocWithZone:zone] initWithDictionary:self.dictionaryValue error:NULL];
+    // assign a different
+    copied.proxy_id = CSGenerateUniqueId();
+    return copied;
+}
+
 @end
