@@ -5,7 +5,8 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 
-    #import "DDLog.h"
+#import "DDLog.h"
+#import "CSSSHCommon.h"
 #ifdef DEUBG
     static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #else

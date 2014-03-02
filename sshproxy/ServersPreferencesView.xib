@@ -95,11 +95,11 @@
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="138">
-                                <rect key="frame" x="1" y="293" width="207" height="16"/>
+                                <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="137">
-                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
@@ -331,7 +331,7 @@ CA
                                             <action selector="toggleAuthTipPopover:" target="-2" id="vQJ-p3-Tru"/>
                                         </connections>
                                     </button>
-                                    <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="472">
+                                    <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="472">
                                         <rect key="frame" x="128" y="82" width="168" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -362,7 +362,7 @@ CA
                                             </binding>
                                         </connections>
                                     </matrix>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="497">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="497">
                                         <rect key="frame" x="146" y="29" width="181" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" lineBreakMode="charWrapping" selectable="YES" sendsActionOnEndEditing="YES" id="498">
@@ -480,7 +480,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="185">
-                        <rect key="frame" x="365" y="13" width="84" height="32"/>
+                        <rect key="frame" x="365.00000048472805" y="13" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="dJy-PW-clP"/>
@@ -497,14 +497,14 @@ DQ
                         </connections>
                     </button>
                     <box autoresizesSubviews="NO" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="183">
-                        <rect key="frame" x="35" y="57" width="411" height="197"/>
+                        <rect key="frame" x="35" y="57" width="411.00000048472805" height="197"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="409" height="181"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="190" customClass="CharmTextField">
-                                    <rect key="frame" x="14" y="149" width="91" height="17"/>
+                                    <rect key="frame" x="14.000010272551936" y="149" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="87" id="BNT-n2-EXa"/>
@@ -574,7 +574,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="193" customClass="CharmTextField">
-                                    <rect key="frame" x="14.999989969976689" y="117" width="91" height="17"/>
+                                    <rect key="frame" x="15" y="117" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Server:" id="209">
                                         <font key="font" metaFont="system"/>
@@ -690,7 +690,7 @@ DQ
                                     </connections>
                                 </popUpButton>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="192" customClass="CharmTextField">
-                                    <rect key="frame" x="14.999989969976689" y="52" width="91" height="17"/>
+                                    <rect key="frame" x="15" y="52" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Username:" id="210">
                                         <font key="font" metaFont="system"/>
@@ -710,7 +710,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="191" customClass="CharmTextField">
-                                    <rect key="frame" x="14" y="17" width="91" height="17"/>
+                                    <rect key="frame" x="14" y="17" width="91.000010272551933" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="211">
                                         <font key="font" metaFont="system"/>

@@ -19,3 +19,15 @@
 [submodule "INSOCKSServer"]
 	path = INSOCKSServer
 	url = https://github.com/brantyoung/INSOCKSServer
+[submodule "Mantle"]
+	path = Mantle
+	url = https://github.com/MantleFramework/Mantle
+[submodule "CSSSHHelper"]
+	path = CSSSHHelper
+	url = https://github.com/brantyoung/CSSSHHelper
+[submodule "OWKeychain"]
+	path = OWKeychain
+	url = https://github.com/brantyoung/OWKeychain
+[submodule "FileMD5Hash"]
+	path = FileMD5Hash
+	url = https://github.com/JoeKun/FileMD5Hash

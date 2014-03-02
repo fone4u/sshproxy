@@ -40,6 +40,14 @@
 		4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */; };
 		4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
 		4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A30A5181EADFF00F652B4 /* Media.xcassets */; };
+		4A6B0B0B18C34FD8007790CC /* CSSSHAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */; };
+		4A6B0B0C18C34FD8007790CC /* CSSSHBaseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0118C34FD8007790CC /* CSSSHBaseInfo.m */; };
+		4A6B0B0D18C34FD8007790CC /* CSSSHCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0318C34FD8007790CC /* CSSSHCommon.m */; };
+		4A6B0B0E18C34FD8007790CC /* CSSSHPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0518C34FD8007790CC /* CSSSHPrivateKey.m */; };
+		4A6B0B0F18C34FD8007790CC /* CSSSHPrivateKeysTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B0718C34FD8007790CC /* CSSSHPrivateKeysTableView.m */; };
+		4A6B0B1418C3501A007790CC /* CSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1318C3501A007790CC /* CSProxy.m */; };
+		4A6B0B2118C358CC007790CC /* OWKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1E18C358CC007790CC /* OWKeychain.m */; };
+		4A6B0B5B18C35958007790CC /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B5A18C35958007790CC /* FileHash.m */; };
 		4A70ACB71774536000777818 /* RNCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAA1774536000777818 /* RNCryptor.m */; };
 		4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
 		4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACAC1774536000777818 /* RNCryptorEngine.m */; };
@@ -118,6 +126,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4AA6471916BE3DB900DE5CAD;
 			remoteInfo = sshproxyhelper;
+		};
+		4AB0668818C34E0400CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC3C15F72B23004E8054;
+			remoteInfo = Mantle;
+		};
+		4AB0668A18C34E0400CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC5415F72B23004E8054;
+			remoteInfo = "Mantle Tests";
+		};
+		4AB0668C18C34E0400CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC7915F72BC7004E8054;
+			remoteInfo = "Mantle-iOS";
+		};
+		4AB0668E18C34E0400CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC8715F72BC7004E8054;
+			remoteInfo = "Mantle-iOS Tests";
+		};
+		4AB0669018C34E0400CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0A56B461804B04900A84EDC;
+			remoteInfo = "Mantle-Mac";
+		};
+		4AB0669218C34E2E00CAF5A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D0A56B451804B04900A84EDC;
+			remoteInfo = "Mantle-Mac";
 		};
 		4AD3FDFE16A56EF400378F77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -216,6 +266,23 @@
 		4A49EEBE183B0D7A00E7296E /* INSOCKSDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSDirectConnection.h; sourceTree = "<group>"; };
 		4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSDirectConnection.m; sourceTree = "<group>"; };
 		4A6A30A5181EADFF00F652B4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		4A6B0AFE18C34FD8007790CC /* CSSSHAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHAuthHelper.h; sourceTree = "<group>"; };
+		4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHAuthHelper.m; sourceTree = "<group>"; };
+		4A6B0B0018C34FD8007790CC /* CSSSHBaseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHBaseInfo.h; sourceTree = "<group>"; };
+		4A6B0B0118C34FD8007790CC /* CSSSHBaseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHBaseInfo.m; sourceTree = "<group>"; };
+		4A6B0B0218C34FD8007790CC /* CSSSHCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHCommon.h; sourceTree = "<group>"; };
+		4A6B0B0318C34FD8007790CC /* CSSSHCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHCommon.m; sourceTree = "<group>"; };
+		4A6B0B0418C34FD8007790CC /* CSSSHPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHPrivateKey.h; sourceTree = "<group>"; };
+		4A6B0B0518C34FD8007790CC /* CSSSHPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHPrivateKey.m; sourceTree = "<group>"; };
+		4A6B0B0618C34FD8007790CC /* CSSSHPrivateKeysTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHPrivateKeysTableView.h; sourceTree = "<group>"; };
+		4A6B0B0718C34FD8007790CC /* CSSSHPrivateKeysTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHPrivateKeysTableView.m; sourceTree = "<group>"; };
+		4A6B0B1218C3501A007790CC /* CSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSProxy.h; sourceTree = "<group>"; };
+		4A6B0B1318C3501A007790CC /* CSProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSProxy.m; sourceTree = "<group>"; };
+		4A6B0B1A18C3582B007790CC /* CSSSHCommon.local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHCommon.local.h; sourceTree = "<group>"; };
+		4A6B0B1D18C358CC007790CC /* OWKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWKeychain.h; sourceTree = "<group>"; };
+		4A6B0B1E18C358CC007790CC /* OWKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWKeychain.m; sourceTree = "<group>"; };
+		4A6B0B5918C35958007790CC /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
+		4A6B0B5A18C35958007790CC /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
 		4A70ACA71774535F00777818 /* RNCryptor+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNCryptor+Private.h"; sourceTree = "<group>"; };
 		4A70ACA91774536000777818 /* RNCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCryptor.h; sourceTree = "<group>"; };
 		4A70ACAA1774536000777818 /* RNCryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCryptor.m; sourceTree = "<group>"; };
@@ -267,6 +334,7 @@
 		4AB0667118C31EAA00CAF5A3 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		4AB0667218C31EAA00CAF5A3 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		4AB0667318C31EAA00CAF5A3 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantle.xcodeproj; path = Mantle/Mantle.xcodeproj; sourceTree = "<group>"; };
 		4AB29FC218212F440026C8CC /* BasePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePreferencesViewController.h; sourceTree = "<group>"; };
 		4AB29FC318212F440026C8CC /* BasePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePreferencesViewController.m; sourceTree = "<group>"; };
 		4AC2DC341842E92200038079 /* INSOCKSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSConnection.m; sourceTree = "<group>"; };
@@ -421,6 +489,43 @@
 			path = connect;
 			sourceTree = "<group>";
 		};
+		4A6B0AFC18C34FD8007790CC /* CSSSHHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4A6B0B1A18C3582B007790CC /* CSSSHCommon.local.h */,
+				4A6B0AFE18C34FD8007790CC /* CSSSHAuthHelper.h */,
+				4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */,
+				4A6B0B0018C34FD8007790CC /* CSSSHBaseInfo.h */,
+				4A6B0B0118C34FD8007790CC /* CSSSHBaseInfo.m */,
+				4A6B0B0218C34FD8007790CC /* CSSSHCommon.h */,
+				4A6B0B0318C34FD8007790CC /* CSSSHCommon.m */,
+				4A6B0B0418C34FD8007790CC /* CSSSHPrivateKey.h */,
+				4A6B0B0518C34FD8007790CC /* CSSSHPrivateKey.m */,
+				4A6B0B0618C34FD8007790CC /* CSSSHPrivateKeysTableView.h */,
+				4A6B0B0718C34FD8007790CC /* CSSSHPrivateKeysTableView.m */,
+			);
+			path = CSSSHHelper;
+			sourceTree = "<group>";
+		};
+		4A6B0B1B18C358CC007790CC /* OWKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				4A6B0B1D18C358CC007790CC /* OWKeychain.h */,
+				4A6B0B1E18C358CC007790CC /* OWKeychain.m */,
+			);
+			path = OWKeychain;
+			sourceTree = "<group>";
+		};
+		4A6B0B5818C35958007790CC /* FileMD5Hash */ = {
+			isa = PBXGroup;
+			children = (
+				4A6B0B5918C35958007790CC /* FileHash.h */,
+				4A6B0B5A18C35958007790CC /* FileHash.m */,
+			);
+			name = FileMD5Hash;
+			path = FileMD5Hash/Library;
+			sourceTree = "<group>";
+		};
 		4A70ACA61774535F00777818 /* RNCryptor */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,9 +646,25 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4AB0667F18C34E0200CAF5A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AB0668918C34E0400CAF5A3 /* Mantle.framework */,
+				4AB0668B18C34E0400CAF5A3 /* Mantle Tests.octest */,
+				4AB0668D18C34E0400CAF5A3 /* libMantle-iOS.a */,
+				4AB0668F18C34E0400CAF5A3 /* Mantle-iOS Tests.octest */,
+				4AB0669118C34E0400CAF5A3 /* libMantle-Mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4AC9BF1717952FF000E9A997 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4A6B0B5818C35958007790CC /* FileMD5Hash */,
+				4A6B0B1B18C358CC007790CC /* OWKeychain */,
+				4A6B0AFC18C34FD8007790CC /* CSSSHHelper */,
+				4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */,
 				4AAF1316178FAAA800F1DF01 /* INSOCKSServer */,
 				4AAF1315178FAA4F00F1DF01 /* GCDAsyncSocket */,
 				4A70ACE51774B06B00777818 /* INPopoverController */,
@@ -570,6 +691,8 @@
 				4AE2C1761743214000D0C57D /* SSHHelper.m */,
 				4AC9BF031794EAA500E9A997 /* WhitelistHelper.h */,
 				4AC9BF041794EAA500E9A997 /* WhitelistHelper.m */,
+				4A6B0B1218C3501A007790CC /* CSProxy.h */,
+				4A6B0B1318C3501A007790CC /* CSProxy.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -763,6 +886,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4AB0669318C34E2E00CAF5A3 /* PBXTargetDependency */,
 				4A4231191719AADD00ABD4F6 /* PBXTargetDependency */,
 				4AA6473516BE3FDC00DE5CAD /* PBXTargetDependency */,
 				4A1BE49F16A69049000E56D7 /* PBXTargetDependency */,
@@ -821,6 +945,12 @@
 			mainGroup = 4AD3FDCE16A56EF400378F77;
 			productRefGroup = 4AD3FDDA16A56EF400378F77 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4AB0667F18C34E0200CAF5A3 /* Products */;
+					ProjectRef = 4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4AD3FDD816A56EF400378F77 /* sshproxy */,
@@ -831,6 +961,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4AB0668918C34E0400CAF5A3 /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 4AB0668818C34E0400CAF5A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AB0668B18C34E0400CAF5A3 /* Mantle Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle Tests.octest";
+			remoteRef = 4AB0668A18C34E0400CAF5A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AB0668D18C34E0400CAF5A3 /* libMantle-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMantle-iOS.a";
+			remoteRef = 4AB0668C18C34E0400CAF5A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AB0668F18C34E0400CAF5A3 /* Mantle-iOS Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle-iOS Tests.octest";
+			remoteRef = 4AB0668E18C34E0400CAF5A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AB0669118C34E0400CAF5A3 /* libMantle-Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMantle-Mac.a";
+			remoteRef = 4AB0669018C34E0400CAF5A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4AA6471816BE3DB900DE5CAD /* Resources */ = {
@@ -935,6 +1103,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6B0B1418C3501A007790CC /* CSProxy.m in Sources */,
+				4A6B0B2118C358CC007790CC /* OWKeychain.m in Sources */,
+				4A6B0B0F18C34FD8007790CC /* CSSSHPrivateKeysTableView.m in Sources */,
 				4AD3FDEA16A56EF400378F77 /* main.m in Sources */,
 				4A03F73916A69519009BCD79 /* AppController.m in Sources */,
 				4AEC465C16A6A3F5008BD118 /* GeneralPreferencesViewController.m in Sources */,
@@ -944,15 +1115,20 @@
 				4AE2C1741742154100D0C57D /* ServersPreferencesViewController.m in Sources */,
 				4AE2C1771743214000D0C57D /* SSHHelper.m in Sources */,
 				4ADB926017476F700064D82D /* RSVerticallyCenteredTextFieldCell.m in Sources */,
+				4A6B0B0E18C34FD8007790CC /* CSSSHPrivateKey.m in Sources */,
 				4A2E4C31181C08C80029579B /* AboutWindowController.m in Sources */,
+				4A6B0B0C18C34FD8007790CC /* CSSSHBaseInfo.m in Sources */,
 				4A2A394E175EC85D002BF361 /* DDFileLogger.m in Sources */,
 				4AB0667518C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m in Sources */,
+				4A6B0B0D18C34FD8007790CC /* CSSSHCommon.m in Sources */,
 				4A2A394F175EC85D002BF361 /* DDLog.m in Sources */,
 				4AB0667618C31EAA00CAF5A3 /* DDMultiFormatter.m in Sources */,
+				4A6B0B5B18C35958007790CC /* FileHash.m in Sources */,
 				4A2A3950175EC85D002BF361 /* DDTTYLogger.m in Sources */,
 				4A70ACB71774536000777818 /* RNCryptor.m in Sources */,
 				4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBB1774536000777818 /* RNDecryptor.m in Sources */,
+				4A6B0B0B18C34FD8007790CC /* CSSSHAuthHelper.m in Sources */,
 				4A70ACBD1774536000777818 /* RNEncryptor.m in Sources */,
 				4A70ACC817746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
 				4A70ACCD177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */,
@@ -1000,6 +1176,11 @@
 			isa = PBXTargetDependency;
 			target = 4AA6471916BE3DB900DE5CAD /* sshproxyhelper */;
 			targetProxy = 4AA6473416BE3FDC00DE5CAD /* PBXContainerItemProxy */;
+		};
+		4AB0669318C34E2E00CAF5A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mantle-Mac";
+			targetProxy = 4AB0669218C34E2E00CAF5A3 /* PBXContainerItemProxy */;
 		};
 		4AD3FDFF16A56EF400378F77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1188,7 +1369,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-ObjC",
+				);
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
@@ -1215,7 +1399,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-ObjC",
+				);
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 			};
