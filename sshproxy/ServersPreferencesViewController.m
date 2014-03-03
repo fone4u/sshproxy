@@ -46,6 +46,15 @@
     return NSLocalizedString(@"sshproxy.pref.servers.title", nil);
 }
 
+- (BOOL)hasResizableWidth
+{
+    return NO;
+}
+- (BOOL)hasResizableHeight
+{
+    return NO;
+}
+
 #pragma mark -
 
 -(void)loadView

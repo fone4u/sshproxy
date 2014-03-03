@@ -85,6 +85,15 @@
     return NSLocalizedString(@"sshproxy.pref.whitelist.title", nil);
 }
 
+- (BOOL)hasResizableWidth
+{
+    return NO;
+}
+- (BOOL)hasResizableHeight
+{
+    return NO;
+}
+
 #pragma - Actions
 
 - (IBAction)closePreferencesWindow:(id)sender {

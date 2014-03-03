@@ -56,6 +56,14 @@
     self.startAtLoginButton.title = NSLocalizedString(@"sshproxy.pref.general.start_at_login", nil);
 }
 
+- (BOOL)hasResizableWidth
+{
+    return NO;
+}
+- (BOOL)hasResizableHeight
+{
+    return NO;
+}
 
 #pragma mark - Actions
 
