@@ -1270,6 +1270,11 @@
 				CODE_SIGN_ENTITLEMENTS = askpass/askpass.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "askpass/askpass-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+				);
 				PRODUCT_NAME = "SSH Proxy - Ask Password";
 				SKIP_INSTALL = YES;
 			};
@@ -1282,6 +1287,11 @@
 				CODE_SIGN_ENTITLEMENTS = askpass/askpass.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "askpass/askpass-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+				);
 				PRODUCT_NAME = "SSH Proxy - Ask Password";
 				SKIP_INSTALL = YES;
 			};
@@ -1427,6 +1437,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxy/sshproxy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+				);
 				INFOPLIST_FILE = "sshproxy/sshproxy-Info.plist";
 				PRODUCT_NAME = "SSH Proxy";
 				WRAPPER_EXTENSION = app;
@@ -1443,6 +1458,11 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sshproxy/sshproxy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+				);
 				INFOPLIST_FILE = "sshproxy/sshproxy-Info.plist";
 				PRODUCT_NAME = "SSH Proxy";
 				WRAPPER_EXTENSION = app;
