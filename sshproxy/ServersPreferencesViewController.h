@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
-#import "INPopoverController.h"
 #import "BasePreferencesViewController.h"
 
 @interface ServersPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
@@ -26,38 +25,37 @@
 
 - (IBAction)authMethodChanged:(id)sender;
 
-@property (strong) IBOutlet NSArrayController *serverArrayController;
+@property (weak) IBOutlet NSArrayController *serverArrayController;
 
-@property (strong) IBOutlet NSTextField *remoteHostTextField;
-@property (strong) IBOutlet NSTextField *remotePortTextField;
-@property (strong) IBOutlet NSStepper *remotePortStepper;
+@property (weak) IBOutlet NSTextField *remoteHostTextField;
+@property (weak) IBOutlet NSTextField *remotePortTextField;
+@property (weak) IBOutlet NSStepper *remotePortStepper;
 
-@property (strong) IBOutlet NSTextField *loginNameTextField;
-@property (strong) IBOutlet NSPanel *advancedPanel;
-@property (strong) IBOutlet NSTableView *serversTableView;
+@property (weak) IBOutlet NSTextField *loginNameTextField;
+@property (weak) IBOutlet NSPanel *advancedPanel;
+@property (weak) IBOutlet NSTableView *serversTableView;
 
-@property (strong) IBOutlet NSMatrix *authMethodMatrix;
-@property (strong) IBOutlet NSTextField *privatekeyLabel;
+@property (weak) IBOutlet NSMatrix *authMethodMatrix;
+@property (weak) IBOutlet NSTextField *privatekeyLabel;
 
 
-@property (strong) IBOutlet NSTextField *remoteHostLabel;
-@property (strong) IBOutlet NSTextField *remotePortLabel;
-@property (strong) IBOutlet NSTextField *usernameLabel;
-@property (strong) IBOutlet NSTextField *authenticationLabel;
-@property (strong) IBOutlet NSButtonCell *passwordRadioCell;
-@property (strong) IBOutlet NSButtonCell *pubkeyRadioCell;
-@property (strong) IBOutlet NSButton *advancedButton;
-@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
+@property (weak) IBOutlet NSTextField *remoteHostLabel;
+@property (weak) IBOutlet NSTextField *remotePortLabel;
+@property (weak) IBOutlet NSTextField *usernameLabel;
+@property (weak) IBOutlet NSTextField *authenticationLabel;
+@property (weak) IBOutlet NSButtonCell *passwordRadioCell;
+@property (weak) IBOutlet NSButtonCell *pubkeyRadioCell;
+@property (weak) IBOutlet NSButton *advancedButton;
+@property (weak) IBOutlet NSMenuItem *duplicateMenuItem;
 
-@property (strong) IBOutlet NSButton *compressCheckbox;
-@property (strong) IBOutlet NSButton *throughProxyCheckbox;
-@property (strong) IBOutlet NSTextField *proxyTypeLabel;
-@property (strong) IBOutlet NSTextField *proxyServerLabel;
-@property (strong) IBOutlet NSButton *authRequiredCheckbox;
-@property (strong) IBOutlet NSTextField *proxyUsernameLabel;
-@property (strong) IBOutlet NSTextField *proxyPasswordLabel;
-@property (strong) IBOutlet NSButton *okButton;
-
-@property (nonatomic,readonly) INPopoverController *authTipPopoverController;
+@property (weak) IBOutlet NSButton *compressCheckbox;
+@property (weak) IBOutlet NSButton *throughProxyCheckbox;
+@property (weak) IBOutlet NSTextField *proxyTypeLabel;
+@property (weak) IBOutlet NSTextField *proxyServerLabel;
+@property (weak) IBOutlet NSButton *authRequiredCheckbox;
+@property (weak) IBOutlet NSTextField *proxyUsernameLabel;
+@property (weak) IBOutlet NSTextField *proxyPasswordLabel;
+@property (weak) IBOutlet NSButton *okButton;
+@property (weak) IBOutlet NSPopover *helpPopover;
 
 @end

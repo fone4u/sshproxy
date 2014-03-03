@@ -9,13 +9,18 @@
 #import "ServersPreferencesViewController.h"
 #import "CharmNumberFormatter.h"
 #import "CSProxy.h"
-#import "AuthTipViewController.h"
+#import "CSPopoverHelperViewController.h"
 #import "AppController.h"
 #import <pwd.h>
 
+@interface ServersPreferencesViewController()
+
+@property CSPopoverHelperViewController *authMethodHelperViewController;
+
+@end
+
 @implementation ServersPreferencesViewController
 
-@synthesize authTipPopoverController;
 @synthesize isDirty;
 
 - (id)init
@@ -59,6 +64,8 @@
         // invoke tableViewSelectionDidChange
         [[NSNotificationCenter defaultCenter] postNotificationName:NSTableViewSelectionDidChangeNotification object:self.serversTableView];
     }
+    
+    self.authMethodHelperViewController = [[CSPopoverHelperViewController alloc] initWithHelpText:NSLocalizedString(@"sshproxy.pref.servers.auth_tip", nil)];
     
     self.remoteHostLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.host", nil);
     self.remotePortLabel.stringValue = NSLocalizedString(@"sshproxy.pref.servers.port", nil);
@@ -108,11 +115,8 @@
 
 - (IBAction)toggleAuthTipPopover:(id)sender
 {
-    if (self.authTipPopoverController.popoverIsVisible) {
-        [self.authTipPopoverController closePopover:nil];
-    } else {
-        [self.authTipPopoverController presentPopoverFromRect:[sender bounds] inView:sender preferredArrowDirection:INPopoverArrowDirectionLeft anchorsToPositionView:YES];
-    }
+    self.helpPopover.contentViewController = self.authMethodHelperViewController;
+    [self.helpPopover showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMaxXEdge];
 }
 
 
@@ -165,18 +169,6 @@
     [self _addServer:[server copy]];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
-
-- (INPopoverController *)authTipPopoverController
-{
-    if (!authTipPopoverController) {
-        AuthTipViewController *viewController = [[AuthTipViewController alloc] init];
-        
-        authTipPopoverController = [[INPopoverController alloc] initWithContentViewController:viewController];
-    }
-    
-    return authTipPopoverController;
-}
-
 
 - (IBAction)authMethodChanged:(id)sender
 {

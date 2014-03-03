@@ -12,8 +12,8 @@
 
 @interface WhitelistPreferencesViewController : BasePreferencesViewController <MASPreferencesViewController, NSTableViewDelegate>
 
-@property (strong) IBOutlet NSArrayController *whitelistArrayController;
-@property (strong) IBOutlet NSTableView *whitelistTableView;
+@property (weak) IBOutlet NSArrayController *whitelistArrayController;
+@property (weak) IBOutlet NSTableView *whitelistTableView;
 
 - (IBAction)duplicateSite:(id)sender;
 - (IBAction)removeSite:(id)sender;
@@ -23,14 +23,14 @@
 - (IBAction)importMenuClicked:(id)sender;
 - (IBAction)emptyWhitelist:(id)sender;
 
-@property (strong) IBOutlet NSTextField *tipsLabel;
-@property (strong) IBOutlet NSTableColumn *enabledTableColumn;
-@property (strong) IBOutlet NSTableColumn *addressTableColumn;
-@property (strong) IBOutlet NSTableColumn *subdomainsTableColumn;
+@property (weak) IBOutlet NSTextField *tipsLabel;
+@property (weak) IBOutlet NSTableColumn *enabledTableColumn;
+@property (weak) IBOutlet NSTableColumn *addressTableColumn;
+@property (weak) IBOutlet NSTableColumn *subdomainsTableColumn;
 
-@property (strong) IBOutlet NSMenu *mainMenu;
-@property (strong) IBOutlet NSMenuItem *duplicateMenuItem;
-@property (strong) IBOutlet NSMenuItem *emptyMenuItem;
-@property (strong) IBOutlet NSMenuItem *importAllMenuItem;
-@property (strong) IBOutlet NSMenuItem *importDevMenuItem;
+@property (weak) IBOutlet NSMenu *mainMenu;
+@property (weak) IBOutlet NSMenuItem *duplicateMenuItem;
+@property (weak) IBOutlet NSMenuItem *emptyMenuItem;
+@property (weak) IBOutlet NSMenuItem *importAllMenuItem;
+@property (weak) IBOutlet NSMenuItem *importDevMenuItem;
 @end

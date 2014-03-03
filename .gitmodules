@@ -4,9 +4,6 @@
 [submodule "CocoaLumberjack"]
 	path = CocoaLumberjack
 	url = https://github.com/robbiehanson/CocoaLumberjack
-[submodule "INPopoverController"]
-	path = INPopoverController
-	url = https://github.com/indragiek/INPopoverController
 [submodule "RNCryptor"]
 	path = RNCryptor
 	url = https://github.com/rnapier/RNCryptor

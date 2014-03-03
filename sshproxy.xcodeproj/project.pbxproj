@@ -13,8 +13,6 @@
 		4A1BE47C16A5BAA0000E56D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1BE47B16A5BAA0000E56D7 /* Foundation.framework */; };
 		4A1BE49D16A68F30000E56D7 /* sshproxy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */; };
 		4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */; };
-		4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* AuthTipView.xib */; };
-		4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */; };
 		4A27AD9F178D4CA1008BC36F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD3FDDD16A56EF400378F77 /* Cocoa.framework */; };
 		4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */; };
 		4A27ADA3178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */; };
@@ -36,10 +34,6 @@
 		4A44D68216A837CB00EB44A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D67F16A8379C00EB44A8 /* main.m */; };
 		4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */; };
 		4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */; };
-		4A5D2AD318C41D820026CB1A /* INPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2AC918C41D820026CB1A /* INPopoverController.m */; };
-		4A5D2AD418C41D820026CB1A /* INPopoverParentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */; };
-		4A5D2AD518C41D820026CB1A /* INPopoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */; };
-		4A5D2AD618C41D820026CB1A /* INPopoverWindowFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */; };
 		4A5D2AD718C421E40026CB1A /* OWKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1E18C358CC007790CC /* OWKeychain.m */; };
 		4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
 		4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A30A5181EADFF00F652B4 /* Media.xcassets */; };
@@ -73,6 +67,8 @@
 		4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACD517748E5A00777818 /* PasswordHelper.m */; };
 		4A70ACE71774B0F600777818 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A70ACE61774B0F600777818 /* QuartzCore.framework */; };
 		4A7AC84718C42EC300ECF02F /* CSSSHAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */; };
+		4A7AC85818C475B000ECF02F /* CSPopoverHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7AC85518C475AF00ECF02F /* CSPopoverHelperView.xib */; };
+		4A7AC85918C475B000ECF02F /* CSPopoverHelperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AC85718C475B000ECF02F /* CSPopoverHelperViewController.m */; };
 		4A7B733016E6F184005D9965 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B732F16E6F184005D9965 /* MainMenu.xib */; };
 		4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */; };
 		4AA6471416BD006700DE5CAD /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6471016BD006700DE5CAD /* MASPreferencesWindowController.m */; };
@@ -234,9 +230,6 @@
 		4A1BE49C16A68F30000E56D7 /* sshproxy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sshproxy.entitlements; sourceTree = "<group>"; };
 		4A1F18AB16A7E65A00F39F74 /* CharmNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CharmNumberFormatter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CharmNumberFormatter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4A27AD93178A4ECA008BC36F /* AuthTipView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthTipView.xib; sourceTree = "<group>"; };
-		4A27AD94178A4ECA008BC36F /* AuthTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthTipViewController.h; sourceTree = "<group>"; };
-		4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthTipViewController.m; sourceTree = "<group>"; };
 		4A27ADA0178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+SSToolkitAdditions.h"; path = "sstoolkit/SSToolkit/NSDictionary+SSToolkitAdditions.h"; sourceTree = "<group>"; };
 		4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+SSToolkitAdditions.m"; path = "sstoolkit/SSToolkit/NSDictionary+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 		4A2A3940175EC85D002BF361 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
@@ -276,15 +269,6 @@
 		4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSRelayConnection.m; sourceTree = "<group>"; };
 		4A49EEBE183B0D7A00E7296E /* INSOCKSDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSDirectConnection.h; sourceTree = "<group>"; };
 		4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSDirectConnection.m; sourceTree = "<group>"; };
-		4A5D2AC818C41D820026CB1A /* INPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverController.h; sourceTree = "<group>"; };
-		4A5D2AC918C41D820026CB1A /* INPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverController.m; sourceTree = "<group>"; };
-		4A5D2ACA18C41D820026CB1A /* INPopoverControllerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverControllerDefines.h; sourceTree = "<group>"; };
-		4A5D2ACB18C41D820026CB1A /* INPopoverParentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverParentWindow.h; sourceTree = "<group>"; };
-		4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverParentWindow.m; sourceTree = "<group>"; };
-		4A5D2ACE18C41D820026CB1A /* INPopoverWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverWindow.h; sourceTree = "<group>"; };
-		4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverWindow.m; sourceTree = "<group>"; };
-		4A5D2AD018C41D820026CB1A /* INPopoverWindowFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverWindowFrame.h; sourceTree = "<group>"; };
-		4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverWindowFrame.m; sourceTree = "<group>"; };
 		4A6A30A5181EADFF00F652B4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4A6B0AFE18C34FD8007790CC /* CSSSHAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHAuthHelper.h; sourceTree = "<group>"; };
 		4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHAuthHelper.m; sourceTree = "<group>"; };
@@ -319,6 +303,9 @@
 		4A70ACD417748E5A00777818 /* PasswordHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PasswordHelper.h; path = askpass/PasswordHelper.h; sourceTree = SOURCE_ROOT; };
 		4A70ACD517748E5A00777818 /* PasswordHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PasswordHelper.m; path = askpass/PasswordHelper.m; sourceTree = SOURCE_ROOT; };
 		4A70ACE61774B0F600777818 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4A7AC85518C475AF00ECF02F /* CSPopoverHelperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSPopoverHelperView.xib; sourceTree = "<group>"; };
+		4A7AC85618C475B000ECF02F /* CSPopoverHelperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPopoverHelperViewController.h; sourceTree = "<group>"; };
+		4A7AC85718C475B000ECF02F /* CSPopoverHelperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPopoverHelperViewController.m; sourceTree = "<group>"; };
 		4A7B732F16E6F184005D9965 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		4AA6470D16BD006700DE5CAD /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
@@ -457,16 +444,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4A27AD92178A4ECA008BC36F /* HelpView */ = {
-			isa = PBXGroup;
-			children = (
-				4A27AD93178A4ECA008BC36F /* AuthTipView.xib */,
-				4A27AD94178A4ECA008BC36F /* AuthTipViewController.h */,
-				4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */,
-			);
-			path = HelpView;
-			sourceTree = "<group>";
-		};
 		4A2A393B175EC85D002BF361 /* Lumberjack */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,26 +468,12 @@
 			path = connect;
 			sourceTree = "<group>";
 		};
-		4A5D2AC618C41D820026CB1A /* INPopoverController */ = {
-			isa = PBXGroup;
-			children = (
-				4A5D2AC818C41D820026CB1A /* INPopoverController.h */,
-				4A5D2AC918C41D820026CB1A /* INPopoverController.m */,
-				4A5D2ACA18C41D820026CB1A /* INPopoverControllerDefines.h */,
-				4A5D2ACB18C41D820026CB1A /* INPopoverParentWindow.h */,
-				4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */,
-				4A5D2ACE18C41D820026CB1A /* INPopoverWindow.h */,
-				4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */,
-				4A5D2AD018C41D820026CB1A /* INPopoverWindowFrame.h */,
-				4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */,
-			);
-			name = INPopoverController;
-			path = INPopoverController/INPopoverController;
-			sourceTree = "<group>";
-		};
 		4A6B0AFC18C34FD8007790CC /* CSSSHHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4A7AC85518C475AF00ECF02F /* CSPopoverHelperView.xib */,
+				4A7AC85618C475B000ECF02F /* CSPopoverHelperViewController.h */,
+				4A7AC85718C475B000ECF02F /* CSPopoverHelperViewController.m */,
 				4A6B0B1A18C3582B007790CC /* CSSSHCommon.local.h */,
 				4A6B0AFE18C34FD8007790CC /* CSSSHAuthHelper.h */,
 				4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */,
@@ -664,7 +627,6 @@
 		4AC9BF1717952FF000E9A997 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				4A5D2AC618C41D820026CB1A /* INPopoverController */,
 				4A6B0B5818C35958007790CC /* FileMD5Hash */,
 				4A6B0B1B18C358CC007790CC /* OWKeychain */,
 				4A6B0AFC18C34FD8007790CC /* CSSSHHelper */,
@@ -753,7 +715,6 @@
 			isa = PBXGroup;
 			children = (
 				4AC9BF181795334900E9A997 /* Utils */,
-				4A27AD92178A4ECA008BC36F /* HelpView */,
 				4A03F73D16A695F0009BCD79 /* StatusMenu.xib */,
 				4A03F73716A69519009BCD79 /* AppController.h */,
 				4A03F73816A69519009BCD79 /* AppController.m */,
@@ -1031,9 +992,9 @@
 				4AE2C1711742151D00D0C57D /* ServersPreferencesView.xib in Resources */,
 				4ADB925F17476F700064D82D /* MIT-License.rtf in Resources */,
 				4AECC518181EAA920074C6A3 /* AppIcon.xcassets in Resources */,
+				4A7AC85818C475B000ECF02F /* CSPopoverHelperView.xib in Resources */,
 				4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */,
 				4A2E907F181BA4B200609D95 /* Localizable.strings in Resources */,
-				4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */,
 				4AC9BF021794D68700E9A997 /* WhitelistPreferencesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,6 +1076,7 @@
 				4AD3FDEA16A56EF400378F77 /* main.m in Sources */,
 				4A03F73916A69519009BCD79 /* AppController.m in Sources */,
 				4AEC465C16A6A3F5008BD118 /* GeneralPreferencesViewController.m in Sources */,
+				4A7AC85918C475B000ECF02F /* CSPopoverHelperViewController.m in Sources */,
 				4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */,
 				4AA6471416BD006700DE5CAD /* MASPreferencesWindowController.m in Sources */,
 				4A37A086171AEC6300605BE1 /* CharmTextField.m in Sources */,
@@ -1126,12 +1088,10 @@
 				4A2A394E175EC85D002BF361 /* DDFileLogger.m in Sources */,
 				4AB0667518C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m in Sources */,
 				4A6B0B0D18C34FD8007790CC /* CSSSHCommon.m in Sources */,
-				4A5D2AD318C41D820026CB1A /* INPopoverController.m in Sources */,
 				4A2A394F175EC85D002BF361 /* DDLog.m in Sources */,
 				4AB0667618C31EAA00CAF5A3 /* DDMultiFormatter.m in Sources */,
 				4A6B0B5B18C35958007790CC /* FileHash.m in Sources */,
 				4A2A3950175EC85D002BF361 /* DDTTYLogger.m in Sources */,
-				4A5D2AD618C41D820026CB1A /* INPopoverWindowFrame.m in Sources */,
 				4A70ACB71774536000777818 /* RNCryptor.m in Sources */,
 				4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBB1774536000777818 /* RNDecryptor.m in Sources */,
@@ -1140,14 +1100,11 @@
 				4A70ACC817746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
 				4A70ACCD177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */,
 				4AC2DC351842E92200038079 /* INSOCKSConnection.m in Sources */,
-				4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */,
 				4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */,
 				4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */,
-				4A5D2AD518C41D820026CB1A /* INPopoverWindow.m in Sources */,
 				4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */,
 				4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */,
 				4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */,
-				4A5D2AD418C41D820026CB1A /* INPopoverParentWindow.m in Sources */,
 				4AB0667418C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m in Sources */,
 				4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */,
 				4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */,

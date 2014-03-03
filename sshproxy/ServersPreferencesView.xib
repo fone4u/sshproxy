@@ -15,6 +15,7 @@
                 <outlet property="authenticationLabel" destination="393" id="Q40-jZ-tQW"/>
                 <outlet property="compressCheckbox" destination="274" id="5Hp-7M-nWV"/>
                 <outlet property="duplicateMenuItem" destination="152" id="TLE-06-Ybq"/>
+                <outlet property="helpPopover" destination="G2C-Fg-8Zp" id="EUb-IM-7Iq"/>
                 <outlet property="loginNameTextField" destination="158" id="286"/>
                 <outlet property="okButton" destination="185" id="V7Z-7V-6md"/>
                 <outlet property="passwordRadioCell" destination="481" id="hpZ-Oo-WOJ"/>
@@ -212,10 +213,10 @@ CA
                                             <binding destination="215" name="value" keyPath="selection.ssh_host" id="MC6-GZ-GFI">
                                                 <dictionary key="options">
                                                     <bool key="NSValidatesImmediately" value="YES"/>
-                                                    <string key="NSMultipleValuesPlaceholder">Host name or address</string>
+                                                    <string key="NSNullPlaceholder">Host name or address</string>
                                                     <string key="NSNotApplicablePlaceholder">Host name or address</string>
                                                     <string key="NSNoSelectionPlaceholder">Host name or address</string>
-                                                    <string key="NSNullPlaceholder">Host name or address</string>
+                                                    <string key="NSMultipleValuesPlaceholder">Host name or address</string>
                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 </dictionary>
                                             </binding>
@@ -268,10 +269,10 @@ CA
                                             <binding destination="215" name="value" keyPath="selection.ssh_user" id="ndy-K0-FnN">
                                                 <dictionary key="options">
                                                     <bool key="NSValidatesImmediately" value="YES"/>
-                                                    <string key="NSMultipleValuesPlaceholder">User name</string>
+                                                    <string key="NSNullPlaceholder">User name</string>
                                                     <string key="NSNotApplicablePlaceholder">User name</string>
                                                     <string key="NSNoSelectionPlaceholder">User name</string>
-                                                    <string key="NSNullPlaceholder">User name</string>
+                                                    <string key="NSMultipleValuesPlaceholder">User name</string>
                                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 </dictionary>
                                             </binding>
@@ -651,8 +652,8 @@ DQ
                                                 <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 <integer key="NSNotApplicablePlaceholder" value="1080"/>
                                                 <integer key="NSNoSelectionPlaceholder" value="1080"/>
-                                                <integer key="NSMultipleValuesPlaceholder" value="1080"/>
                                                 <integer key="NSNullPlaceholder" value="1080"/>
+                                                <integer key="NSMultipleValuesPlaceholder" value="1080"/>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -811,6 +812,7 @@ DQ
             </connections>
         </arrayController>
         <userDefaultsController appliesImmediately="NO" id="438"/>
+        <popover behavior="t" id="G2C-Fg-8Zp" userLabel="Help Popover"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
