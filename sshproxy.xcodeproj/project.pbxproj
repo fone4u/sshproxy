@@ -72,6 +72,7 @@
 		4A70ACCE177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACCC177481C200777818 /* NSString+SSToolkitAdditions.m */; };
 		4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACD517748E5A00777818 /* PasswordHelper.m */; };
 		4A70ACE71774B0F600777818 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A70ACE61774B0F600777818 /* QuartzCore.framework */; };
+		4A7AC84718C42EC300ECF02F /* CSSSHAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */; };
 		4A7B733016E6F184005D9965 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B732F16E6F184005D9965 /* MainMenu.xib */; };
 		4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */; };
 		4AA6471416BD006700DE5CAD /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6471016BD006700DE5CAD /* MASPreferencesWindowController.m */; };
@@ -1070,6 +1071,7 @@
 			files = (
 				4A44D68216A837CB00EB44A8 /* main.m in Sources */,
 				4A6B0B5E18C35F40007790CC /* CSSSHBaseInfo.m in Sources */,
+				4A7AC84718C42EC300ECF02F /* CSSSHAuthHelper.m in Sources */,
 				4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBC1774536000777818 /* RNDecryptor.m in Sources */,
 				4A6B0B6618C36029007790CC /* CSSSHPrivateKey.m in Sources */,

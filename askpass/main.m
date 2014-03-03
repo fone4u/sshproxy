@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PasswordHelper.h"
 #import "CSProxy.h"
+#import "CSSSHAuthHelper.h"
 
 /*! The ASKPASS program for SSH Proxy.
  
@@ -49,11 +50,15 @@ int main() {
         BOOL isPublicKeyMode = server.auth_method.integerValue==CSSSHAuthMethodPublicKey;
         
         // First try to get the password from the keychain
-        NSString *password = nil;
+        CSSSHAuthHelper *authHelper;
+        NSString *password;
+        
         if (isPublicKeyMode) {
+            // todo: switch to CSSSHAuthHelper
             password = [PasswordHelper passphraseForServer:server];
         } else {
-            password = [PasswordHelper passwordForServer:server];
+            authHelper = [[CSSSHAuthHelper alloc] initWithServer:server.ssh_host port:server.ssh_port.integerValue user:server.ssh_user askPassPath:nil];
+            password = authHelper.password;
         }
         
         // First try to get the password from the keychain
@@ -65,17 +70,17 @@ int main() {
             NSInteger returnCode = [promptArray[1] intValue];
             if ( returnCode == 0 ){
                 // Found a valid password entry
-                password = promptArray[0];
+                NSString *newPassword = promptArray[0];
                 
                 // Set the password in the keychain if the user requested this.
                 if ( [promptArray[2] intValue]==0 ){
                     if (isPublicKeyMode) {
-                        [PasswordHelper setPassphrase:password forServer:server];
+                        [PasswordHelper setPassphrase:newPassword forServer:server];
                     } else {
-                        [PasswordHelper setPassword:password forServer:server];
+                        authHelper.password = newPassword;
                     }
                     
-                    void *pword=(void*)[password UTF8String];
+                    void *pword=(void*)[newPassword UTF8String];
                     printf("%s",(char*)pword);
                     return 0;
                 } else if ( returnCode == 1 ) {
