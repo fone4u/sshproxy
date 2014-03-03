@@ -273,6 +273,7 @@
         proxy.ssh_user = server[@"login_name"];
         proxy.auth_method = server[@"auth_method"];
         proxy.enable_compression = server[@"enable_compression"];
+        proxy.lan_share = server[@"share_socks"];
         proxy.proxy_command = server[@"proxy_command"];
         proxy.proxy_command_type = server[@"proxy_command_type"];
         proxy.proxy_command_host = server[@"proxy_command_host"];

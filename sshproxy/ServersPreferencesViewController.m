@@ -116,7 +116,7 @@
 }
 
 
-- (void)_addServer:(NSDictionary*)server
+- (void)_addServer:(CSProxy *)server
 {
     [self.serverArrayController addObject:server];
     
@@ -147,13 +147,13 @@
 
 - (IBAction)addServer:(id)sender
 {
-    NSMutableDictionary* defaultServer = [[NSMutableDictionary alloc] init];
+    CSProxy *defaultServer = [[CSProxy alloc] init];
     
-    defaultServer[@"remote_host"] = @"example.com";
-    defaultServer[@"remote_port"] = @22;
-    defaultServer[@"login_name"] = @"user";
-    defaultServer[@"enable_compression"] = @NO;
-    defaultServer[@"share_socks"] = @NO;
+    defaultServer.ssh_host = @"example.com";
+    defaultServer.ssh_port = @22;
+    defaultServer.ssh_user = @"user";
+    defaultServer.enable_compression = @NO;
+    defaultServer.lan_share = @NO;
     
     [self _addServer:defaultServer];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
@@ -161,8 +161,8 @@
 
 - (IBAction)duplicateServer:(id)sender
 {
-    NSDictionary* server = (NSDictionary*)(self.serverArrayController.selectedObjects)[0];
-    [self _addServer:[server mutableCopy]];
+    CSProxy *server = (CSProxy *)(self.serverArrayController.selectedObjects)[0];
+    [self _addServer:[server copy]];
     self.isDirty = self.userDefaultsController.hasUnappliedChanges;
 }
 
