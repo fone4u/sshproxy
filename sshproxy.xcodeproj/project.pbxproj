@@ -15,7 +15,6 @@
 		4A1F18AD16A7E65A00F39F74 /* CharmNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F18AC16A7E65A00F39F74 /* CharmNumberFormatter.m */; };
 		4A27AD99178A4ECA008BC36F /* AuthTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AD93178A4ECA008BC36F /* AuthTipView.xib */; };
 		4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AD95178A4ECA008BC36F /* AuthTipViewController.m */; };
-		4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */; };
 		4A27AD9F178D4CA1008BC36F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD3FDDD16A56EF400378F77 /* Cocoa.framework */; };
 		4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */; };
 		4A27ADA3178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27ADA1178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m */; };
@@ -37,6 +36,11 @@
 		4A44D68216A837CB00EB44A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D67F16A8379C00EB44A8 /* main.m */; };
 		4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */; };
 		4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */; };
+		4A5D2AD318C41D820026CB1A /* INPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2AC918C41D820026CB1A /* INPopoverController.m */; };
+		4A5D2AD418C41D820026CB1A /* INPopoverParentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */; };
+		4A5D2AD518C41D820026CB1A /* INPopoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */; };
+		4A5D2AD618C41D820026CB1A /* INPopoverWindowFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */; };
+		4A5D2AD718C421E40026CB1A /* OWKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0B1E18C358CC007790CC /* OWKeychain.m */; };
 		4A6A30A4181EAD6A00F652B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECC517181EAA920074C6A3 /* AppIcon.xcassets */; };
 		4A6A30A6181EADFF00F652B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A30A5181EADFF00F652B4 /* Media.xcassets */; };
 		4A6B0B0B18C34FD8007790CC /* CSSSHAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */; };
@@ -67,10 +71,6 @@
 		4A70ACCD177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACCC177481C200777818 /* NSString+SSToolkitAdditions.m */; };
 		4A70ACCE177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACCC177481C200777818 /* NSString+SSToolkitAdditions.m */; };
 		4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACD517748E5A00777818 /* PasswordHelper.m */; };
-		4A70ACE11774B06400777818 /* INPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACD91774B06300777818 /* INPopoverController.m */; };
-		4A70ACE21774B06400777818 /* INPopoverParentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACDC1774B06300777818 /* INPopoverParentWindow.m */; };
-		4A70ACE31774B06400777818 /* INPopoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACDE1774B06300777818 /* INPopoverWindow.m */; };
-		4A70ACE41774B06400777818 /* INPopoverWindowFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A70ACE01774B06400777818 /* INPopoverWindowFrame.m */; };
 		4A70ACE71774B0F600777818 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A70ACE61774B0F600777818 /* QuartzCore.framework */; };
 		4A7B733016E6F184005D9965 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B732F16E6F184005D9965 /* MainMenu.xib */; };
 		4AA6471316BD006700DE5CAD /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AA6470E16BD006700DE5CAD /* MASPreferencesWindow.xib */; };
@@ -261,8 +261,6 @@
 		4A2E9090181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4A2E9091181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		4A2E9092181BEF2F00609D95 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		4A2FAD0B1770B89F004C8F7B /* EMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMKeychain.h; path = EMKeychain/EMKeychain.h; sourceTree = "<group>"; };
-		4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMKeychain.m; path = EMKeychain/EMKeychain.m; sourceTree = "<group>"; };
 		4A37A084171AEC6300605BE1 /* CharmTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharmTextField.h; sourceTree = "<group>"; };
 		4A37A085171AEC6300605BE1 /* CharmTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharmTextField.m; sourceTree = "<group>"; };
 		4A41067916BE7F4600D46D91 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -277,6 +275,15 @@
 		4A49EEBC183AFFA900E7296E /* INSOCKSRelayConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSRelayConnection.m; sourceTree = "<group>"; };
 		4A49EEBE183B0D7A00E7296E /* INSOCKSDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOCKSDirectConnection.h; sourceTree = "<group>"; };
 		4A49EEBF183B0D7A00E7296E /* INSOCKSDirectConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOCKSDirectConnection.m; sourceTree = "<group>"; };
+		4A5D2AC818C41D820026CB1A /* INPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverController.h; sourceTree = "<group>"; };
+		4A5D2AC918C41D820026CB1A /* INPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverController.m; sourceTree = "<group>"; };
+		4A5D2ACA18C41D820026CB1A /* INPopoverControllerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverControllerDefines.h; sourceTree = "<group>"; };
+		4A5D2ACB18C41D820026CB1A /* INPopoverParentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverParentWindow.h; sourceTree = "<group>"; };
+		4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverParentWindow.m; sourceTree = "<group>"; };
+		4A5D2ACE18C41D820026CB1A /* INPopoverWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverWindow.h; sourceTree = "<group>"; };
+		4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverWindow.m; sourceTree = "<group>"; };
+		4A5D2AD018C41D820026CB1A /* INPopoverWindowFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPopoverWindowFrame.h; sourceTree = "<group>"; };
+		4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPopoverWindowFrame.m; sourceTree = "<group>"; };
 		4A6A30A5181EADFF00F652B4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		4A6B0AFE18C34FD8007790CC /* CSSSHAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSHAuthHelper.h; sourceTree = "<group>"; };
 		4A6B0AFF18C34FD8007790CC /* CSSSHAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSHAuthHelper.m; sourceTree = "<group>"; };
@@ -310,15 +317,6 @@
 		4A70ACCC177481C200777818 /* NSString+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SSToolkitAdditions.m"; path = "sstoolkit/SSToolkit/NSString+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 		4A70ACD417748E5A00777818 /* PasswordHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PasswordHelper.h; path = askpass/PasswordHelper.h; sourceTree = SOURCE_ROOT; };
 		4A70ACD517748E5A00777818 /* PasswordHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PasswordHelper.m; path = askpass/PasswordHelper.m; sourceTree = SOURCE_ROOT; };
-		4A70ACD81774B06300777818 /* INPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverController.h; path = INPopoverController/INPopoverController.h; sourceTree = "<group>"; };
-		4A70ACD91774B06300777818 /* INPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INPopoverController.m; path = INPopoverController/INPopoverController.m; sourceTree = "<group>"; };
-		4A70ACDA1774B06300777818 /* INPopoverControllerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverControllerDefines.h; path = INPopoverController/INPopoverControllerDefines.h; sourceTree = "<group>"; };
-		4A70ACDB1774B06300777818 /* INPopoverParentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverParentWindow.h; path = INPopoverController/INPopoverParentWindow.h; sourceTree = "<group>"; };
-		4A70ACDC1774B06300777818 /* INPopoverParentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INPopoverParentWindow.m; path = INPopoverController/INPopoverParentWindow.m; sourceTree = "<group>"; };
-		4A70ACDD1774B06300777818 /* INPopoverWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverWindow.h; path = INPopoverController/INPopoverWindow.h; sourceTree = "<group>"; };
-		4A70ACDE1774B06300777818 /* INPopoverWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INPopoverWindow.m; path = INPopoverController/INPopoverWindow.m; sourceTree = "<group>"; };
-		4A70ACDF1774B06400777818 /* INPopoverWindowFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INPopoverWindowFrame.h; path = INPopoverController/INPopoverWindowFrame.h; sourceTree = "<group>"; };
-		4A70ACE01774B06400777818 /* INPopoverWindowFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INPopoverWindowFrame.m; path = INPopoverController/INPopoverWindowFrame.m; sourceTree = "<group>"; };
 		4A70ACE61774B0F600777818 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4A7B732F16E6F184005D9965 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		4AA6470D16BD006700DE5CAD /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
@@ -483,15 +481,6 @@
 			path = CocoaLumberjack/Lumberjack;
 			sourceTree = "<group>";
 		};
-		4A2FAD0F17715555004C8F7B /* EMKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				4A2FAD0B1770B89F004C8F7B /* EMKeychain.h */,
-				4A2FAD0C1770B89F004C8F7B /* EMKeychain.m */,
-			);
-			name = EMKeychain;
-			sourceTree = "<group>";
-		};
 		4A42310A1719A96800ABD4F6 /* connect */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +488,23 @@
 				4A42311C1719AB8100ABD4F6 /* connect.entitlements */,
 			);
 			path = connect;
+			sourceTree = "<group>";
+		};
+		4A5D2AC618C41D820026CB1A /* INPopoverController */ = {
+			isa = PBXGroup;
+			children = (
+				4A5D2AC818C41D820026CB1A /* INPopoverController.h */,
+				4A5D2AC918C41D820026CB1A /* INPopoverController.m */,
+				4A5D2ACA18C41D820026CB1A /* INPopoverControllerDefines.h */,
+				4A5D2ACB18C41D820026CB1A /* INPopoverParentWindow.h */,
+				4A5D2ACC18C41D820026CB1A /* INPopoverParentWindow.m */,
+				4A5D2ACE18C41D820026CB1A /* INPopoverWindow.h */,
+				4A5D2ACF18C41D820026CB1A /* INPopoverWindow.m */,
+				4A5D2AD018C41D820026CB1A /* INPopoverWindowFrame.h */,
+				4A5D2AD118C41D820026CB1A /* INPopoverWindowFrame.m */,
+			);
+			name = INPopoverController;
+			path = INPopoverController/INPopoverController;
 			sourceTree = "<group>";
 		};
 		4A6B0AFC18C34FD8007790CC /* CSSSHHelper */ = {
@@ -566,22 +572,6 @@
 				4A70ACC717746A7C00777818 /* NSData+SSToolkitAdditions.m */,
 			);
 			name = SSToolkit;
-			sourceTree = "<group>";
-		};
-		4A70ACE51774B06B00777818 /* INPopoverController */ = {
-			isa = PBXGroup;
-			children = (
-				4A70ACD81774B06300777818 /* INPopoverController.h */,
-				4A70ACD91774B06300777818 /* INPopoverController.m */,
-				4A70ACDA1774B06300777818 /* INPopoverControllerDefines.h */,
-				4A70ACDB1774B06300777818 /* INPopoverParentWindow.h */,
-				4A70ACDC1774B06300777818 /* INPopoverParentWindow.m */,
-				4A70ACDD1774B06300777818 /* INPopoverWindow.h */,
-				4A70ACDE1774B06300777818 /* INPopoverWindow.m */,
-				4A70ACDF1774B06400777818 /* INPopoverWindowFrame.h */,
-				4A70ACE01774B06400777818 /* INPopoverWindowFrame.m */,
-			);
-			name = INPopoverController;
 			sourceTree = "<group>";
 		};
 		4AA6470B16BD006700DE5CAD /* MASPreferences */ = {
@@ -673,16 +663,15 @@
 		4AC9BF1717952FF000E9A997 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4A5D2AC618C41D820026CB1A /* INPopoverController */,
 				4A6B0B5818C35958007790CC /* FileMD5Hash */,
 				4A6B0B1B18C358CC007790CC /* OWKeychain */,
 				4A6B0AFC18C34FD8007790CC /* CSSSHHelper */,
 				4AB0667E18C34E0200CAF5A3 /* Mantle.xcodeproj */,
 				4AAF1316178FAAA800F1DF01 /* INSOCKSServer */,
 				4AAF1315178FAA4F00F1DF01 /* GCDAsyncSocket */,
-				4A70ACE51774B06B00777818 /* INPopoverController */,
 				4A70ACCA1774819700777818 /* SSToolkit */,
 				4A70ACA61774535F00777818 /* RNCryptor */,
-				4A2FAD0F17715555004C8F7B /* EMKeychain */,
 				4ADB925B17476F700064D82D /* RSVerticallyCenteredTextFieldCell */,
 				4AA6470B16BD006700DE5CAD /* MASPreferences */,
 				4A2A393B175EC85D002BF361 /* Lumberjack */,
@@ -1084,6 +1073,7 @@
 				4A70ACBA1774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBC1774536000777818 /* RNDecryptor.m in Sources */,
 				4A6B0B6618C36029007790CC /* CSSSHPrivateKey.m in Sources */,
+				4A5D2AD718C421E40026CB1A /* OWKeychain.m in Sources */,
 				4A70ACBE1774536000777818 /* RNEncryptor.m in Sources */,
 				4A6B0B6518C3601E007790CC /* FileHash.m in Sources */,
 				4A70ACC917746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
@@ -1091,7 +1081,6 @@
 				4A70ACD717748E5A00777818 /* PasswordHelper.m in Sources */,
 				4A6B0B5D18C35F2F007790CC /* CSSSHCommon.m in Sources */,
 				4A6B0B5C18C35EE0007790CC /* CSProxy.m in Sources */,
-				4A27AD9E178D4C75008BC36F /* EMKeychain.m in Sources */,
 				4A27ADA3178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */,
 				4A27ADA4178D5864008BC36F /* RNCryptor.m in Sources */,
 			);
@@ -1135,10 +1124,12 @@
 				4A2A394E175EC85D002BF361 /* DDFileLogger.m in Sources */,
 				4AB0667518C31EAA00CAF5A3 /* DDDispatchQueueLogFormatter.m in Sources */,
 				4A6B0B0D18C34FD8007790CC /* CSSSHCommon.m in Sources */,
+				4A5D2AD318C41D820026CB1A /* INPopoverController.m in Sources */,
 				4A2A394F175EC85D002BF361 /* DDLog.m in Sources */,
 				4AB0667618C31EAA00CAF5A3 /* DDMultiFormatter.m in Sources */,
 				4A6B0B5B18C35958007790CC /* FileHash.m in Sources */,
 				4A2A3950175EC85D002BF361 /* DDTTYLogger.m in Sources */,
+				4A5D2AD618C41D820026CB1A /* INPopoverWindowFrame.m in Sources */,
 				4A70ACB71774536000777818 /* RNCryptor.m in Sources */,
 				4A70ACB91774536000777818 /* RNCryptorEngine.m in Sources */,
 				4A70ACBB1774536000777818 /* RNDecryptor.m in Sources */,
@@ -1146,17 +1137,15 @@
 				4A70ACBD1774536000777818 /* RNEncryptor.m in Sources */,
 				4A70ACC817746A7C00777818 /* NSData+SSToolkitAdditions.m in Sources */,
 				4A70ACCD177481C200777818 /* NSString+SSToolkitAdditions.m in Sources */,
-				4A70ACE11774B06400777818 /* INPopoverController.m in Sources */,
-				4A70ACE21774B06400777818 /* INPopoverParentWindow.m in Sources */,
-				4A70ACE31774B06400777818 /* INPopoverWindow.m in Sources */,
 				4AC2DC351842E92200038079 /* INSOCKSConnection.m in Sources */,
-				4A70ACE41774B06400777818 /* INPopoverWindowFrame.m in Sources */,
 				4A27AD9A178A4ECA008BC36F /* AuthTipViewController.m in Sources */,
 				4A27ADA2178D4D19008BC36F /* NSDictionary+SSToolkitAdditions.m in Sources */,
 				4AAF1314178FAA4B00F1DF01 /* GCDAsyncSocket.m in Sources */,
+				4A5D2AD518C41D820026CB1A /* INPopoverWindow.m in Sources */,
 				4AAF1319178FAAA800F1DF01 /* INSOCKSServer.m in Sources */,
 				4A49EEC0183B0D7A00E7296E /* INSOCKSDirectConnection.m in Sources */,
 				4A49EEBD183AFFA900E7296E /* INSOCKSRelayConnection.m in Sources */,
+				4A5D2AD418C41D820026CB1A /* INPopoverParentWindow.m in Sources */,
 				4AB0667418C31EAA00CAF5A3 /* DDContextFilterLogFormatter.m in Sources */,
 				4AC9BF011794D68700E9A997 /* WhitelistPreferencesViewController.m in Sources */,
 				4AC9BF051794EAA500E9A997 /* WhitelistHelper.m in Sources */,

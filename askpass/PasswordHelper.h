@@ -13,11 +13,11 @@
 @interface PasswordHelper : NSObject
 
 // password helper
-+ (BOOL)setPassword:(NSString *)newPassword forHost:(NSString*)hostname port:(int) hostport user:(NSString *) username;
++ (BOOL)setPassword:(NSString *)newPassword forHost:(NSString*)hostname port:(NSInteger)hostport user:(NSString *) username;
 + (BOOL)setPassword:(NSString *)newPassword forServer:(CSProxy *)server;
 
-+ (BOOL)deletePasswordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;
-+ (NSString *)passwordForHost:(NSString *)hostname port:(int) hostport user:(NSString *) username;
++ (BOOL)deletePasswordForHost:(NSString *)hostname port:(NSInteger)hostport user:(NSString *)username;
++ (NSString *)passwordForHost:(NSString *)hostname port:(NSInteger)hostport user:(NSString *)username;
 + (NSString *)passwordForServer:(CSProxy *)server;
 
 // passphrase helper

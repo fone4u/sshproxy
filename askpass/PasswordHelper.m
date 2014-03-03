@@ -8,7 +8,7 @@
 
 #import "PasswordHelper.h"
 #import "CSProxy.h"
-#import "EMKeychain.h"
+#import "OWKeychain.h"
 
 @implementation PasswordHelper
 
@@ -16,39 +16,35 @@
 #pragma mark - Password Helper
 
 //! Simply looks for the keychain entry corresponding to a username and hostname and returns it. Returns nil if the password is not found
-+ (NSString *)passwordForHost:(NSString *)hostName port:(int) hostPort user:(NSString *) userName
++ (NSString *)passwordForHost:(NSString *)hostName port:(NSInteger)hostPort user:(NSString *) userName
 {
 	if ( hostName == nil || userName == nil ){
 		return nil;
 	}
 	
-	EMInternetKeychainItem *keychainItem = [EMInternetKeychainItem internetKeychainItemForServer:hostName withUsername:userName path:nil port:hostPort protocol:kSecProtocolTypeSSH];
+	OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
     
     return keychainItem ? keychainItem.password : @"";
 }
 
 + (NSString *)passwordForServer:(CSProxy *)server
 {
-    NSString* remoteHost = server.ssh_host;
-    NSString* loginName = server.ssh_user;
-    int remotePort = server.ssh_port.intValue;
-    
-    return [self passwordForHost:remoteHost port:remotePort user:loginName];
+    return [self passwordForHost:server.ssh_host port:server.ssh_port.intValue user:server.ssh_user];
 }
 
 
 /*! Set the password into the keychain for a specific user and host. If the username/hostname combo already has an entry in the keychain then change it. If not then add a new entry */
-+ (BOOL)setPassword:(NSString*)newPassword forHost:(NSString*)hostName port:(int) hostPort user:(NSString*) userName
++ (BOOL)setPassword:(NSString*)newPassword forHost:(NSString*)hostName port:(NSInteger)hostPort user:(NSString*) userName
 {
 	if ( hostName == nil || userName == nil ) {
 		return NO;
 	}
 	
 	// Look for a password in the keychain
-    EMInternetKeychainItem *keychainItem = [EMInternetKeychainItem internetKeychainItemForServer:hostName withUsername:userName path:nil port:hostPort protocol:kSecProtocolTypeSSH];
+    OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
     
     if (!keychainItem) {
-        keychainItem = [EMInternetKeychainItem addInternetKeychainItemForServer:hostName withUsername:userName password:newPassword path:nil port:hostPort protocol:kSecProtocolTypeSSH];
+        keychainItem = [OWInternetKeychainItem addInternetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName password:newPassword];
         return NO;
     }
     
@@ -57,27 +53,23 @@
 }
 + (BOOL)setPassword:(NSString *)newPassword forServer:(CSProxy *)server
 {
-    NSString* remoteHost = server.ssh_host;
-    NSString* loginName = server.ssh_user;
-    int remotePort = server.ssh_port.intValue;
-    
-    return [self setPassword:newPassword forHost:remoteHost port:remotePort user:loginName];
+    return [self setPassword:newPassword forHost:server.ssh_host port:server.ssh_port.integerValue user:server.ssh_user];
 }
 
-+ (BOOL)deletePasswordForHost:(NSString*)hostName port:(int) hostPort user:(NSString*) userName
++ (BOOL)deletePasswordForHost:(NSString*)hostName port:(NSInteger)hostPort user:(NSString*) userName
 {
 	if ( hostName == nil || userName == nil ) {
 		return NO;
 	}
     
 	// Look for a password in the keychain
-    EMInternetKeychainItem *keychainItem = [EMInternetKeychainItem internetKeychainItemForServer:hostName withUsername:userName path:nil port:hostPort protocol:kSecProtocolTypeSSH];
+    OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
     
     if (!keychainItem) {
         return NO;
     }
     
-    [EMInternetKeychainItem removeKeychainItem:keychainItem];
+    [keychainItem delete];
     return YES;
 }
 
@@ -90,7 +82,7 @@
 		return nil;
 	}
 	
-	EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
+	OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
     
     return keychainItem ? keychainItem.password : @"";
 }
@@ -104,10 +96,10 @@
 	}
 	
 	// Look for a password in the keychain
-    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
+    OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
-        keychainItem = [EMGenericKeychainItem addGenericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName] password:newPassphrase];
+        keychainItem = [OWGenericKeychainItem addGenericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName] password:newPassphrase];
         return NO;
     }
     
@@ -122,13 +114,13 @@
 	}
     
 	// Look for a password in the keychain
-    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
+    OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
         return NO;
     }
     
-    [EMGenericKeychainItem removeKeychainItem:keychainItem];
+    [keychainItem delete];
     return YES;
 }
 
@@ -140,7 +132,7 @@
     NSString* loginUser = server.ssh_user;
     int remotePort = server.ssh_port.intValue;
     
-    BOOL isPublicKeyMode = server.auth_method.integerValue == CSSSHAuthMethodPassword;
+    BOOL isPublicKeyMode = server.auth_method.integerValue == CSSSHAuthMethodPublicKey;
     
 	CFUserNotificationRef passwordDialog;
 	SInt32 error;
