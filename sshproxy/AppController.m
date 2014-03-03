@@ -270,7 +270,7 @@ static int sshProcessIdentifier;
     
     NSString* remoteHost = server.ssh_host;
     NSString* loginName = server.ssh_user;
-    int remotePort = server.ssh_port;
+    int remotePort = server.ssh_port.intValue;
     NSInteger localPort = [CSProxy getSSHLocalPort];
     BOOL enableCompression = server.enable_compression.boolValue;
     

@@ -74,12 +74,12 @@
                                                 </textFieldCell>
                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 <connections>
-                                                    <binding destination="215" name="displayPatternValue2" keyPath="arrangedObjects.login_name" previousBinding="378" id="379">
+                                                    <binding destination="215" name="displayPatternValue1" keyPath="arrangedObjects.ssh_host" id="ug6-ZF-xXL">
                                                         <dictionary key="options">
                                                             <string key="NSDisplayPattern">%{value2}@@%{value1}@</string>
                                                         </dictionary>
                                                     </binding>
-                                                    <binding destination="215" name="displayPatternValue1" keyPath="arrangedObjects.remote_host" id="378">
+                                                    <binding destination="215" name="displayPatternValue2" keyPath="arrangedObjects.ssh_user" previousBinding="ug6-ZF-xXL" id="qM7-OL-DwA">
                                                         <dictionary key="options">
                                                             <string key="NSDisplayPattern">%{value2}@@%{value1}@</string>
                                                         </dictionary>
@@ -88,6 +88,8 @@
                                             </tableColumn>
                                         </tableColumns>
                                         <connections>
+                                            <binding destination="215" name="content" keyPath="arrangedObjects" id="2pd-ft-Ofu"/>
+                                            <binding destination="215" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="2pd-ft-Ofu" id="uaN-g4-KoI"/>
                                             <outlet property="delegate" destination="-2" id="463"/>
                                         </connections>
                                     </tableView>
@@ -184,14 +186,12 @@ CA
                                             </allowedInputSourceLocales>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="215" name="value" keyPath="selection.remote_port" id="363">
+                                            <binding destination="215" name="value" keyPath="selection.ssh_port" id="jej-pa-mEh">
                                                 <dictionary key="options">
-                                                    <bool key="NSValidatesImmediately" value="YES"/>
-                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     <string key="NSNotApplicablePlaceholder">22</string>
                                                     <string key="NSNoSelectionPlaceholder">22</string>
-                                                    <string key="NSMultipleValuesPlaceholder">22</string>
                                                     <string key="NSNullPlaceholder">22</string>
+                                                    <string key="NSMultipleValuesPlaceholder">22</string>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="446"/>
@@ -209,14 +209,14 @@ CA
                                             </allowedInputSourceLocales>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="215" name="value" keyPath="selection.remote_host" id="300">
+                                            <binding destination="215" name="value" keyPath="selection.ssh_host" id="MC6-GZ-GFI">
                                                 <dictionary key="options">
                                                     <bool key="NSValidatesImmediately" value="YES"/>
-                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    <string key="NSMultipleValuesPlaceholder">Host name or address</string>
                                                     <string key="NSNotApplicablePlaceholder">Host name or address</string>
                                                     <string key="NSNoSelectionPlaceholder">Host name or address</string>
-                                                    <string key="NSMultipleValuesPlaceholder">Host name or address</string>
                                                     <string key="NSNullPlaceholder">Host name or address</string>
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="445"/>
@@ -237,7 +237,7 @@ CA
                                         <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="65535" doubleValue="1" id="171"/>
                                         <connections>
                                             <action selector="remoteStepperAction:" target="-2" id="229"/>
-                                            <binding destination="215" name="value" keyPath="selection.remote_port" id="244">
+                                            <binding destination="215" name="value" keyPath="selection.ssh_port" id="XvH-V0-voe">
                                                 <dictionary key="options">
                                                     <bool key="NSValidatesImmediately" value="YES"/>
                                                 </dictionary>
@@ -265,14 +265,14 @@ CA
                                             </allowedInputSourceLocales>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="215" name="value" keyPath="selection.login_name" id="346">
+                                            <binding destination="215" name="value" keyPath="selection.ssh_user" id="ndy-K0-FnN">
                                                 <dictionary key="options">
                                                     <bool key="NSValidatesImmediately" value="YES"/>
-                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    <string key="NSMultipleValuesPlaceholder">User name</string>
                                                     <string key="NSNotApplicablePlaceholder">User name</string>
                                                     <string key="NSNoSelectionPlaceholder">User name</string>
-                                                    <string key="NSMultipleValuesPlaceholder">User name</string>
                                                     <string key="NSNullPlaceholder">User name</string>
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                 </dictionary>
                                             </binding>
                                             <outlet property="delegate" destination="-2" id="447"/>
@@ -710,7 +710,7 @@ DQ
                                     </connections>
                                 </textField>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="191" customClass="CharmTextField">
-                                    <rect key="frame" x="14" y="17" width="91.000010272551933" height="17"/>
+                                    <rect key="frame" x="14.000010272551936" y="17" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="211">
                                         <font key="font" metaFont="system"/>
@@ -799,12 +799,13 @@ DQ
                 </constraints>
             </view>
         </window>
-        <arrayController id="215" userLabel="SSH Servers Array Controller">
+        <arrayController objectClassName="CSProxy" id="215" userLabel="SSH Servers Array Controller">
             <connections>
-                <binding destination="438" name="contentArray" keyPath="values.servers" id="441">
+                <binding destination="438" name="contentArray" keyPath="values.proxies" id="h9r-VO-ULv">
                     <dictionary key="options">
                         <bool key="NSHandlesContentAsCompoundValue" value="YES"/>
                         <bool key="NSDeletesObjectsOnRemove" value="YES"/>
+                        <string key="NSValueTransformerName">NSKeyedUnarchiveFromData</string>
                     </dictionary>
                 </binding>
             </connections>

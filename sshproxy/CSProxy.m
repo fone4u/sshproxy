@@ -101,14 +101,14 @@
 
 + (NSArray *)getProxyServers
 {
-    return [[NSUserDefaults standardUserDefaults] arrayForKey:@"proxies"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:@"proxies"]];
 }
 
 + (NSInteger)getActivatedServerIndex
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    NSArray* servers = [prefs arrayForKey:@"servers"];
+    NSArray* servers = [self getProxyServers];
     NSInteger index = [prefs integerForKey:@"activated_server"];
     
     if (index<0 || index>=servers.count) {
@@ -119,11 +119,9 @@
 }
 
 
-+ (CSProxy*)getActivatedServer
++ (CSProxy *)getActivatedServer
 {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    NSArray* servers = [prefs arrayForKey:@"proxies"];
+    NSArray* servers = [self getProxyServers];
     
     if ( [servers count]<=0 ){
         return nil;
@@ -286,7 +284,7 @@
         // private key
         proxy.privatekey_path = server[@"privatekey_path"];
         
-        [proxyArrayController addObject:server];
+        [proxyArrayController addObject:proxy];
     }
     
     // remove old preferences

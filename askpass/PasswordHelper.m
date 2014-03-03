@@ -31,7 +31,7 @@
 {
     NSString* remoteHost = server.ssh_host;
     NSString* loginName = server.ssh_user;
-    int remotePort = server.ssh_port;
+    int remotePort = server.ssh_port.intValue;
     
     return [self passwordForHost:remoteHost port:remotePort user:loginName];
 }
@@ -59,7 +59,7 @@
 {
     NSString* remoteHost = server.ssh_host;
     NSString* loginName = server.ssh_user;
-    int remotePort = server.ssh_port;
+    int remotePort = server.ssh_port.intValue;
     
     return [self setPassword:newPassword forHost:remoteHost port:remotePort user:loginName];
 }
@@ -138,7 +138,7 @@
 {
     NSString* remoteHost = server.ssh_host;
     NSString* loginUser = server.ssh_user;
-    int remotePort = server.ssh_port;
+    int remotePort = server.ssh_port.intValue;
     
     BOOL isPublicKeyMode = server.auth_method.integerValue == CSSSHAuthMethodPassword;
     

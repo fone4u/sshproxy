@@ -347,12 +347,13 @@
             </connections>
         </customObject>
         <customObject id="371" customClass="NSFontManager"/>
-        <arrayController preservesSelection="NO" id="1220" userLabel="SSH Servers Array Controller">
+        <arrayController objectClassName="CSProxy" preservesSelection="NO" id="1220" userLabel="SSH Servers Array Controller">
             <connections>
-                <binding destination="1221" name="contentArray" keyPath="values.servers" id="1222">
+                <binding destination="1221" name="contentArray" keyPath="values.proxies" id="aQU-SY-unS">
                     <dictionary key="options">
                         <bool key="NSHandlesContentAsCompoundValue" value="YES"/>
                         <bool key="NSDeletesObjectsOnRemove" value="YES"/>
+                        <string key="NSValueTransformerName">NSKeyedUnarchiveFromData</string>
                     </dictionary>
                 </binding>
             </connections>
