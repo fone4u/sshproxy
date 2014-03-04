@@ -32,7 +32,7 @@
 @property (weak) IBOutlet NSStepper *remotePortStepper;
 
 @property (weak) IBOutlet NSTextField *loginNameTextField;
-@property (weak) IBOutlet NSPanel *advancedPanel;
+@property (assign) IBOutlet NSPanel *advancedPanel;
 @property (weak) IBOutlet NSTableView *serversTableView;
 
 @property (weak) IBOutlet NSMatrix *authMethodMatrix;
