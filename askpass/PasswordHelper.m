@@ -107,8 +107,8 @@
 	passwordDialog = CFUserNotificationCreate(kCFAllocatorDefault,
 											  0,
 											  kCFUserNotificationPlainAlertLevel
-											  | CFUserNotificationSecureTextField(0)
-                                              | CFUserNotificationCheckBoxChecked(0),
+											  | CFUserNotificationSecureTextField(0),
+//                                              | CFUserNotificationCheckBoxChecked(0)
 											  &error,
 											  (__bridge CFDictionaryRef)panelDict);
     
