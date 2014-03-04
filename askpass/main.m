@@ -68,7 +68,7 @@ int main() {
             
             NSArray *promptArray = [PasswordHelper promptPasswordForServer:server];
             NSInteger returnCode = [promptArray[1] intValue];
-            if ( returnCode == 0 ){
+            if ( returnCode == 0) {
                 // Found a valid password entry
                 NSString *newPassword = promptArray[0];
                 
@@ -79,15 +79,15 @@ int main() {
                     } else {
                         authHelper.password = newPassword;
                     }
-                    
-                    void *pword=(void*)[newPassword UTF8String];
-                    printf("%s",(char*)pword);
-                    return 0;
-                } else if ( returnCode == 1 ) {
-                    // User cancelled so we'll just abort
-                    // We return a non zero exit code here which should cause ssh to abort
-                    return 1;
                 }
+                
+                void *pword=(void*)[newPassword UTF8String];
+                printf("%s",(char*)pword);
+                return 0;
+            } else if ( returnCode == 1 ) {
+                // User cancelled so we'll just abort
+                // We return a non zero exit code here which should cause ssh to abort
+                return 1;
             }
         }
         

@@ -7,71 +7,10 @@
 //
 
 #import "PasswordHelper.h"
+#import "EMKeychain.h"
 #import "CSProxy.h"
-#import "OWKeychain.h"
 
 @implementation PasswordHelper
-
-
-#pragma mark - Password Helper
-
-//! Simply looks for the keychain entry corresponding to a username and hostname and returns it. Returns nil if the password is not found
-+ (NSString *)passwordForHost:(NSString *)hostName port:(NSInteger)hostPort user:(NSString *) userName
-{
-	if ( hostName == nil || userName == nil ){
-		return nil;
-	}
-	
-	OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
-    
-    return keychainItem ? keychainItem.password : @"";
-}
-
-+ (NSString *)passwordForServer:(CSProxy *)server
-{
-    return [self passwordForHost:server.ssh_host port:server.ssh_port.intValue user:server.ssh_user];
-}
-
-
-/*! Set the password into the keychain for a specific user and host. If the username/hostname combo already has an entry in the keychain then change it. If not then add a new entry */
-+ (BOOL)setPassword:(NSString*)newPassword forHost:(NSString*)hostName port:(NSInteger)hostPort user:(NSString*) userName
-{
-	if ( hostName == nil || userName == nil ) {
-		return NO;
-	}
-	
-	// Look for a password in the keychain
-    OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
-    
-    if (!keychainItem) {
-        keychainItem = [OWInternetKeychainItem addInternetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName password:newPassword];
-        return NO;
-    }
-    
-    keychainItem.password = newPassword;
-    return YES;
-}
-+ (BOOL)setPassword:(NSString *)newPassword forServer:(CSProxy *)server
-{
-    return [self setPassword:newPassword forHost:server.ssh_host port:server.ssh_port.integerValue user:server.ssh_user];
-}
-
-+ (BOOL)deletePasswordForHost:(NSString*)hostName port:(NSInteger)hostPort user:(NSString*) userName
-{
-	if ( hostName == nil || userName == nil ) {
-		return NO;
-	}
-    
-	// Look for a password in the keychain
-    OWInternetKeychainItem *keychainItem = [OWInternetKeychainItem internetKeychainItemWithServer:hostName protocol:kSecAttrProtocolSSH port:hostPort path:nil account:userName];
-    
-    if (!keychainItem) {
-        return NO;
-    }
-    
-    [keychainItem delete];
-    return YES;
-}
 
 #pragma mark - Passphrase Helper
 
@@ -82,7 +21,7 @@
 		return nil;
 	}
 	
-	OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
+	EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     return keychainItem ? keychainItem.password : @"";
 }
@@ -96,10 +35,10 @@
 	}
 	
 	// Look for a password in the keychain
-    OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
-        keychainItem = [OWGenericKeychainItem addGenericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName] password:newPassphrase];
+        keychainItem = [EMGenericKeychainItem addGenericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName] password:newPassphrase];
         return NO;
     }
     
@@ -114,13 +53,13 @@
 	}
     
 	// Look for a password in the keychain
-    OWGenericKeychainItem *keychainItem = [OWGenericKeychainItem genericKeychainItemWithService:@"com.codinnstudio.sshproxy.privatekey" account:[server importedPrivateKeyName]];
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"com.codinnstudio.sshproxy.privatekey" withUsername:[server importedPrivateKeyName]];
     
     if (!keychainItem) {
         return NO;
     }
     
-    [keychainItem delete];
+    [keychainItem remove];
     return YES;
 }
 
